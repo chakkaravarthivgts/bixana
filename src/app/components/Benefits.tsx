@@ -158,9 +158,17 @@ export default function Benefits() {
         gsap.set([iconElement, textElement], {
           opacity: 0,
         });
-        gsap.set([whiteDiv1, whiteDiv2], {
-          scale: 0,
-        });
+        // If both halves exist, prepare vertical growth from center (scaleY)
+        if (whiteDiv1 && whiteDiv2) {
+          gsap.set([whiteDiv1, whiteDiv2], {
+            scaleY: 0,
+            transformOrigin: "center center",
+          });
+        } else {
+          gsap.set(whiteDiv1, { scale: 0, transformOrigin: "center" });
+        }
+        // Hide border initially so it appears with white div
+        gsap.set(card.ref.current, { borderColor: "transparent" });
 
         ScrollTrigger.create({
           trigger: card.ref.current,
@@ -170,23 +178,42 @@ export default function Benefits() {
             // Create timeline for sequential animation
             const tl = gsap.timeline();
 
-            // First: Grow the white divs from center
-            tl.to([whiteDiv1, whiteDiv2], {
-              scale: 1,
-              duration: 0.6,
-              ease: "power2.out",
-              stagger: 0.1, // Slight delay between the two divs
-            })
-              // Then: Show the content
-              .to(
-                [iconElement, textElement],
-                {
-                  opacity: 1,
-                  duration: 0.8,
-                  ease: "power2.out",
-                },
-                "-=0.2"
-              ); // Start content animation slightly before white divs finish
+            // Grow white background vertically from center: left half then right half
+            if (whiteDiv1 && whiteDiv2) {
+              // Left half (whiteDiv2) first, then right half (whiteDiv1)
+              tl.to(whiteDiv2, {
+                scaleY: 1,
+                duration: 0.45,
+                ease: "power2.out",
+              }).to(whiteDiv1, {
+                scaleY: 1,
+                duration: 0.45,
+                ease: "power2.out",
+              });
+            } else {
+              tl.to(whiteDiv1, {
+                scale: 1,
+                duration: 0.45,
+                ease: "power2.out",
+              });
+            }
+
+            // Border appears in sync
+            tl.to(
+              card.ref.current,
+              {
+                borderColor: "#C1C1C1",
+                duration: 0.3,
+                ease: "power2.out",
+              },
+              "<"
+            )
+              // Then: Show the content after both white divs
+              .to([iconElement, textElement], {
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out",
+              });
           },
           onLeave: () => {
             // Hide both content and white divs when leaving viewport
@@ -195,26 +222,60 @@ export default function Benefits() {
               opacity: 0,
               duration: 0.3,
               ease: "power2.in",
-            }).to(
-              [whiteDiv1, whiteDiv2],
-              {
-                scale: 0,
-                duration: 0.45,
-                ease: "power2.in",
-                stagger: 0.05,
-              },
-              "-=0.1"
-            );
+            })
+              // Border hides with white divs
+              .to(
+                card.ref.current,
+                {
+                  borderColor: "transparent",
+                  duration: 0.3,
+                  ease: "power2.in",
+                },
+                "<"
+              )
+              .to(
+                whiteDiv2 && whiteDiv1 ? [whiteDiv2, whiteDiv1] : whiteDiv1,
+                {
+                  duration: 0.45,
+                  ease: "power2.in",
+                  scaleY: whiteDiv2 ? 0 : undefined,
+                  scale: whiteDiv2 ? undefined : 0,
+                  stagger: whiteDiv2 ? 0.05 : 0,
+                },
+                "-=0.1"
+              );
           },
           onEnterBack: () => {
             // Replay sequence when re-entering from above
             const tl = gsap.timeline();
-            tl.to([whiteDiv1, whiteDiv2], {
-              scale: 1,
-              duration: 0.6,
-              ease: "power2.out",
-              stagger: 0.1,
-            }).to(
+            if (whiteDiv1 && whiteDiv2) {
+              // Left half (whiteDiv2) first, then right half (whiteDiv1)
+              tl.to(whiteDiv2, {
+                scaleY: 1,
+                duration: 0.45,
+                ease: "power2.out",
+              }).to(whiteDiv1, {
+                scaleY: 1,
+                duration: 0.45,
+                ease: "power2.out",
+              });
+            } else {
+              tl.to(whiteDiv1, {
+                scale: 1,
+                duration: 0.45,
+                ease: "power2.out",
+              });
+            }
+            // Border appears again
+            tl.to(
+              card.ref.current,
+              {
+                borderColor: "#C1C1C1",
+                duration: 0.3,
+                ease: "power2.out",
+              },
+              "<"
+            ).to(
               [iconElement, textElement],
               {
                 opacity: 1,
@@ -231,16 +292,28 @@ export default function Benefits() {
               opacity: 0,
               duration: 0.3,
               ease: "power2.in",
-            }).to(
-              [whiteDiv1, whiteDiv2],
-              {
-                scale: 0,
-                duration: 0.45,
-                ease: "power2.in",
-                stagger: 0.05,
-              },
-              "-=0.1"
-            );
+            })
+              // Border hides with white divs
+              .to(
+                card.ref.current,
+                {
+                  borderColor: "transparent",
+                  duration: 0.3,
+                  ease: "power2.in",
+                },
+                "<"
+              )
+              .to(
+                whiteDiv2 && whiteDiv1 ? [whiteDiv2, whiteDiv1] : whiteDiv1,
+                {
+                  duration: 0.45,
+                  ease: "power2.in",
+                  scaleY: whiteDiv2 ? 0 : undefined,
+                  scale: whiteDiv2 ? undefined : 0,
+                  stagger: whiteDiv2 ? 0.05 : 0,
+                },
+                "-=0.1"
+              );
           },
         });
       }
@@ -323,9 +396,9 @@ export default function Benefits() {
             }}
             data-gsap="benefit-1"
           >
-            {/* Growing white divs */}
-            <div className="benefit-white-div-1 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
-            <div className="benefit-white-div-2 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
+            {/* Growing white divs (two halves filling from center) */}
+            <div className="benefit-white-div-1 absolute inset-y-0 right-0 w-1/2 bg-white rounded-r-[40px] rounded-l-none transform origin-center z-10"></div>
+            <div className="benefit-white-div-2 absolute inset-y-0 left-0 w-1/2 bg-white rounded-l-[40px] rounded-r-none transform origin-center z-10"></div>
             <div className="benefit-icon w-[78px] h-[78px] rounded-full flex items-center justify-center relative z-10">
               <svg
                 width="79"
@@ -379,9 +452,9 @@ export default function Benefits() {
             }}
             data-gsap="benefit-2"
           >
-            {/* Growing white divs */}
-            <div className="benefit-white-div-1 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
-            <div className="benefit-white-div-2 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
+            {/* Growing white halves filling from center */}
+            <div className="benefit-white-div-1 absolute inset-y-0 right-0 w-1/2 bg-white rounded-r-[40px] rounded-l-none transform origin-center z-10"></div>
+            <div className="benefit-white-div-2 absolute inset-y-0 left-0 w-1/2 bg-white rounded-l-[40px] rounded-r-none transform origin-center z-10"></div>
             <div className="benefit-icon w-[78px] h-[78px] rounded-full flex items-center justify-center relative z-10">
               <svg
                 width="62"
@@ -422,9 +495,9 @@ export default function Benefits() {
             }}
             data-gsap="benefit-3"
           >
-            {/* Growing white divs */}
-            <div className="benefit-white-div-1 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
-            <div className="benefit-white-div-2 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
+            {/* Growing white halves filling from center */}
+            <div className="benefit-white-div-1 absolute inset-y-0 right-0 w-1/2 bg-white rounded-r-[40px] rounded-l-none transform origin-center z-10"></div>
+            <div className="benefit-white-div-2 absolute inset-y-0 left-0 w-1/2 bg-white rounded-l-[40px] rounded-r-none transform origin-center z-10"></div>
             <div className="benefit-icon w-[78px] h-[78px] rounded-full flex items-center justify-center relative z-10">
               <svg
                 width="76"
@@ -467,9 +540,9 @@ export default function Benefits() {
             }}
             data-gsap="benefit-4"
           >
-            {/* Growing white divs */}
-            <div className="benefit-white-div-1 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
-            <div className="benefit-white-div-2 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
+            {/* Growing white halves filling from center */}
+            <div className="benefit-white-div-1 absolute inset-y-0 right-0 w-1/2 bg-white rounded-r-[40px] rounded-l-none transform origin-center z-10"></div>
+            <div className="benefit-white-div-2 absolute inset-y-0 left-0 w-1/2 bg-white rounded-l-[40px] rounded-r-none transform origin-center z-10"></div>
             <div className="benefit-icon w-[78px] h-[78px] rounded-full flex items-center justify-center relative z-10">
               <svg
                 width="79"
@@ -514,9 +587,9 @@ export default function Benefits() {
             }}
             data-gsap="benefit-empty"
           >
-            {/* Growing white divs */}
-            <div className="benefit-white-div-1 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
-            <div className="benefit-white-div-2 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
+            {/* Growing white halves filling from center */}
+            <div className="benefit-white-div-1 absolute inset-y-0 right-0 w-1/2 bg-white rounded-r-[40px] rounded-l-none transform origin-center z-10"></div>
+            <div className="benefit-white-div-2 absolute inset-y-0 left-0 w-1/2 bg-white rounded-l-[40px] rounded-r-none transform origin-center z-10"></div>
             <div className="benefit-icon w-[78px] h-[78px] rounded-full flex items-center justify-center relative z-10">
               <svg
                 width="79"
@@ -570,9 +643,9 @@ export default function Benefits() {
             }}
             data-gsap="benefit-6"
           >
-            {/* Growing white divs */}
-            <div className="benefit-white-div-1 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
-            <div className="benefit-white-div-2 absolute inset-0 bg-white rounded-[40px] transform origin-center scale-0"></div>
+            {/* Growing white halves filling from center */}
+            <div className="benefit-white-div-1 absolute inset-y-0 right-0 w-1/2 bg-white rounded-r-[40px] rounded-l-none transform origin-center z-10"></div>
+            <div className="benefit-white-div-2 absolute inset-y-0 left-0 w-1/2 bg-white rounded-l-[40px] rounded-r-none transform origin-center z-10"></div>
             <div className="benefit-icon w-[78px] h-[78px] rounded-full flex items-center justify-center relative z-10">
               <svg
                 width="79"
