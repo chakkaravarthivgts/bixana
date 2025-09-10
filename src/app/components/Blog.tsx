@@ -35,36 +35,12 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <section
-      className="relative w-full flex flex-col justify-center items-center"
-      style={{
-        background: "#FFFFFF",
-        padding: "10px",
-        height: "1048px",
-      }}
-    >
-      <div
-        className="flex flex-col"
-        style={{
-          width: "1528px",
-          gap: "63px",
-        }}
-      >
+    <section className="relative w-full flex flex-col justify-center items-center bg-white py-10 px-4 lg:px-8 xl:px-16">
+      <div className="flex flex-col w-full max-w-8xl gap-8 lg:gap-16">
         {/* Header */}
-        <div
-          className="flex justify-between items-end"
-          style={{
-            gap: "1113px",
-          }}
-        >
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-6 lg:gap-8">
           {/* Left: Title Section */}
-          <div
-            className="flex flex-col"
-            style={{
-              width: "346px",
-              gap: "30px",
-            }}
-          >
+          <div className="flex flex-col gap-6 lg:gap-8 max-w-md lg:max-w-lg">
             {/* Tag */}
             <div className="flex items-center" style={{ gap: "8px" }}>
               <div
@@ -91,16 +67,7 @@ export default function Blog() {
             </div>
 
             {/* Title */}
-            <h2
-              style={{
-                fontFamily: "Helvetica Neue",
-                fontWeight: 300,
-                fontSize: "68px",
-                lineHeight: "1.147em",
-                letterSpacing: "-3%",
-                color: "#000000",
-              }}
-            >
+            <h2 className="font-helvetica-neue-light text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight text-black">
               Our Insights
             </h2>
           </div>
@@ -108,43 +75,18 @@ export default function Blog() {
           {/* Right: See all link */}
           <a
             href="#"
-            style={{
-              fontFamily: "Helvetica Neue",
-              fontWeight: 400,
-              fontSize: "18px",
-              lineHeight: "1.375em",
-              letterSpacing: "-3%",
-              color: "#000000",
-              textDecoration: "none",
-            }}
+            className="font-helvetica-neue-regular text-lg leading-relaxed tracking-tight text-black hover:text-blue-600 transition-colors duration-200 self-start lg:self-end"
           >
             See all
           </a>
         </div>
 
         {/* Blog Cards */}
-        <div
-          className="flex items-center"
-          style={{
-            gap: "69px",
-          }}
-        >
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 xl:gap-16">
           {/* Card 1 */}
-          <div
-            className="flex flex-col"
-            style={{
-              width: "729px",
-              gap: "25px",
-            }}
-          >
+          <div className="flex flex-col w-full lg:w-1/2 gap-6">
             {/* Image */}
-            <div
-              className="rounded-[40px] overflow-hidden"
-              style={{
-                width: "729px",
-                height: "424px",
-              }}
-            >
+            <div className="rounded-[40px] overflow-hidden w-full aspect-[16/9] lg:aspect-[3/2]">
               <Image
                 src={blogPosts[0].image}
                 alt={blogPosts[0].title}
@@ -155,63 +97,23 @@ export default function Blog() {
             </div>
 
             {/* Text Content */}
-            <div
-              className="flex flex-col"
-              style={{
-                gap: "17px",
-                height: "119px",
-              }}
-            >
+            <div className="flex flex-col gap-4">
               {/* Headline */}
-              <h3
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 300,
-                  fontSize: "40px",
-                  lineHeight: "1.2em",
-                  letterSpacing: "-2%",
-                  color: "#000000",
-                  height: "44px",
-                }}
-              >
+              <h3 className="font-helvetica-neue-light text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight text-black">
                 {blogPosts[0].title}
               </h3>
 
               {/* Subtext */}
-              <p
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
-                  fontSize: "20px",
-                  lineHeight: "1.6em",
-                  letterSpacing: "-4%",
-                  color: "#777777",
-                  width: "681px",
-                  height: "58px",
-                }}
-              >
+              <p className="font-helvetica-neue-regular text-base sm:text-lg lg:text-xl leading-relaxed tracking-tight text-gray-500">
                 {blogPosts[0].description}
               </p>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div
-            className="flex flex-col"
-            style={{
-              width: "729px",
-              height: "568px",
-              gap: "25px",
-            }}
-          >
+          <div className="flex flex-col w-full lg:w-1/2 gap-6">
             {/* Image */}
-            <div
-              className="rounded-[40px] overflow-hidden"
-              style={{
-                width: "729px",
-                height: "425px",
-              }}
-            >
+            <div className="rounded-[40px] overflow-hidden w-full aspect-[16/9] lg:aspect-[3/2]">
               <Image
                 src={blogPosts[1].image}
                 alt={blogPosts[1].title}
@@ -222,40 +124,14 @@ export default function Blog() {
             </div>
 
             {/* Text Content */}
-            <div
-              className="flex flex-col"
-              style={{
-                gap: "17px",
-                height: "131px",
-              }}
-            >
+            <div className="flex flex-col gap-4">
               {/* Headline */}
-              <h3
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 300,
-                  fontSize: "40px",
-                  lineHeight: "1.2em",
-                  letterSpacing: "-2%",
-                  color: "#000000",
-                  height: "46px",
-                }}
-              >
+              <h3 className="font-helvetica-neue-light text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight text-black">
                 {blogPosts[1].title}
               </h3>
 
               {/* Subtext */}
-              <p
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
-                  fontSize: "20px",
-                  lineHeight: "1.6em",
-                  letterSpacing: "-4%",
-                  color: "#777777",
-                  width: "613px",
-                }}
-              >
+              <p className="font-helvetica-neue-regular text-base sm:text-lg lg:text-xl leading-relaxed tracking-tight text-gray-500">
                 {blogPosts[1].description}
               </p>
             </div>
