@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-8xl mx-auto px-8 sm:px-6 lg:px-8">
+        <div className="flex items-center h-20 px-8 sm:px-6 lg:px-8">
           {/* Logo/Brand */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <Image
               src="/clientlogo.png"
               alt="Bixana Logo"
@@ -18,8 +18,11 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Navigation Menu */}
-          <nav className="hidden md:flex items-center" style={{ gap: "42px" }}>
+          {/* Navigation Menu - Centered */}
+          <nav
+            className="hidden md:flex items-center justify-center flex-1"
+            style={{ gap: "42px", transform: "translateX(100px)" }}
+          >
             <button
               className="text-black transition-colors duration-200 hover:text-blue-600"
               style={{
@@ -71,7 +74,10 @@ export default function Navbar() {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center" style={{ gap: "10px" }}>
+          <div
+            className="flex items-center flex-shrink-0"
+            style={{ gap: "10px" }}
+          >
             <button
               className="flex items-center justify-center gap-2 text-white rounded-full transition-colors duration-200 uppercase"
               style={{

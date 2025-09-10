@@ -51,25 +51,10 @@ export default function Testimonials() {
           {/* Intro */}
           <div className="w-full flex flex-col items-center gap-4">
             {/* Tag */}
-            <div className="flex items-center gap-2">
-              <div
-                className="w-2 h-2 rounded-full"
-                style={{
-                  background: "#0E7AFE",
-                }}
-              />
-              <span
-                className="uppercase"
-                style={{
-                  fontFamily: "Inter, -apple-system, sans-serif",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  lineHeight: "1.5em",
-                  letterSpacing: "0.1em",
-                  color: "#0E7AFE",
-                }}
-              >
-                testimonial
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
+              <span className="text-black text-base font-light uppercase tracking-wide">
+                Testimonials
               </span>
             </div>
 
@@ -77,33 +62,42 @@ export default function Testimonials() {
             <h2
               className="text-center"
               style={{
-                fontFamily:
-                  "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                fontFamily: "Helvetica Neue",
                 fontWeight: 300,
                 fontSize: "72px",
                 lineHeight: "1.1",
                 letterSpacing: "-0.03em",
                 color: "#0A0F29",
-                marginTop: "32px",
               }}
             >
-              What <span className="text-[#0066FF]">our clients say</span>
+              What{" "}
+              <span
+                className="text-transparent bg-clip-text"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, #0052CC 0%, #61A0FF 100%)",
+                }}
+              >
+                our clients say
+              </span>
             </h2>
           </div>
+          {/* Main testimonial content */}
 
           {/* Content */}
-          <div className="flex items-center gap-7">
+          <div className="flex items-start gap-7">
             {/* Quote Icon */}
             <div
               className="flex-shrink-0"
               style={{
-                width: "96.58px",
-                height: "74.08px",
+                width: "120px",
+                height: "90px",
+                marginTop: "2px",
               }}
             >
               <svg
-                width="98"
-                height="75"
+                width="120"
+                height="90"
                 viewBox="0 0 98 75"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -126,8 +120,7 @@ export default function Testimonials() {
               {/* Quote Text */}
               <p
                 style={{
-                  fontFamily:
-                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  fontFamily: "Helvetica Neue",
                   fontWeight: 300,
                   fontSize: "32px",
                   lineHeight: "1.5em",
@@ -146,9 +139,8 @@ export default function Testimonials() {
               >
                 <h4
                   style={{
-                    fontFamily:
-                      "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                    fontWeight: 400,
+                    fontFamily: "Helvetica Neue",
+                    fontWeight: 300,
                     fontSize: "48px",
                     lineHeight: "1.125em",
                     letterSpacing: "-0.02em",
@@ -159,8 +151,7 @@ export default function Testimonials() {
                 </h4>
                 <p
                   style={{
-                    fontFamily:
-                      "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                    fontFamily: "Helvetica Neue",
                     fontWeight: 400,
                     fontSize: "20px",
                     lineHeight: "1.6em",

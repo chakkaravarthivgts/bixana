@@ -118,37 +118,48 @@ const benefits = [
 export default function Benefits() {
   return (
     <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F9FA] overflow-hidden">
-      <div className="relative max-w-[1200px] mx-auto">
+      <div className="relative  mx-[100px]">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-16">
+        <div className="flex flex-col items-center justify-between lg:flex-row  gap-8 lg:gap-12 mb-[200px]">
           {/* Left Content */}
-          <div className="flex-1 max-w-[500px]">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 bg-[#0066FF] rounded-full"></div>
-              <span className="text-[#0066FF] text-[12px] font-semibold uppercase tracking-[0.15em]">
-                BENEFITS
-              </span>
+          <div className="flex-1 max-w-[500px] flex items-center justify-center flex-col">
+            <div>
+              <div className="flex items-center justify-start gap-2 mb-10">
+                <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
+                <span className="text-black text-base font-light uppercase tracking-wide">
+                  Benefits
+                </span>
+              </div>
+
+              <h2 className="text-[48px] lg:text-[56px] font-light text-[#000000] leading-[1.1] mb-6">
+                What{" "}
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(90deg, #0052CC 0%, #61A0FF 100%)",
+                  }}
+                >
+                  you will get
+                </span>
+                <br />
+                those are the need
+                <br />
+                for you
+              </h2>
+
+              <p className="text-[16px] text-[#6B7280] leading-[1.6] font-normal">
+                From booking the first appointment to managing post-treatment
+                feedback — our all-in-one dental software streamlines your
+                workflow, boosts patient satisfaction, and keeps your clinic
+                running smoothly.
+              </p>
             </div>
-
-            <h2 className="text-[48px] lg:text-[56px] font-light text-[#000000] leading-[1.1] mb-6">
-              What <span className="text-[#0066FF]">you will get</span>
-              <br />
-              those are the need
-              <br />
-              for you
-            </h2>
-
-            <p className="text-[16px] text-[#6B7280] leading-[1.6] font-normal">
-              From booking the first appointment to managing post-treatment
-              feedback — our all-in-one dental software streamlines your
-              workflow, boosts patient satisfaction, and keeps your clinic
-              running smoothly.
-            </p>
           </div>
 
           {/* Right Image */}
-          <div className="flex-1 max-w-[700px] w-full">
-            <div className="relative w-full h-[350px] lg:h-[400px] rounded-[24px] overflow-hidden">
+          <div className="flex-1 max-w-[700px] w-full h-full">
+            <div className="relative w-full h-full lg:h-[80%w] rounded-[24px] overflow-hidden">
               <img
                 src="/dental-png.jpg"
                 alt="Dental professionals using tablet"
@@ -218,7 +229,7 @@ export default function Benefits() {
 
           {/* Card 2 - Attracting patients */}
           <div
-            className="benefit-card bg-white rounded-[40px] p-5 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
+            className="benefit-card flex gap-8 bg-white rounded-[40px] p-4 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
             style={{
               height: "422px",
               width: "580px",
@@ -257,7 +268,7 @@ export default function Benefits() {
 
           {/* Card 3 - Feature Updates */}
           <div
-            className="benefit-card bg-white rounded-[40px] p-5 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
+            className="benefit-card flex gap-8 bg-white rounded-[40px] p-4 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
             style={{
               height: "262px",
               width: "350px",
@@ -295,7 +306,7 @@ export default function Benefits() {
 
           {/* Card 4 - Retaining Patients */}
           <div
-            className="benefit-card bg-white rounded-[40px] p-5 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
+            className="benefit-card flex gap-8 bg-white rounded-[40px] p-4 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
             style={{
               height: "279px",
               transform: "translateY(-70px)",
@@ -337,7 +348,7 @@ export default function Benefits() {
 
           {/* Card 5 - Empty space for layout balance */}
           <div
-            className="benefit-card bg-white rounded-[40px] border border-[#C1C1C1] flex flex-col justify-center items-center text-center"
+            className="benefit-card flex gap-8 bg-white rounded-[40px] p-4 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
             style={{
               height: "270px",
               width: "370px",
@@ -366,7 +377,7 @@ export default function Benefits() {
 
           {/* Card 6 - Additional card if needed */}
           <div
-            className="benefit-card bg-white rounded-[40px] border border-[#C1C1C1]"
+            className="benefit-card flex gap-8 bg-white rounded-[40px] p-4 flex flex-col justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer"
             style={{
               height: "430px",
               width: "380px",

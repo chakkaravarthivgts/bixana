@@ -53,7 +53,7 @@ const aboutCards: AboutCard[] = [
         title: "Reminders & Confirmation",
       },
     ],
-    bgColor: "bg-gray-200/56",
+    bgColor: "bg-gray-200",
     textColor: "text-black",
     iconColor: "text-blue-600",
   },
@@ -232,30 +232,30 @@ export default function About() {
         },
       });
 
-      // Set initial state for all cards (hidden and positioned below)
+      // Set initial state: first card visible by default, others hidden below
       gsap.set(cardRefs.current, {
-        y: "100%",
-        opacity: 0,
+        y: "150%",
+        opacity: 1,
       });
+      const firstCard = cardRefs.current[0];
+      if (firstCard) {
+        gsap.set(firstCard, { y: 0, opacity: 1 });
+      }
 
-      // Create sequential animation for each card
-      aboutCards.forEach((_, index) => {
+      // Create sequential animation for cards 2..N (stack on top of the first)
+      for (let index = 1; index < aboutCards.length; index++) {
         const card = cardRefs.current[index];
-        if (card) {
-          // Each card animates from below and stacks on previous cards
-          // Only start after previous card is in position
-          tl.to(
-            card,
-            {
-              y: `${index * 82}px`, // Stack with 82px offset for better spacing
-              opacity: 1,
-              duration: 0.8,
-              ease: "power2.out",
-            },
-            index * 0.8 // Start each card after previous one completes (0.8s duration)
-          );
-        }
-      });
+        if (!card) continue;
+        tl.to(
+          card,
+          {
+            y: `${index * 82}px`, // Stack with 82px offset for better spacing
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          (index - 1) * 0.8 // start after previous card settles
+        );
+      }
 
       // Store timeline reference
       timelineRef.current = tl;
@@ -289,8 +289,7 @@ export default function About() {
           tl.progress(progress);
         },
         onEnter: () => {
-          // Nudge timeline to show the first card immediately upon pin
-          tl.tweenTo(0.02, { duration: 0.1 });
+          // First card is already visible; start scrubbed animation
           console.log("Card section entered - animation starts");
         },
         onLeave: () => {
@@ -337,30 +336,47 @@ export default function About() {
               about
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-black leading-tight mb-10 max-w-4xl mx-auto">
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-light text-black leading-tight mb-10 max-w-5xl mx-auto"
+            style={{
+              letterSpacing: "-3%",
+              lineHeight: "1.3",
+              fontWeight: 300,
+              fontFamily: "Helvetica Neue",
+            }}
+          >
             Comprehensive{" "}
-            <span className="text-blue-600">Tools for Every Aspect</span> of
-            Your Dental Practice
+            <span
+              className="text-transparent bg-clip-text"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #0052CC 0%, #61A0FF 100%)",
+              }}
+            >
+              Tools for Every Aspect
+            </span>
+            <br />
+            of Your Dental Practice
           </h2>
-          <p className="text-gray-600 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
             From booking the first appointment to managing post-treatment
             feedback — our all-in-one dental software streamlines your workflow,
             boosts patient satisfaction, and keeps your clinic running smoothly.
           </p>
         </div>
 
-        <div className="card-container relative h-[804px] flex items-center justify-center">
+        <div className="card-container relative h-[804px] width-full flex items-center justify-center">
           {aboutCards.map((card, index) => (
             <div
               key={index}
               ref={(el) => {
                 cardRefs.current[index] = el;
               }}
-              className={`${card.bgColor} rounded-[50px] p-8 sm:p-12 absolute w-full max-w-5xl shadow-lg`}
+              className={`${card.bgColor} rounded-[50px] p-8 sm:p-12 absolute w-full max-w-7xl shadow-lg`}
               style={{
                 zIndex: 10 + index,
                 boxShadow: `0 ${index * 4 + 10}px ${index * 8 + 20}px rgba(0, 0, 0, 0.15)`,
-                height: "85%",
+                // height: "85%",
               }}
             >
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
@@ -372,13 +388,12 @@ export default function About() {
                       {card.title}
                     </h3>
                     <p
-                      className={`text-base sm:text-lg leading-relaxed ${card.textColor === "text-white" ? "text-white/80" : "text-gray-600"}`}
+                      className={`text-base sm:text-lg leading-relaxed ${card.textColor === "text-white" ? "text-white" : "text-gray-600"}`}
                     >
                       {card.description}
                     </p>
                   </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-4">
                     {card.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}

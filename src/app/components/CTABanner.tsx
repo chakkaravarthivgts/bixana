@@ -62,7 +62,15 @@ export default function CTABanner() {
                   width: "503px",
                 }}
               >
-                <span className="text-[#0066FF]">Let&apos;s Talk </span>
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(90deg, #0052CC 0%, #61A0FF 100%)",
+                  }}
+                >
+                  Let&apos;s Talk{" "}
+                </span>
                 if you have any question to us
               </h2>
 
@@ -70,7 +78,7 @@ export default function CTABanner() {
               <p
                 style={{
                   fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
+                  fontWeight: 300,
                   fontSize: "20px",
                   lineHeight: "1.6em",
                   letterSpacing: "-4%",

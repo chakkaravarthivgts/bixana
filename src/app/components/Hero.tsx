@@ -40,20 +40,17 @@ export default function Hero({
       {/* Header & Hero Content Container */}
       <div className="flex flex-col items-center w-full">
         {/* Header Section - 82px height */}
-        <div className="flex justify-center items-center w-full">
-          {/* Header content will be handled by Navbar component */}
-        </div>
 
         {/* Hero Content Section */}
         <div
-          className="relative w-full overflow-hidden"
+          className="relative overflow-hidden mb-[100px]"
           style={{
-            maxWidth: "1621px",
-            width: "100%",
-            height: "calc(100vh - 100px)", // Full height minus navbar
+            height: "calc(100vh - 110px)", // Full height minus navbar
             background: "rgba(0, 0, 0, 0.1)",
             borderRadius: "29px",
-            margin: "0 auto",
+            marginLeft: "100px",
+            marginRight: "100px",
+            width: "calc(100vw - 80px)",
           }}
         >
           <video
@@ -87,7 +84,7 @@ export default function Hero({
                   fontWeight: 300,
                   fontSize: "90px",
                   lineHeight: "1.1666666666666667em",
-                  letterSpacing: "-0.05em",
+                  letterSpacing: "-4.5px",
                   textAlign: "left",
                 }}
               >
@@ -147,16 +144,16 @@ export default function Hero({
                   }}
                 >
                   <svg
-                    className="w-5 h-5"
-                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
                     fill="none"
-                    style={{ stroke: "#FFFFFF", strokeWidth: "1.25px" }}
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M8 5v14l11-7z"
-                      fill="none"
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
+                      d="M15.5075 6.79414C15.9077 7.00698 16.2425 7.32471 16.476 7.71329C16.7095 8.10187 16.8328 8.54665 16.8328 8.99997C16.8328 9.45329 16.7095 9.89807 16.476 10.2866C16.2425 10.6752 15.9077 10.993 15.5075 11.2058L4.83083 17.0116C3.11167 17.9475 1 16.7308 1 14.8066V3.19414C1 1.26914 3.11167 0.0533047 4.83083 0.987471L15.5075 6.79414Z"
+                      stroke="white"
+                      stroke-width="1.25"
                     />
                   </svg>
                   watch video

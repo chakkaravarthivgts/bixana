@@ -28,7 +28,7 @@ export default function Clients() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-10">
             <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
-            <span className="text-black text-base font-normal uppercase tracking-wide">
+            <span className="text-black text-base font-light uppercase tracking-wide">
               trusted partners
             </span>
           </div>

@@ -93,15 +93,14 @@ export default function Features() {
       tl
         // current panel moves up out of view
         .to(panels[i], {
-          opacity: 0,
-          y: -800,
+          y: -950,
           duration: 1.2,
           ease: "power3.inOut",
         })
         // next panel comes from below
         .fromTo(
           panels[i + 1],
-          { opacity: 0, y: 800 },
+          { opacity: 1, y: 950 },
           { opacity: 1, y: 0, duration: 1.2, ease: "power3.inOut" },
           "<"
         );
@@ -144,7 +143,16 @@ export default function Features() {
           </div>
 
           {/* Headline */}
-          <h2 className="text-white text-[48px] lg:text-[72px] font-light leading-[1.1] tracking-[-0.03em] max-w-[800px]">
+          <h2
+            className="text-white text-[48px] lg:text-[72px] font-light leading-[1.1] tracking-[-0.03em] max-w-[800px]"
+            style={{
+              fontFamily: "Helvetica Neue",
+              fontWeight: 300,
+              fontSize: "68px",
+              lineHeight: "1.147em",
+              letterSpacing: "-0.02em",
+            }}
+          >
             What features bixana offers
           </h2>
         </div>
