@@ -32,10 +32,7 @@ export default function Hero({
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{
-        height: "100vh",
-        borderRadius: "0px 0px 50px 50px",
-      }}
+      style={{ height: "100vh", borderRadius: "0px 0px 50px 50px" }}
     >
       {/* Header & Hero Content Container */}
       <div className="flex flex-col items-center w-full">
@@ -43,14 +40,11 @@ export default function Hero({
 
         {/* Hero Content Section */}
         <div
-          className="relative overflow-hidden mb-[100px]"
+          className="relative overflow-hidden mb-[60px] sm:mb-[80px] lg:mb-[100px] mx-4 sm:mx-6 lg:mx-[100px]"
           style={{
-            height: "calc(100vh - 110px)", // Full height minus navbar
+            height: "calc(100vh - 110px)",
             background: "rgba(0, 0, 0, 0.1)",
             borderRadius: "29px",
-            marginLeft: "100px",
-            marginRight: "100px",
-            width: "calc(100vw - 80px)",
           }}
         >
           <video
@@ -69,22 +63,19 @@ export default function Hero({
           />
 
           {/* Content container matching Figma layout */}
-          <div
-            className="relative z-10 flex flex-col justify-between h-full p-8"
-            style={{ padding: "47px 30px" }}
-          >
+          <div className="relative z-10 flex flex-col justify-between h-full px-4 sm:px-6 lg:px-[30px] py-6 lg:py-[47px]">
             {/* Headline - Upper left */}
             <div
-              style={{ maxWidth: "1259px", width: "100%", minHeight: "188px" }}
+              style={{ maxWidth: "1259px", width: "100%", minHeight: "120px" }}
             >
               <h1
                 className="text-white"
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 300,
-                  fontSize: "90px",
-                  lineHeight: "1.1666666666666667em",
-                  letterSpacing: "-4.5px",
+                  fontSize: "clamp(28px, 8vw, 90px)",
+                  lineHeight: "1.15",
+                  letterSpacing: "-0.03em",
                   textAlign: "left",
                 }}
               >
@@ -93,21 +84,18 @@ export default function Hero({
             </div>
 
             {/* Bottom section with buttons and subtext */}
-            <div
-              className="flex justify-between items-end w-full"
-              style={{ gap: "588px" }}
-            >
+            <div className="flex flex-col md:flex-row md:justify-between items-start md:items-end w-full gap-6 md:gap-10">
               {/* CTA Buttons */}
-              <div className="flex items-center" style={{ gap: "10px" }}>
+              <div className="flex items-center gap-3">
                 <button
                   className="flex items-center justify-center gap-2 rounded-full transition-colors duration-200 uppercase"
                   style={{
                     backgroundColor: "#FFFFFF",
-                    width: "231px",
-                    height: "54px",
+                    width: "clamp(160px, 40vw, 231px)",
+                    height: "50px",
                     fontFamily: "Helvetica Neue",
                     fontWeight: 400,
-                    fontSize: "18px",
+                    fontSize: "clamp(13px, 2.6vw, 18px)",
                     lineHeight: "1.3em",
                     color: "#0052CC",
                   }}
@@ -134,11 +122,11 @@ export default function Hero({
                   style={{
                     backgroundColor: "transparent",
                     border: "2px solid #FFFFFF",
-                    width: "231px",
-                    height: "58px",
+                    width: "clamp(160px, 40vw, 231px)",
+                    height: "50px",
                     fontFamily: "Helvetica Neue",
                     fontWeight: 400,
-                    fontSize: "18px",
+                    fontSize: "clamp(13px, 2.6vw, 18px)",
                     lineHeight: "1.3em",
                     color: "#FFFFFF",
                   }}
@@ -161,15 +149,15 @@ export default function Hero({
               </div>
 
               {/* Subtext - Lower right */}
-              <div style={{ width: "501px" }}>
+              <div style={{ width: "min(100%, 501px)" }}>
                 <p
                   className="text-white"
                   style={{
                     fontFamily: "Helvetica Neue",
                     fontWeight: 400,
-                    fontSize: "28px",
-                    lineHeight: "1.3571428571428572em",
-                    letterSpacing: "-0.04em",
+                    fontSize: "clamp(14px, 3.6vw, 28px)",
+                    lineHeight: "1.4",
+                    letterSpacing: "-0.02em",
                     textAlign: "left",
                   }}
                 >

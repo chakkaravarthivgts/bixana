@@ -1,29 +1,31 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm ">
-      <div className="max-w-8xl mx-auto px-8 sm:px-6 lg:px-8">
-        <div className="flex items-center h-20 px-8 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-20 px-4 sm:px-6 lg:px-8">
           {/* Logo/Brand */}
           <div className="flex items-center flex-shrink-0">
-            <Image
-              src="/clientlogo.png"
-              alt="Bixana Logo"
-              width={48}
-              height={44}
-              className="object-contain"
-            />
+            <Link href="/home">
+              <Image
+                src="/clientlogo.png"
+                alt="Bixana Logo"
+                width={48}
+                height={44}
+                className="object-contain"
+              />
+            </Link>
           </div>
 
-          {/* Navigation Menu - Centered */}
-          <nav
-            className="hidden md:flex items-center justify-center flex-1"
-            style={{ gap: "42px", transform: "translateX(100px)" }}
-          >
-            <button
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center justify-center flex-1 gap-10 translate-x-[100px]">
+            <Link
               className="text-black transition-colors duration-200 hover:text-blue-600"
               style={{
                 fontFamily: "Helvetica Neue",
@@ -32,10 +34,11 @@ export default function Navbar() {
                 lineHeight: "1.5em",
                 letterSpacing: "-0.02em",
               }}
+              href="/about"
             >
               About
-            </button>
-            <button
+            </Link>
+            <Link
               className="text-black transition-colors duration-200 hover:text-blue-600"
               style={{
                 fontFamily: "Helvetica Neue",
@@ -44,10 +47,11 @@ export default function Navbar() {
                 lineHeight: "1.5em",
                 letterSpacing: "-0.02em",
               }}
+              href="/services"
             >
               Services
-            </button>
-            <button
+            </Link>
+            <Link
               className="text-black transition-colors duration-200 hover:text-blue-600"
               style={{
                 fontFamily: "Helvetica Neue",
@@ -56,10 +60,11 @@ export default function Navbar() {
                 lineHeight: "1.5em",
                 letterSpacing: "-0.02em",
               }}
+              href="/pricing"
             >
               Pricing
-            </button>
-            <button
+            </Link>
+            <Link
               className="text-black transition-colors duration-200 hover:text-blue-600"
               style={{
                 fontFamily: "Helvetica Neue",
@@ -68,16 +73,14 @@ export default function Navbar() {
                 lineHeight: "1.5em",
                 letterSpacing: "-0.02em",
               }}
+              href="/contact"
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
-          {/* Action Buttons */}
-          <div
-            className="flex items-center flex-shrink-0"
-            style={{ gap: "10px" }}
-          >
+          {/* Desktop Action Buttons */}
+          <div className="hidden md:flex items-center flex-shrink-0 gap-2.5">
             <button
               className="flex items-center justify-center gap-2 text-white rounded-full transition-colors duration-200 uppercase"
               style={{
@@ -121,8 +124,111 @@ export default function Navbar() {
               LOGIN
             </button>
           </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
+            aria-label="Open menu"
+            onClick={() => setOpen(true)}
+          >
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Sidebar */}
+      {open && (
+        <div className="fixed inset-0 z-[60] md:hidden">
+          <div
+            className="absolute inset-0 bg-black/10"
+            onClick={() => setOpen(false)}
+          ></div>
+          <aside className="absolute right-0 top-0 bottom-0 w-80 max-w-[80%] bg-white shadow-2xl border-l border-gray-200 p-6 flex flex-col gap-6">
+            <div className="flex items-center justify-between">
+              <Link href="/home" onClick={() => setOpen(false)}>
+                <Image
+                  src="/clientlogo.png"
+                  alt="Bixana Logo"
+                  width={40}
+                  height={36}
+                />
+              </Link>
+              <button
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="p-2 rounded-md hover:bg-gray-100"
+              >
+                <svg
+                  className="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <nav className="flex flex-col gap-4 mt-4">
+              <Link
+                href="/about"
+                onClick={() => setOpen(false)}
+                className="py-2 text-gray-900"
+              >
+                About
+              </Link>
+              <Link
+                href="/services"
+                onClick={() => setOpen(false)}
+                className="py-2 text-gray-900"
+              >
+                Services
+              </Link>
+              <Link
+                href="/pricing"
+                onClick={() => setOpen(false)}
+                className="py-2 text-gray-900"
+              >
+                Pricing
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="py-2 text-gray-900"
+              >
+                Contact
+              </Link>
+            </nav>
+            <div className="mt-auto flex flex-col gap-3">
+              <button
+                className="w-full h-12 rounded-full text-white"
+                style={{ backgroundColor: "#0052CC" }}
+              >
+                schedule demo
+              </button>
+              <button className="w-full h-12 rounded-full border border-[#777777]">
+                LOGIN
+              </button>
+            </div>
+          </aside>
+        </div>
+      )}
     </header>
   );
 }
