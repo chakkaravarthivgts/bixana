@@ -27,39 +27,23 @@ export default function CTABanner() {
   };
 
   return (
-    <section
-      className="relative w-full"
-      style={{
-        padding: "99px 96px",
-      }}
-    >
-      <div
-        className="relative w-full flex flex-col justify-center items-center"
-        style={{
-          background: "#F5F5F5",
-          borderRadius: "36px",
-          padding: "49px 76px",
-          height: "952px",
-        }}
-      >
-        <div className="flex justify-between w-full gap-49">
+    <section className="relative w-full px-4 sm:px-6 lg:px-12 xl:px-24 py-12 sm:py-16 lg:py-24">
+      <div className="relative w-full flex flex-col justify-center items-center bg-[#F5F5F5] rounded-[24px] sm:rounded-[28px] lg:rounded-[36px] px-5 sm:px-8 lg:px-16 py-8 sm:py-10 lg:py-14">
+        <div className="flex flex-col lg:flex-row justify-between w-full gap-8 lg:gap-12">
           {/* Text Content */}
-          <div
-            className="flex flex-col gap-78 justify-between align-middle"
-            style={{ width: "536px" }}
-          >
+          <div className="flex flex-col gap-8 justify-between align-middle w-full lg:w-[536px]">
             {/* Main Text */}
-            <div className="flex flex-col gap-6" style={{ height: "373px" }}>
+            <div className="flex flex-col gap-4 sm:gap-6">
               {/* Headline */}
               <h2
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 300,
-                  fontSize: "68px",
-                  lineHeight: "1.147em",
-                  letterSpacing: "-3%",
+                  fontSize: "clamp(28px, 6vw, 68px)",
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.03em",
                   color: "#000000",
-                  width: "503px",
+                  width: "min(100%, 503px)",
                 }}
               >
                 <span
@@ -79,9 +63,9 @@ export default function CTABanner() {
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 300,
-                  fontSize: "20px",
-                  lineHeight: "1.6em",
-                  letterSpacing: "-4%",
+                  fontSize: "clamp(14px, 3.5vw, 20px)",
+                  lineHeight: "1.6",
+                  letterSpacing: "-0.02em",
                   color: "#777777",
                 }}
               >
@@ -92,7 +76,7 @@ export default function CTABanner() {
             </div>
 
             {/* Contact Info */}
-            <div className="flex flex-col gap-2" style={{ height: "105px" }}>
+            <div className="flex flex-col gap-2">
               <p
                 style={{
                   fontFamily: "Helvetica Neue",
@@ -109,9 +93,9 @@ export default function CTABanner() {
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 300,
-                  fontSize: "60px",
-                  lineHeight: "1.147em",
-                  letterSpacing: "-3%",
+                  fontSize: "clamp(24px, 6vw, 60px)",
+                  lineHeight: "1.15",
+                  letterSpacing: "-0.03em",
                   color: "#000000",
                 }}
               >
@@ -121,23 +105,12 @@ export default function CTABanner() {
           </div>
 
           {/* Form */}
-          <div
-            className="flex flex-col items-end gap-11"
-            style={{ width: "644px" }}
-          >
+          <div className="flex flex-col items-end gap-6 sm:gap-8 lg:gap-11 w-full lg:w-[644px]">
             <form onSubmit={handleSubmit} className="w-full">
               {/* Form Fields */}
               <div className="flex flex-col gap-4 w-full">
                 {/* First Name */}
-                <div
-                  className="relative"
-                  style={{
-                    height: "60px",
-                    background: "#FFFFFF",
-                    border: "1px solid #C3C3C3",
-                    borderRadius: "68px",
-                  }}
-                >
+                <div className="relative h-[52px] sm:h-[56px] lg:h-[60px] bg-white border border-[#C3C3C3] rounded-[68px]">
                   <input
                     type="text"
                     name="firstName"
@@ -157,15 +130,7 @@ export default function CTABanner() {
                 </div>
 
                 {/* Email */}
-                <div
-                  className="relative"
-                  style={{
-                    height: "60px",
-                    background: "#FFFFFF",
-                    border: "1px solid #C3C3C3",
-                    borderRadius: "68px",
-                  }}
-                >
+                <div className="relative h-[52px] sm:h-[56px] lg:h-[60px] bg-white border border-[#C3C3C3] rounded-[68px]">
                   <input
                     type="email"
                     name="email"
@@ -185,15 +150,7 @@ export default function CTABanner() {
                 </div>
 
                 {/* Subject */}
-                <div
-                  className="relative"
-                  style={{
-                    height: "60px",
-                    background: "#FFFFFF",
-                    border: "1px solid #C3C3C3",
-                    borderRadius: "68px",
-                  }}
-                >
+                <div className="relative h-[52px] sm:h-[56px] lg:h-[60px] bg-white border border-[#C3C3C3] rounded-[68px]">
                   <input
                     type="text"
                     name="subject"
@@ -213,15 +170,7 @@ export default function CTABanner() {
                 </div>
 
                 {/* Message */}
-                <div
-                  className="relative"
-                  style={{
-                    height: "440px",
-                    background: "#FFFFFF",
-                    border: "1px solid #C3C3C3",
-                    borderRadius: "48px",
-                  }}
-                >
+                <div className="relative h-[220px] sm:h-[320px] lg:h-[440px] bg-white border border-[#C3C3C3] rounded-[24px] sm:rounded-[36px] lg:rounded-[48px]">
                   <textarea
                     name="message"
                     value={formData.message}
@@ -245,15 +194,7 @@ export default function CTABanner() {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="transition-all duration-300 hover:opacity-90"
-              style={{
-                width: "205px",
-                height: "54px",
-                background: "#0052CC",
-                borderRadius: "200px",
-                border: "none",
-                cursor: "pointer",
-              }}
+              className="transition-all duration-300 hover:opacity-90 w-[180px] sm:w-[200px] lg:w-[205px] h-[48px] sm:h-[52px] lg:h-[54px] bg-[#0052CC] rounded-[200px] border-0 cursor-pointer"
             >
               <span
                 className="uppercase"

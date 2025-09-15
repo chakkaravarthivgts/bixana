@@ -38,16 +38,12 @@ export default function Testimonials() {
 
   return (
     <section
-      className="relative w-full flex flex-col justify-center items-center"
-      style={{
-        background: "#FAFBFC",
-        padding: "57px 100px",
-        height: "932px",
-      }}
+      className="relative w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-16"
+      style={{ background: "#FAFBFC", paddingTop: 40, paddingBottom: 40 }}
     >
-      <div className="w-full flex flex-col items-end gap-28">
+      <div className="w-full flex flex-col items-center gap-28">
         {/* Content */}
-        <div className="w-full flex flex-col items-center gap-24">
+        <div className="w-full flex flex-col items-center gap-12 sm:gap-16 lg:gap-24 max-w-7xl">
           {/* Intro */}
           <div className="w-full flex flex-col items-center gap-4">
             {/* Tag */}
@@ -64,8 +60,8 @@ export default function Testimonials() {
               style={{
                 fontFamily: "Helvetica Neue",
                 fontWeight: 300,
-                fontSize: "72px",
-                lineHeight: "1.1",
+                fontSize: "clamp(28px, 6vw, 72px)",
+                lineHeight: 1.1,
                 letterSpacing: "-0.03em",
                 color: "#0A0F29",
               }}
@@ -85,19 +81,15 @@ export default function Testimonials() {
           {/* Main testimonial content */}
 
           {/* Content */}
-          <div className="flex items-start gap-7">
+          <div className="flex items-start gap-4 sm:gap-6 lg:gap-7 w-full max-w-5xl">
             {/* Quote Icon */}
             <div
-              className="flex-shrink-0"
-              style={{
-                width: "120px",
-                height: "90px",
-                marginTop: "2px",
-              }}
+              className="flex-shrink-0 mt-1"
+              style={{ width: 80, height: 60 }}
             >
               <svg
-                width="120"
-                height="90"
+                width="80"
+                height="60"
                 viewBox="0 0 98 75"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,20 +102,14 @@ export default function Testimonials() {
             </div>
 
             {/* Quote */}
-            <div
-              className="flex flex-col items-end gap-14"
-              style={{
-                width: "923px",
-                height: "345px",
-              }}
-            >
+            <div className="flex flex-col items-end gap-8 sm:gap-10 lg:gap-14 w-full">
               {/* Quote Text */}
               <p
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 300,
-                  fontSize: "32px",
-                  lineHeight: "1.5em",
+                  fontSize: "clamp(16px, 3.6vw, 32px)",
+                  lineHeight: 1.5,
                   letterSpacing: "-0.02em",
                   color: "#0A0F29",
                   width: "100%",
@@ -133,16 +119,13 @@ export default function Testimonials() {
               </p>
 
               {/* Author */}
-              <div
-                className="flex flex-col gap-3 items-end"
-                style={{ width: "600px" }}
-              >
+              <div className="flex flex-col gap-2 sm:gap-3 items-end w-full max-w-xl">
                 <h4
                   style={{
                     fontFamily: "Helvetica Neue",
                     fontWeight: 300,
-                    fontSize: "48px",
-                    lineHeight: "1.125em",
+                    fontSize: "clamp(18px, 4.2vw, 48px)",
+                    lineHeight: 1.15,
                     letterSpacing: "-0.02em",
                     color: "#0A0F29",
                   }}
@@ -153,8 +136,8 @@ export default function Testimonials() {
                   style={{
                     fontFamily: "Helvetica Neue",
                     fontWeight: 400,
-                    fontSize: "20px",
-                    lineHeight: "1.6em",
+                    fontSize: "clamp(12px, 3vw, 20px)",
+                    lineHeight: 1.6,
                     letterSpacing: "-0.01em",
                     color: "#5A6177",
                   }}
@@ -167,7 +150,7 @@ export default function Testimonials() {
         </div>
 
         {/* Navigation Arrows */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           {/* Previous Arrow */}
           <button
             onClick={prevTestimonial}

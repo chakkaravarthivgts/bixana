@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="relative w-full">
       {/* Top Section with Background Image */}
-      <div className="relative w-full h-[400px] overflow-hidden">
+      <div className="relative w-full h-[200px] sm:h-[280px] lg:h-[400px] overflow-hidden">
         <Image
           src="/dental-png.jpg"
           alt="Dental clinic background"
@@ -20,22 +20,22 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="bg-[#0052CC] px-8 lg:px-20 py-16">
+      <div className="bg-[#0052CC] px-4 sm:px-8 lg:px-20 py-10 sm:py-14 lg:py-16">
         <div className="max-w-[1440px] mx-auto">
-          <div className="mb-[200px]">
-            {/* Brand Section */}
-            <div className="flex justify-between ">
-              <div className="lg:col-span-1 w-[600px]">
+          <div className="mb-10 lg:mb-[200px]">
+            {/* Brand and Menus */}
+            <div className="flex flex-col lg:flex-row justify-between gap-10">
+              <div className="lg:col-span-1 w-full lg:w-[600px]">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <div className="w-14 h-14 bg-white rounded-full"></div>
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white/20 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white rounded-full"></div>
                   </div>
                   <h2
                     className="text-white"
                     style={{
                       fontFamily: "Helvetica Neue",
                       fontWeight: 300,
-                      fontSize: "48px",
+                      fontSize: "clamp(24px, 5vw, 48px)",
                       lineHeight: "1.147em",
                       letterSpacing: "-0.02em",
                     }}
@@ -44,13 +44,13 @@ export default function Footer() {
                   </h2>
                 </div>
                 <p
-                  className="text-white/90 text-[16px] leading-[1.6] font-normal"
+                  className="text-white/90 text-[14px] sm:text-[16px] leading-[1.6] font-normal"
                   style={{
                     fontFamily: "Helvetica Neue",
                     fontWeight: 300,
-                    fontSize: "24px",
-                    lineHeight: "1.147em",
-                    letterSpacing: "-3%",
+                    fontSize: "clamp(14px, 3.5vw, 24px)",
+                    lineHeight: "1.5",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   Bixana, A cloud application which helps dental clinic to keep
@@ -59,9 +59,9 @@ export default function Footer() {
               </div>
 
               {/* Menu Section */}
-              <div className="flex gap-20">
+              <div className="flex gap-12 sm:gap-16 lg:gap-20">
                 <div>
-                  <h3 className="text-white font-medium text-[16px] mb-6 uppercase tracking-[0.1em]">
+                  <h3 className="text-white font-medium text-[14px] sm:text-[16px] mb-4 sm:mb-6 uppercase tracking-[0.1em]">
                     MENU
                   </h3>
                   <ul className="space-y-4">
@@ -70,7 +70,7 @@ export default function Footer() {
                         <li key={item}>
                           <a
                             href="#"
-                            className="text-white/80 hover:text-white text-[16px] font-normal transition-colors duration-300"
+                            className="text-white/80 hover:text-white text-[14px] sm:text-[16px] font-normal transition-colors duration-300"
                           >
                             {item}
                           </a>
@@ -82,7 +82,7 @@ export default function Footer() {
 
                 {/* Legal Section */}
                 <div>
-                  <h3 className="text-white font-medium text-[16px] mb-6 uppercase tracking-[0.1em]">
+                  <h3 className="text-white font-medium text-[14px] sm:text-[16px] mb-4 sm:mb-6 uppercase tracking-[0.1em]">
                     LEGAL
                   </h3>
                   <ul className="space-y-4">
@@ -95,7 +95,7 @@ export default function Footer() {
                       <li key={item}>
                         <a
                           href="#"
-                          className="text-white/80 hover:text-white text-[16px] font-normal transition-colors duration-300"
+                          className="text-white/80 hover:text-white text-[14px] sm:text-[16px] font-normal transition-colors duration-300"
                         >
                           {item}
                         </a>
@@ -109,12 +109,12 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div
-            className="mt-16 space-y-2 text-white/70 text-[16px]"
+            className="mt-10 sm:mt-12 space-y-2 text-white/70 text-[14px] sm:text-[16px]"
             style={{
               fontFamily: "Helvetica Neue",
               fontWeight: 300,
-              fontSize: "24px",
-              lineHeight: "1.147em",
+              fontSize: "clamp(14px, 3.5vw, 24px)",
+              lineHeight: "1.5",
               letterSpacing: "-0.02em",
             }}
           >
@@ -124,10 +124,10 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-white/30 mt-12 pt-8 mb-[100px]">
-            <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+          <div className="border-t border-white/30 mt-10 sm:mt-12 pt-6 sm:pt-8 mb-10 lg:mb-[100px]">
+            <div className="flex flex-col lg:flex-row justify-between items-center gap-4 sm:gap-6">
               {/* Social Links */}
-              <div className="flex items-center gap-8">
+              <div className="flex items-center gap-5 sm:gap-6 lg:gap-8">
                 <a
                   href="#"
                   className="text-white/80 hover:text-white text-[16px] font-normal transition-colors duration-300 flex items-center gap-2"
