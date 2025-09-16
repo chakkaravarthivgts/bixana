@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 
 // Custom hook to detect mobile screen
 const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -25,10 +25,10 @@ export default function OurValues() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    // Only apply GSAP animations on desktop
-    if (isMobile) return;
+    // Wait until we know viewport; and only apply on desktop
+    if (isMobile === null || isMobile) return;
 
-    // Set initial state for all cards
+    // Set initial state for all cards (desktop animated widths)
     cardRefs.current.forEach((card, index) => {
       if (card) {
         if (index === 0) {
@@ -77,7 +77,7 @@ export default function OurValues() {
     cardRefs.current.forEach((card, i) => {
       if (card) {
         if (i === index) {
-          // Expand hovered card
+          // Emphasize hovered card (desktop width expands)
           gsap.to(card, {
             duration: 0.1,
             backgroundColor: "#0052CC",
@@ -104,7 +104,7 @@ export default function OurValues() {
             ease: "power2.out",
           });
         } else {
-          // Collapse other cards
+          // De-emphasize other cards (desktop width collapses)
           gsap.to(card, {
             duration: 0.1,
             backgroundColor: "white",
@@ -246,11 +246,14 @@ export default function OurValues() {
         {/* Values Cards */}
         {isMobile ? (
           /* Mobile: Vertical stack of all cards */
-          <div className="space-y-4 w-full">
+          <div
+            className="space-y-4 w-full font-['Helvetica_Neue']"
+            style={{ fontWeight: 300 }}
+          >
             {/* Innovation Card */}
-            <div className="bg-[#0052CC] rounded-[16px] p-6 w-full h-auto  overflow-hidden">
+            <div className="bg-[#0052CC] rounded-[16px] p-6 w-full h-auto relative overflow-hidden">
               <div className="relative z-10">
-                <div className=" bg-white/20 rounded-lg flex items-center justify-center mb-3">
+                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mb-3">
                   <svg
                     className="w-4 h-4 text-white"
                     fill="currentColor"

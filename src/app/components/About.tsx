@@ -1,11 +1,23 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
+
+// Detect mobile viewport (below lg)
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 1024);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return isMobile;
+};
 
 interface Feature {
   icon: React.ReactNode;
@@ -21,6 +33,47 @@ interface AboutCard {
   iconColor: string;
   imageUrl?: string;
 }
+
+// Dedicated mobile card template (no absolute/pinning styles)
+const MobileAboutCard = ({ card }: { card: AboutCard }) => {
+  return (
+    <div className={`${card.bgColor} rounded-[20px] p-6 w-full shadow-md`}>
+      <div className="flex flex-col gap-4">
+        <div className="space-y-2">
+          <h3 className={`text-2xl font-light ${card.textColor} leading-tight`}>
+            {card.title}
+          </h3>
+          <p
+            className={`text-sm leading-relaxed ${
+              card.textColor === "text-white" ? "text-white" : "text-gray-600"
+            }`}
+          >
+            {card.description}
+          </p>
+        </div>
+        <div className="flex flex-col gap-3">
+          {card.features.map((feature, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div className={`${card.iconColor} flex-shrink-0`}>
+                {feature.icon}
+              </div>
+              <span className={`text-sm font-normal ${card.textColor}`}>
+                {feature.title}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="w-full h-[220px] rounded-[16px] overflow-hidden">
+          <img
+            src={card.imageUrl || "/dental-png.jpg"}
+            alt={card.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const aboutCards: AboutCard[] = [
   {
@@ -205,8 +258,18 @@ export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    // Disable GSAP animations on mobile
+    if (isMobile) {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+        timelineRef.current = null;
+      }
+      return;
+    }
     if (!sectionRef.current) return;
 
     // Wait for refs to be populated
@@ -320,12 +383,12 @@ export default function About() {
 
     // Start checking for refs
     checkRefs();
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
       ref={sectionRef}
-      className="pt-4 pb-64 px-4 sm:px-6 lg:px-8"
+      className="pt-4 px-4 sm:px-6 lg:px-8"
       data-about-section
     >
       <div className="max-w-7xl mx-auto">
@@ -365,64 +428,71 @@ export default function About() {
           </p>
         </div>
 
-        <div className="card-container relative h-[804px] width-full flex items-center justify-center">
-          {aboutCards.map((card, index) => (
-            <div
-              key={index}
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-              className={`${card.bgColor} rounded-[50px] p-8 sm:p-12 absolute w-full max-w-7xl shadow-lg`}
-              style={{
-                zIndex: 10 + index,
-                boxShadow: `0 ${index * 4 + 10}px ${index * 8 + 20}px rgba(0, 0, 0, 0.15)`,
-                // height: "85%",
-              }}
-            >
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-                <div className="flex-1 space-y-8">
-                  <div className="space-y-5">
-                    <h3
-                      className={`text-3xl sm:text-4xl font-light ${card.textColor} leading-tight`}
-                    >
-                      {card.title}
-                    </h3>
-                    <p
-                      className={`text-base sm:text-lg leading-relaxed ${card.textColor === "text-white" ? "text-white" : "text-gray-600"}`}
-                    >
-                      {card.description}
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    {card.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center gap-3"
+        {isMobile ? (
+          // Mobile: use dedicated component to avoid GSAP/position issues
+          <div className="space-y-4 pb-10">
+            {aboutCards.map((card, index) => (
+              <MobileAboutCard key={index} card={card} />
+            ))}
+          </div>
+        ) : (
+          <div className="card-container relative h-[804px] w-full flex items-center justify-center">
+            {aboutCards.map((card, index) => (
+              <div
+                key={index}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                className={`${card.bgColor} rounded-[50px] p-8 sm:p-12 absolute w-full max-w-7xl shadow-lg`}
+                style={{
+                  zIndex: 10 + index,
+                  boxShadow: `0 ${index * 4 + 10}px ${index * 8 + 20}px rgba(0, 0, 0, 0.15)`,
+                }}
+              >
+                <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                  <div className="flex-1 space-y-8">
+                    <div className="space-y-5">
+                      <h3
+                        className={`text-3xl sm:text-4xl font-light ${card.textColor} leading-tight`}
                       >
-                        <div className={`${card.iconColor} flex-shrink-0`}>
-                          {feature.icon}
-                        </div>
-                        <span
-                          className={`text-sm sm:text-base font-normal ${card.textColor}`}
+                        {card.title}
+                      </h3>
+                      <p
+                        className={`text-base sm:text-lg leading-relaxed ${card.textColor === "text-white" ? "text-white" : "text-gray-600"}`}
+                      >
+                        {card.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      {card.features.map((feature, featureIndex) => (
+                        <div
+                          key={featureIndex}
+                          className="flex items-center gap-3"
                         >
-                          {feature.title}
-                        </span>
-                      </div>
-                    ))}
+                          <div className={`${card.iconColor} flex-shrink-0`}>
+                            {feature.icon}
+                          </div>
+                          <span
+                            className={`text-sm sm:text-base font-normal ${card.textColor}`}
+                          >
+                            {feature.title}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                <div className="w-full lg:w-[586px] h-[400px] sm:h-[500px] rounded-[50px] flex items-center justify-center overflow-hidden">
-                  <img
-                    src="/dental-png.jpg"
-                    alt={card.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <div className="w-full lg:w-[586px] h-[400px] sm:h-[500px] rounded-[50px] flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/dental-png.jpg"
+                      alt={card.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
