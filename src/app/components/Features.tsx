@@ -7,6 +7,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Custom hook to detect mobile screen
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+    };
+
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
+  return isMobile;
+};
+
 interface Feature {
   id: number;
   title: string;
@@ -77,9 +94,11 @@ export default function Features() {
   const [activeFeature, setActiveFeature] = useState<Feature>(features[0]);
   const sectionRef = useRef<HTMLElement | null>(null);
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    // Only apply GSAP animations on desktop
+    if (isMobile || !sectionRef.current) return;
 
     const panels = panelsRef.current.filter(Boolean) as HTMLDivElement[];
     if (panels.length === 0) return;
@@ -124,7 +143,7 @@ export default function Features() {
       tl.kill();
       st.kill();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
@@ -158,77 +177,36 @@ export default function Features() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          {/* Left: Features List */}
-          <div className="lg:w-[280px] self-center">
-            <div className="space-y-4">
-              {features.map((feature) => (
-                <button
-                  key={feature.id}
-                  onClick={() => setActiveFeature(feature)}
-                  className={`block text-left w-full transition-all duration-300 hover:translate-x-2 ${
-                    activeFeature.id === feature.id
-                      ? "text-white"
-                      : "text-[#6BA7FF] hover:text-white/80"
-                  }`}
-                >
-                  <span
-                    className={`${
-                      activeFeature.id === feature.id
-                        ? "text-[24px] font-light"
-                        : "text-[16px] font-normal"
-                    } leading-[1.5] tracking-[-0.02em] transition-all duration-300`}
-                  >
-                    {feature.title}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
+        {isMobile ? (
+          /* Mobile: Scrollable content showing all features */
+          <div className="space-y-12">
+            {features.map((feature) => (
+              <div key={feature.id} className="w-full">
+                <div className="relative bg-gradient-to-br from-[#094EB4] to-[#0A3F8F] rounded-[24px] p-1 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#C4DCFF]/30 via-[#01327B]/30 to-[#01327B]/30 rounded-[24px]"></div>
+                  <div className="relative bg-[#094EB4] rounded-[22px] p-8 shadow-2xl">
+                    {/* Heading */}
+                    <h3 className="text-white text-[28px] font-light leading-[1.15] tracking-[-0.02em] mb-8">
+                      {feature.title}
+                    </h3>
 
-          {/* Right: Panels stacked and transitioned by scroll (image + text + CTA together) */}
-          <div className="flex-1">
-            <div className="relative w-full h-[820px] lg:h-[900px] overflow-hidden">
-              {features.map((f, i) => (
-                <div
-                  key={f.id}
-                  ref={(el) => {
-                    panelsRef.current[i] = el;
-                  }}
-                  className="absolute inset-0 flex flex-col"
-                >
-                  {/* Visual */}
-                  <div className="mb-12">
-                    <div className="relative bg-gradient-to-br from-[#094EB4] to-[#0A3F8F] rounded-[32px] p-1 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#C4DCFF]/30 via-[#01327B]/30 to-[#01327B]/30 rounded-[32px]"></div>
-                      <div className="relative bg-[#094EB4] rounded-[30px] p-12 lg:p-16 shadow-2xl">
-                        <div className="relative w-full h-[400px] lg:h-[500px] rounded-[20px] overflow-hidden border border-white/10">
-                          <Image
-                            src={f.image}
-                            alt={f.title}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                        </div>
-                      </div>
+                    {/* Image */}
+                    <div className="relative w-full h-[400px] rounded-[16px] overflow-hidden border border-white/10 mb-8">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
-                  </div>
 
-                  {/* Text + CTA */}
-                  <div className="space-y-12">
-                    <div className="grid lg:grid-cols-2 gap-4 lg:gap-20">
-                      <div>
-                        <h3 className="text-white text-[28px] lg:text-[48px] font-light leading-[1.15] tracking-[-0.02em]">
-                          {f.title}
-                        </h3>
-                      </div>
-                      <div>
-                        <p className="text-white/90 text-[18px] lg:text-[20px] font-normal leading-[1.6] tracking-[-0.01em]">
-                          {f.description}
-                        </p>
-                      </div>
-                    </div>
+                    {/* Content */}
+                    <p className="text-white/90 text-[18px] font-normal leading-[1.6] tracking-[-0.01em] mb-8">
+                      {feature.description}
+                    </p>
+
+                    {/* CTA Button */}
                     <div className="flex justify-center">
                       <button className="group relative px-10 py-4 bg-white text-[#0052CC] rounded-full font-medium text-[16px] uppercase tracking-[0.08em] transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/95">
                         <span className="relative z-10">View Details</span>
@@ -237,10 +215,95 @@ export default function Features() {
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* Desktop: Original layout with animations */
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            {/* Left: Features List */}
+            <div className="lg:w-[280px] self-center">
+              <div className="space-y-4">
+                {features.map((feature) => (
+                  <button
+                    key={feature.id}
+                    onClick={() => setActiveFeature(feature)}
+                    className={`block text-left w-full transition-all duration-300 hover:translate-x-2 ${
+                      activeFeature.id === feature.id
+                        ? "text-white"
+                        : "text-[#6BA7FF] hover:text-white/80"
+                    }`}
+                  >
+                    <span
+                      className={`${
+                        activeFeature.id === feature.id
+                          ? "text-[24px] font-light"
+                          : "text-[16px] font-normal"
+                      } leading-[1.5] tracking-[-0.02em] transition-all duration-300`}
+                    >
+                      {feature.title}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Panels stacked and transitioned by scroll (image + text + CTA together) */}
+            <div className="flex-1">
+              <div className="relative w-full h-[820px] lg:h-[900px] overflow-hidden">
+                {features.map((f, i) => (
+                  <div
+                    key={f.id}
+                    ref={(el) => {
+                      panelsRef.current[i] = el;
+                    }}
+                    className="absolute inset-0 flex flex-col"
+                  >
+                    {/* Visual */}
+                    <div className="mb-12">
+                      <div className="relative bg-gradient-to-br from-[#094EB4] to-[#0A3F8F] rounded-[32px] p-1 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#C4DCFF]/30 via-[#01327B]/30 to-[#01327B]/30 rounded-[32px]"></div>
+                        <div className="relative bg-[#094EB4] rounded-[30px] p-12 lg:p-16 shadow-2xl">
+                          <div className="relative w-full h-[400px] lg:h-[500px] rounded-[20px] overflow-hidden border border-white/10">
+                            <Image
+                              src={f.image}
+                              alt={f.title}
+                              fill
+                              className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Text + CTA */}
+                    <div className="space-y-12">
+                      <div className="grid lg:grid-cols-2 gap-4 lg:gap-20">
+                        <div>
+                          <h3 className="text-white text-[28px] lg:text-[48px] font-light leading-[1.15] tracking-[-0.02em]">
+                            {f.title}
+                          </h3>
+                        </div>
+                        <div>
+                          <p className="text-white/90 text-[18px] lg:text-[20px] font-normal leading-[1.6] tracking-[-0.01em]">
+                            {f.description}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex justify-center">
+                        <button className="group relative px-10 py-4 bg-white text-[#0052CC] rounded-full font-medium text-[16px] uppercase tracking-[0.08em] transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/95">
+                          <span className="relative z-10">View Details</span>
+                          <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Bottom Pattern */}
         <div className="absolute bottom-0 left-0 w-full h-64 opacity-10">

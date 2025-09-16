@@ -7,24 +7,17 @@ export default function ServicesHero() {
     <section className="w-full bg-white ">
       <div className="max-w-8xl mx-auto px-20 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24 xl:px-20">
         <h1
-          className="text-black"
+          className="text-black text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[1.1] tracking-[-0.02em] mb-4 sm:mb-6 lg:mb-6"
           style={{
             fontFamily: "Helvetica Neue",
             fontWeight: 300,
-            fontSize: "64px",
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
-            marginBottom: "24px",
           }}
         >
           Our Services
         </h1>
 
-        <div className="relative w-full overflow-hidden rounded-[24px]">
-          <div
-            className="relative w-full"
-            style={{ height: "calc(100vh - 200px)", maxHeight: "600px" }}
-          >
+        <div className="relative w-full overflow-hidden rounded-[16px] sm:rounded-[20px] lg:rounded-[24px]">
+          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
             <Image
               src="/services/hero.jpg"
               alt="Services background"
