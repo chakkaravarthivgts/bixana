@@ -25,7 +25,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center justify-center flex-1 gap-10 translate-x-[100px]">
+            <nav className="hidden lg:flex items-center justify-center flex-1 gap-10 translate-x-[100px]">
               <Link
                 className="text-black transition-colors duration-200 hover:text-blue-600"
                 style={{
@@ -81,7 +81,7 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop Action Buttons */}
-            <div className="hidden md:flex items-center flex-shrink-0 gap-2.5">
+            <div className="hidden lg:flex items-center flex-shrink-0 gap-2.5">
               <button
                 className="flex items-center justify-center gap-2 text-white rounded-full transition-colors duration-200 uppercase"
                 style={{
@@ -128,7 +128,7 @@ export default function Navbar() {
 
             {/* Mobile Hamburger */}
             <button
-              className="md:hidden ml-auto inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
+              className="lg:hidden ml-auto inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
               aria-label="Open menu"
               onClick={() => setOpen(true)}
             >
@@ -152,7 +152,7 @@ export default function Navbar() {
 
       {/* Mobile Sidebar - Rendered outside header */}
       {open && (
-        <div className="fixed inset-0 z-[10000] md:hidden">
+        <div className="fixed inset-0 z-[10000] lg:hidden">
           {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/70"

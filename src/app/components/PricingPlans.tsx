@@ -41,7 +41,7 @@ const FeatureItem = ({
         )}
       </div>
       <div
-        className={`font-['Helvetica_Neue:Light',_sans-serif] leading-[0] not-italic relative shrink-0 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-[28px] text-left tracking-[-1.12px] flex-1 ${textColor}`}
+        className={`font-['Helvetica_Neue'] leading-[0] not-italic relative shrink-0 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-[28px] text-left tracking-[-1.12px] flex-1 ${textColor}`}
       >
         <p className="leading-tight sm:leading-[1.2] md:leading-[1.3] lg:leading-[1.4] xl:leading-[1.5] 2xl:leading-[38px] break-words">
           {text}

@@ -57,7 +57,10 @@ const ContactHero = () => {
               </p>
             </div>
             <div className="relative shrink-0 text-[#585858] text-[16px] lg:text-[24px] text-center tracking-[-0.5px] lg:tracking-[-1.12px] w-full max-w-[300px] lg:max-w-[702px] font-['Helvetica_Neue'] font-light">
-              <p className="leading-[24px] lg:leading-[38px]">
+              <p
+                className="leading-[15px] lg:leading-[38px]"
+                style={{ letterSpacing: "-0.5px" }}
+              >
                 For inquiries or assistance, our professionals are ready to
                 help.
               </p>

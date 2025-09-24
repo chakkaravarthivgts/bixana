@@ -34,6 +34,7 @@ export default function OurStory() {
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageStackRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useIsMobile();
+  const [textBoxHeight, setTextBoxHeight] = useState<number>(0);
 
   useLayoutEffect(() => {
     // Only apply GSAP animations on desktop
@@ -45,12 +46,12 @@ export default function OurStory() {
     if (!section || !textTrack) return;
 
     const ctx = gsap.context(() => {
-      const gap = 48;
       const heights = textStepRefs.current
         .filter(Boolean)
         .map((el) => (el as HTMLDivElement).offsetHeight);
-      const total =
-        heights.reduce((a, b) => a + b, 0) + gap * (heights.length - 1);
+      const maxH = Math.max(0, ...heights);
+      setTextBoxHeight(maxH);
+      const total = 1400; // stable scroll distance
 
       const tl = gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -63,46 +64,48 @@ export default function OurStory() {
         },
       });
 
-      let offset = 0;
+      // Ensure initial state: first visible, others hidden
       textStepRefs.current.forEach((step, i) => {
         if (!step) return;
         if (i === 0) {
-          // initial static state (no image animation). Keep first step visible
-          tl.fromTo(
-            step,
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.6 }
-          );
+          gsap.set(step, { opacity: 1, y: 0 });
         } else {
-          offset += (heights[i - 1] || 0) + gap;
-          tl.to(textTrack, {
-            y: -offset,
-            duration: 0.8,
-          });
-          const prevText = textStepRefs.current[i - 1];
-          if (prevText) {
-            tl.to(prevText, { opacity: 0, duration: 0.4 }, "<");
-          }
-          tl.fromTo(
-            step,
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.8 },
-            "<"
-          );
+          gsap.set(step, { opacity: 0, y: 40 });
         }
+      });
 
+      // First transition after pinning begins: fade first up, then show second
+      if (textStepRefs.current[1]) {
+        tl.to(textStepRefs.current[0], { opacity: 0, y: -40, duration: 0.6 });
+        tl.to(textStepRefs.current[1], { opacity: 1, y: 0, duration: 0.6 });
+      }
+      // Remaining transitions
+      for (let i = 2; i < textStepRefs.current.length; i++) {
+        const prev = textStepRefs.current[i - 1];
+        const cur = textStepRefs.current[i];
+        if (!cur || !prev) continue;
+        tl.to(prev, { opacity: 0, y: -40, duration: 0.6 });
+        tl.to(cur, { opacity: 1, y: 0, duration: 0.6 });
+      }
+
+      // Image crossfades in sync
+      for (let i = 0; i < imageRefs.current.length; i++) {
         const img = imageRefs.current[i];
-        if (i > 0 && img) {
+        if (!img) continue;
+        if (i === 0) {
+          gsap.set(img, { opacity: 1, scale: 1 });
+        } else {
+          gsap.set(img, { opacity: 0, scale: 1 });
           tl.fromTo(
             img,
             { opacity: 0, scale: 0.9 },
             { opacity: 1, scale: 1, duration: 0.8 },
             "<"
           );
-          const prev = i > 0 ? imageRefs.current[i - 1] : null;
-          if (prev) tl.to(prev, { opacity: 0, duration: 0.4 }, "<");
+          const prevImg = imageRefs.current[i - 1];
+          if (prevImg) tl.to(prevImg, { opacity: 0, duration: 0.4 }, "<");
         }
-      });
+      }
     }, section);
 
     return () => ctx.revert();
@@ -206,7 +209,7 @@ export default function OurStory() {
         ) : (
           /* Desktop Layout: Original with animations */
           <div className="mx-auto max-w-8xl px-4 sm:px-6 md:px-10 lg:px-12 xl:px-20 py-10 sm:py-14 md:py-16 lg:py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
               {/* Left copy */}
               <div className="lg:col-span-6 text-white">
                 <div className="flex items-center gap-2 mb-6 sm:mb-8">
@@ -230,20 +233,25 @@ export default function OurStory() {
                   </h2>
                 </div>
 
-                <div ref={textTrackRef} className="relative">
+                <div
+                  ref={textTrackRef}
+                  className="relative"
+                  style={{ height: textBoxHeight || undefined }}
+                >
                   {storyImages.map((_, i) => (
                     <div
                       key={`step-${i}`}
                       ref={(el) => {
                         textStepRefs.current[i] = el;
                       }}
-                      className={`font-['Helvetica_Neue'] max-w-2xl ${i === 0 ? "mt-0" : "mt-8 sm:mt-10 md:mt-12"}`}
+                      className={`font-['Helvetica_Neue'] max-w-2xl ${i === 0 ? "absolute inset-0" : "absolute inset-0"}`}
                       style={{
                         fontWeight: 300,
                         color: "#CFE1FF",
-                        fontSize: 18,
+                        fontSize: 24,
                         lineHeight: "26px",
                         letterSpacing: "-0.02em",
+                        opacity: i === 0 ? 1 : 0,
                       }}
                     >
                       At Bixana, our numbers reflect the impact we create for

@@ -24,7 +24,7 @@ const PricingHero = () => {
   return (
     <div className="bg-white relative w-full h-screen flex flex-col">
       {/* Desktop Header Section */}
-      <div className="hidden lg:flex items-center justify-between px-20 pt-20 w-full max-w-8xl mx-auto">
+      <div className="hidden lg:flex items-center justify-between px-20 pt-10 pb-10 w-full max-w-8xl mx-auto">
         <div className="relative shrink-0 text-[90px] text-black text-nowrap">
           <p
             className="leading-[90px] font-light"

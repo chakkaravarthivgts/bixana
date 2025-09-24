@@ -40,7 +40,7 @@ export default function Footer() {
                       letterSpacing: "-0.02em",
                     }}
                   >
-                    BIXANA
+                    bixana
                   </h2>
                 </div>
                 <p

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AboutCardStack, { AboutCardData } from "./AboutCardStack";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -75,7 +76,7 @@ const MobileAboutCard = ({ card }: { card: AboutCard }) => {
   );
 };
 
-const aboutCards: AboutCard[] = [
+const aboutCards: AboutCardData[] = [
   {
     title: "Patient Appointment",
     description:
@@ -340,7 +341,7 @@ export default function About() {
 
       const scrollTrigger = ScrollTrigger.create({
         trigger: sectionRef.current, // Pin the whole About section
-        start: "top -40%", // Pin when About's top reaches 30% of viewport
+        start: "top -45%", // Pin when About's top reaches 30% of viewport
         end: "+=1400", // Scroll distance while About is pinned
         scrub: 1, // Smooth scrubbing for reversible animation
         pin: sectionRef.current, // Pin the section so other sections don't move
@@ -388,11 +389,11 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="pt-4 px-4 sm:px-6 lg:px-8"
+      className="py-10 px-4 sm:px-6 lg:px-8"
       data-about-section
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-4">
+        <div className="text-center ">
           <div className="flex items-center justify-center gap-2 mb-10">
             <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
             <span className="text-black text-base font-light uppercase tracking-wide">
@@ -436,62 +437,7 @@ export default function About() {
             ))}
           </div>
         ) : (
-          <div className="card-container relative h-[804px] w-full flex items-center justify-center">
-            {aboutCards.map((card, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  cardRefs.current[index] = el;
-                }}
-                className={`${card.bgColor} rounded-[50px] p-8 sm:p-12 absolute w-full max-w-7xl shadow-lg`}
-                style={{
-                  zIndex: 10 + index,
-                  boxShadow: `0 ${index * 4 + 10}px ${index * 8 + 20}px rgba(0, 0, 0, 0.15)`,
-                }}
-              >
-                <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-                  <div className="flex-1 space-y-8">
-                    <div className="space-y-5">
-                      <h3
-                        className={`text-3xl sm:text-4xl font-light ${card.textColor} leading-tight`}
-                      >
-                        {card.title}
-                      </h3>
-                      <p
-                        className={`text-base sm:text-lg leading-relaxed ${card.textColor === "text-white" ? "text-white" : "text-gray-600"}`}
-                      >
-                        {card.description}
-                      </p>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                      {card.features.map((feature, featureIndex) => (
-                        <div
-                          key={featureIndex}
-                          className="flex items-center gap-3"
-                        >
-                          <div className={`${card.iconColor} flex-shrink-0`}>
-                            {feature.icon}
-                          </div>
-                          <span
-                            className={`text-sm sm:text-base font-normal ${card.textColor}`}
-                          >
-                            {feature.title}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="w-full lg:w-[586px] h-[400px] sm:h-[500px] rounded-[50px] flex items-center justify-center overflow-hidden">
-                    <img
-                      src="/dental-png.jpg"
-                      alt={card.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <AboutCardStack cards={aboutCards} />
         )}
       </div>
     </section>

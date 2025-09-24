@@ -38,6 +38,7 @@ export default function OurValues() {
             color: "white",
             width: "40%",
             height: "400px",
+            borderWidth: 0,
           });
           gsap.set(card.querySelector(".card-title"), { color: "white" });
           gsap.set(card.querySelector(".card-description"), {
@@ -48,6 +49,14 @@ export default function OurValues() {
             opacity: 0.1,
             display: "block",
           });
+          // Icon colors for active Innovation
+          const activeIcon = card.querySelector(".value-icon");
+          const activeSvg = card.querySelector(".value-icon svg");
+          if (activeIcon)
+            gsap.set(activeIcon as Element, {
+              backgroundColor: "rgba(255,255,255,0.2)",
+            });
+          if (activeSvg) gsap.set(activeSvg as Element, { color: "#FFFFFF" });
         } else {
           // Other cards start normal
           gsap.set(card, {
@@ -55,6 +64,9 @@ export default function OurValues() {
             color: "black",
             width: "20%",
             height: "400px",
+            borderColor: "#E5E7EB",
+            borderStyle: "solid",
+            borderWidth: 1,
           });
           gsap.set(card.querySelector(".card-title"), { color: "black" });
           gsap.set(card.querySelector(".card-description"), {
@@ -85,6 +97,7 @@ export default function OurValues() {
             width: "40%",
             height: "400px",
             ease: "power1.in",
+            borderWidth: 0,
           });
           gsap.to(card.querySelector(".card-title"), {
             duration: 0.1,
@@ -103,6 +116,16 @@ export default function OurValues() {
             display: "block",
             ease: "power2.out",
           });
+          // Icon colors for active card
+          const actIcon = card.querySelector(".value-icon");
+          const actSvg = card.querySelector(".value-icon svg");
+          if (actIcon)
+            gsap.to(actIcon as Element, {
+              backgroundColor: "rgba(255,255,255,0.2)",
+              duration: 0.1,
+            });
+          if (actSvg)
+            gsap.to(actSvg as Element, { color: "#FFFFFF", duration: 0.1 });
         } else {
           // De-emphasize other cards (desktop width collapses)
           gsap.to(card, {
@@ -112,6 +135,9 @@ export default function OurValues() {
             width: "20%",
             height: "400px",
             ease: "power2.out",
+            borderColor: "#E5E7EB",
+            borderStyle: "solid",
+            borderWidth: 1,
           });
           gsap.to(card.querySelector(".card-title"), {
             duration: 0.1,
@@ -130,6 +156,16 @@ export default function OurValues() {
             display: "none",
             ease: "power2.out",
           });
+          // Icon colors for inactive cards
+          const inIcon = card.querySelector(".value-icon");
+          const inSvg = card.querySelector(".value-icon svg");
+          if (inIcon)
+            gsap.to(inIcon as Element, {
+              backgroundColor: "#F8F9FA",
+              duration: 0.1,
+            });
+          if (inSvg)
+            gsap.to(inSvg as Element, { color: "#0052CC", duration: 0.1 });
         }
       }
     });
@@ -399,7 +435,7 @@ export default function OurValues() {
               onMouseEnter={() => handleCardHover(0)}
             >
               <div className="relative z-10">
-                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                <div className="value-icon w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="currentColor"
@@ -438,7 +474,7 @@ export default function OurValues() {
               className="bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col items-start text-left cursor-pointer transition-all duration-300"
               onMouseEnter={() => handleCardHover(1)}
             >
-              <div className="w-12 h-12 bg-[#F8F9FA] rounded-2xl flex items-center justify-center mb-6">
+              <div className="value-icon w-12 h-12 bg-[#F8F9FA] rounded-2xl flex items-center justify-center mb-6">
                 <svg
                   className="w-6 h-6 text-[#0052CC]"
                   fill="currentColor"
@@ -476,7 +512,7 @@ export default function OurValues() {
               className="bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col items-start text-left cursor-pointer transition-all duration-300"
               onMouseEnter={() => handleCardHover(2)}
             >
-              <div className="w-12 h-12 bg-[#F8F9FA] rounded-2xl flex items-center justify-center mb-6">
+              <div className="value-icon w-12 h-12 bg-[#F8F9FA] rounded-2xl flex items-center justify-center mb-6">
                 <svg
                   className="w-6 h-6 text-[#0052CC]"
                   fill="currentColor"
@@ -514,7 +550,7 @@ export default function OurValues() {
               className="bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col items-start text-left cursor-pointer transition-all duration-300"
               onMouseEnter={() => handleCardHover(3)}
             >
-              <div className="w-12 h-12 bg-[#F8F9FA] rounded-2xl flex items-center justify-center mb-6">
+              <div className="value-icon w-12 h-12 bg-[#F8F9FA] rounded-2xl flex items-center justify-center mb-6">
                 <svg
                   className="w-6 h-6 text-[#0052CC]"
                   fill="currentColor"
