@@ -2,13 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Navbar() {
+type NavbarProps = {
+  variant?: "light" | "dark";
+};
+
+export default function Navbar({ variant = "light" }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Hide navbar on scroll for dark variant (AI page)
+  useEffect(() => {
+    if (variant !== "dark") return;
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [variant]);
   return (
     <>
-      <header className="sticky top-0 z-[100] w-full bg-white/95 backdrop-blur-sm ">
+      <header
+        className={
+          variant === "dark"
+            ? `fixed top-0 left-0 right-0 z-[100] w-full bg-transparent transition-transform duration-300 ${scrolled ? "-translate-y-full" : "translate-y-0"}`
+            : "sticky top-0 z-[100] w-full bg-white/95 backdrop-blur-sm "
+        }
+      >
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-20 px-4 sm:px-6 lg:px-8">
             {/* Logo/Brand */}
@@ -19,7 +41,11 @@ export default function Navbar() {
                   alt="Bixana Logo"
                   width={48}
                   height={44}
-                  className="object-contain"
+                  className={
+                    variant === "dark"
+                      ? "object-contain bg-white rounded-full p-1 m-1"
+                      : "object-contain"
+                  }
                 />
               </Link>
             </div>
@@ -27,7 +53,11 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center justify-center flex-1 gap-10 translate-x-[100px]">
               <Link
-                className="text-black transition-colors duration-200 hover:text-blue-600"
+                className={
+                  variant === "dark"
+                    ? "text-white transition-colors duration-200 hover:text-white/80"
+                    : "text-black transition-colors duration-200 hover:text-blue-600"
+                }
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 400,
@@ -40,7 +70,11 @@ export default function Navbar() {
                 About
               </Link>
               <Link
-                className="text-black transition-colors duration-200 hover:text-blue-600"
+                className={
+                  variant === "dark"
+                    ? "text-white transition-colors duration-200 hover:text-white/80"
+                    : "text-black transition-colors duration-200 hover:text-blue-600"
+                }
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 400,
@@ -52,8 +86,13 @@ export default function Navbar() {
               >
                 Services
               </Link>
+
               <Link
-                className="text-black transition-colors duration-200 hover:text-blue-600"
+                className={
+                  variant === "dark"
+                    ? "text-white transition-colors duration-200 hover:text-white/80"
+                    : "text-black transition-colors duration-200 hover:text-blue-600"
+                }
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 400,
@@ -66,7 +105,11 @@ export default function Navbar() {
                 Pricing
               </Link>
               <Link
-                className="text-black transition-colors duration-200 hover:text-blue-600"
+                className={
+                  variant === "dark"
+                    ? "text-white transition-colors duration-200 hover:text-white/80"
+                    : "text-black transition-colors duration-200 hover:text-blue-600"
+                }
                 style={{
                   fontFamily: "Helvetica Neue",
                   fontWeight: 400,
@@ -78,14 +121,36 @@ export default function Navbar() {
               >
                 Contact
               </Link>
+              <Link
+                className={
+                  variant === "dark"
+                    ? "text-white transition-colors duration-200 hover:text-white/80"
+                    : "text-black transition-colors duration-200 hover:text-blue-600"
+                }
+                style={{
+                  fontFamily: "Helvetica Neue",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "1.5em",
+                  letterSpacing: "-0.02em",
+                  textDecoration: "underline",
+                }}
+                href="/ai"
+              >
+                Bixana AI
+              </Link>
             </nav>
 
             {/* Desktop Action Buttons */}
             <div className="hidden lg:flex items-center flex-shrink-0 gap-2.5">
               <button
-                className="flex items-center justify-center gap-2 text-white rounded-full transition-colors duration-200 uppercase"
+                className={
+                  variant === "dark"
+                    ? "flex items-center justify-center gap-2 text-[#0052CC] rounded-full transition-colors duration-200 uppercase bg-white hover:bg-white/90"
+                    : "flex items-center justify-center gap-2 text-white rounded-full transition-colors duration-200 uppercase"
+                }
                 style={{
-                  backgroundColor: "#0052CC",
+                  backgroundColor: variant === "dark" ? "#ffffff" : "#0052CC",
                   width: "205px",
                   height: "48px",
                   fontFamily: "Helvetica Neue",
@@ -111,11 +176,18 @@ export default function Navbar() {
               </button>
 
               <button
-                className="flex items-center justify-center text-black rounded-full transition-colors duration-200 uppercase"
+                className={
+                  variant === "dark"
+                    ? "flex items-center justify-center text-white rounded-full transition-colors duration-200 uppercase border border-white bg-transparent hover:bg-white/10"
+                    : "flex items-center justify-center text-black rounded-full transition-colors duration-200 uppercase"
+                }
                 style={{
                   width: "103px",
                   height: "48px",
-                  border: "2px solid #777777",
+                  border:
+                    variant === "dark"
+                      ? "2px solid #ffffff"
+                      : "2px solid #777777",
                   fontFamily: "Helvetica Neue",
                   fontWeight: 400,
                   fontSize: "16px",
@@ -128,7 +200,11 @@ export default function Navbar() {
 
             {/* Mobile Hamburger */}
             <button
-              className="lg:hidden ml-auto inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
+              className={
+                variant === "dark"
+                  ? "lg:hidden ml-auto inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10"
+                  : "lg:hidden ml-auto inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
+              }
               aria-label="Open menu"
               onClick={() => setOpen(true)}
             >
@@ -136,7 +212,7 @@ export default function Navbar() {
                 className="h-6 w-6"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="currentColor"
+                stroke={variant === "dark" ? "#FFFFFF" : "currentColor"}
               >
                 <path
                   strokeLinecap="round"
@@ -203,6 +279,13 @@ export default function Navbar() {
                 className="py-2 text-gray-900 font-medium"
               >
                 Services
+              </Link>
+              <Link
+                href="/ai"
+                onClick={() => setOpen(false)}
+                className="py-2 text-gray-900 font-medium"
+              >
+                AI
               </Link>
               <Link
                 href="/pricing"
