@@ -6,6 +6,7 @@ import AIHero from "../components/AIHero";
 import AIFeatures from "../components/AIFeatures";
 import AIWhyUs from "../components/AIWhyUs";
 import AIHowItWorksWithTextReveal from "../components/AIHowItWorksWithTextReveal";
+import AILiveDemo from "../components/AILiveDemo";
 import Testimonials from "../components/Testimonials";
 import Blog from "../components/Blog";
 import Footer from "../components/Footer";
@@ -21,6 +22,7 @@ export default function AIPage() {
       <AIFeatures />
       <AIWhyUs />
       <AIHowItWorksWithTextReveal />
+      <AILiveDemo />
       <Testimonials />
       <Blog />
       <CTABanner />
