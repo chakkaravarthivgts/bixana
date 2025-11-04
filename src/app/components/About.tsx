@@ -445,7 +445,7 @@ export default function About() {
 
         {isMobile ? (
           // Mobile: use dedicated component to avoid GSAP/position issues
-          <div className="space-y-4 pb-10">
+          <div className="mt-6 space-y-4 pb-10">
             {aboutCards.map((card, index) => (
               <MobileAboutCard key={index} card={card} />
             ))}
