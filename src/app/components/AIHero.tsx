@@ -11,7 +11,7 @@ export default function AIHero() {
         backgroundImage: "var(--tf-hero-gradient)",
       }}
     >
-      <div className="relative z-0 flex flex-col lg:flex-row items-start min-h-screen pt-32">
+      <div className="relative z-0 flex flex-col lg:flex-row items-start min-h-screen pt-20 sm:pt-28 lg:pt-32">
         {/* Left Side - Content */}
         <div className="flex-1 px-4 sm:px-6 lg:px-8 lg:pl-16 xl:pl-20">
           <div className="max-w-2xl">
@@ -67,7 +67,7 @@ export default function AIHero() {
 
             {/* Subtitle */}
             <p
-              className="text-white/90 mb-12 max-w-xl"
+              className="text-white/90 mb-10 sm:mb-12 max-w-xl"
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
@@ -98,11 +98,11 @@ export default function AIHero() {
         </div>
 
         {/* Right Side - Visual Demo */}
-        <div className="flex-1 px-4 sm:px-6 lg:px-8 lg:pr-16 xl:pr-20 py-20 lg:py-24">
+        <div className="flex-1 px-4 sm:px-6 lg:px-8 lg:pr-16 xl:pr-20 py-8 sm:py-16 lg:py-24">
           <div className="relative mx-auto w-full">
-            {/* Background Text */}
+            {/* Background Text (hidden on mobile) */}
             <div
-              className="absolute top-0 right-0 text-white text-[24px]"
+              className="hidden lg:block absolute top-0 right-0 text-white text-[24px]"
               style={{ fontFamily: "Inter Tight", fontWeight: 300 }}
             >
               Compare and select a plan
@@ -111,14 +111,14 @@ export default function AIHero() {
             </div>
 
             {/* Oversized Tablet Image (intentional crop) */}
-            <div className="relative h-[720px] sm:h-[520px] lg:h-[720px]">
+            <div className="relative h-[360px] sm:h-[520px] lg:h-[720px]">
               <Image
                 src="/ai/95b723dbc6effdd20643bab57382ef1ede1874f2.png"
                 alt="AI Clinical Notes Tablet"
                 width={2400}
                 height={1400}
                 priority
-                className="absolute max-w-none pointer-events-none select-none drop-shadow-[0_60px_120px_rgba(0,0,0,0.6)] right-[-60%] bottom-[-60%] w-[280%] sm:w-[160%] lg:w-[220%]"
+                className="absolute max-w-none pointer-events-none select-none drop-shadow-[0_60px_120px_rgba(0,0,0,0.6)] right-[-10%] bottom-[-10%] w-[140%] sm:right-[-30%] sm:bottom-[-30%] sm:w-[160%] lg:right-[-35%] lg:bottom-[-40%] lg:w-[200%]"
               />
             </div>
           </div>
