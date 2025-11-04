@@ -74,37 +74,40 @@ export default function OurStory() {
         }
       });
 
-      // First transition after pinning begins: fade first up, then show second
-      if (textStepRefs.current[1]) {
-        tl.to(textStepRefs.current[0], { opacity: 0, y: -40, duration: 0.6 });
-        tl.to(textStepRefs.current[1], { opacity: 1, y: 0, duration: 0.6 });
-      }
-      // Remaining transitions
-      for (let i = 2; i < textStepRefs.current.length; i++) {
-        const prev = textStepRefs.current[i - 1];
-        const cur = textStepRefs.current[i];
-        if (!cur || !prev) continue;
-        tl.to(prev, { opacity: 0, y: -40, duration: 0.6 });
-        tl.to(cur, { opacity: 1, y: 0, duration: 0.6 });
-      }
-
-      // Image crossfades in sync
-      for (let i = 0; i < imageRefs.current.length; i++) {
-        const img = imageRefs.current[i];
-        if (!img) continue;
+      // Prepare images initial state
+      imageRefs.current.forEach((img, i) => {
+        if (!img) return;
         if (i === 0) {
           gsap.set(img, { opacity: 1, scale: 1 });
         } else {
           gsap.set(img, { opacity: 0, scale: 1 });
-          tl.fromTo(
-            img,
-            { opacity: 0, scale: 0.9 },
-            { opacity: 1, scale: 1, duration: 0.8 },
-            "<"
-          );
-          const prevImg = imageRefs.current[i - 1];
-          if (prevImg) tl.to(prevImg, { opacity: 0, duration: 0.4 }, "<");
         }
+      });
+
+      // Interleave text and image transitions per step
+      const steps = Math.min(
+        textStepRefs.current.length,
+        imageRefs.current.length
+      );
+      for (let i = 1; i < steps; i++) {
+        const prevText = textStepRefs.current[i - 1];
+        const curText = textStepRefs.current[i];
+        const prevImg = imageRefs.current[i - 1];
+        const curImg = imageRefs.current[i];
+        if (!prevText || !curText || !prevImg || !curImg) continue;
+
+        // fade previous text up, then bring next text in
+        tl.to(prevText, { opacity: 0, y: -40, duration: 0.6 });
+        tl.to(curText, { opacity: 1, y: 0, duration: 0.6 });
+
+        // sync images with the same step
+        tl.to(prevImg, { opacity: 0, duration: 0.4 }, "<");
+        tl.fromTo(
+          curImg,
+          { opacity: 0, scale: 0.92 },
+          { opacity: 1, scale: 1, duration: 0.8 },
+          "<"
+        );
       }
     }, section);
 
@@ -130,15 +133,19 @@ export default function OurStory() {
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-3 h-3 bg-white/90 rounded-full" />
                 <span
-                  className="uppercase tracking-wide font-['Helvetica_Neue'] text-sm text-white/70"
-                  style={{ fontWeight: 300 }}
+                  className="uppercase tracking-wide text-sm text-white/70"
+                  style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                 >
                   Our Story
                 </span>
               </div>
               <h2
-                className="font-['Helvetica_Neue'] text-white leading-tight"
-                style={{ fontWeight: 300, letterSpacing: "-0.02em" }}
+                className="text-white leading-tight"
+                style={{
+                  fontWeight: 300,
+                  letterSpacing: "-0.02em",
+                  fontFamily: "Inter Tight",
+                }}
               >
                 <span className="block text-[32px] leading-[36px]">
                   How it began
@@ -154,16 +161,16 @@ export default function OurStory() {
                   <div className="bg-white/10 backdrop-blur-sm rounded-[16px] p-6 mx-0 mb-4">
                     {/* Number */}
                     <div
-                      className="text-white/60 font-['Helvetica_Neue'] text-[60px] leading-none mb-4"
-                      style={{ fontWeight: 300 }}
+                      className="text-white/60 text-[60px] leading-none mb-4"
+                      style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
 
                     {/* Heading */}
                     <h3
-                      className="text-white font-['Helvetica_Neue'] text-[24px] leading-[28px] mb-4"
-                      style={{ fontWeight: 300 }}
+                      className="text-white text-[24px] leading-[28px] mb-4"
+                      style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                     >
                       {i === 0 && "How it began"}
                       {i === 1 && "Our Mission"}
@@ -173,12 +180,12 @@ export default function OurStory() {
 
                     {/* Content */}
                     <p
-                      className="font-['Helvetica_Neue'] text-white/90 text-[16px] leading-[24px] mb-6"
-                      style={{ fontWeight: 300 }}
+                      className="text-white/90 text-[16px] leading-[24px] mb-6"
+                      style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                     >
-                      At Bixana, our numbers reflect the impact we create for
-                      dental practices. From the growing number of clinics we
-                      support to the efficiency gains our solutions deliver,
+                      At ToothFairy, our numbers reflect the impact we create
+                      for dental practices. From the growing number of clinics
+                      we support to the efficiency gains our solutions deliver,
                       each statistic represents our commitment to innovation,
                       seamless workflows, and exceptional patient care.
                     </p>
@@ -187,7 +194,7 @@ export default function OurStory() {
                     <div className="relative w-full h-[250px] rounded-[12px] overflow-hidden bg-white">
                       <Image
                         src={src}
-                        alt="Bixana workspace"
+                        alt="ToothFairy workspace"
                         fill
                         sizes="100vw"
                         className="object-cover"
@@ -209,9 +216,9 @@ export default function OurStory() {
         ) : (
           /* Desktop Layout: Original with animations */
           <div className="mx-auto max-w-8xl px-4 sm:px-6 md:px-10 lg:px-12 xl:px-20 py-10 sm:py-14 md:py-16 lg:py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
               {/* Left copy */}
-              <div className="lg:col-span-6 text-white">
+              <div className="lg:col-span-6 text-white flex flex-col justify-center">
                 <div className="flex items-center gap-2 mb-6 sm:mb-8">
                   <div className="w-3 h-3 bg-white/90 rounded-full" />
                   <span
@@ -244,7 +251,7 @@ export default function OurStory() {
                       ref={(el) => {
                         textStepRefs.current[i] = el;
                       }}
-                      className={`font-['Helvetica_Neue'] max-w-2xl ${i === 0 ? "absolute inset-0" : "absolute inset-0"}`}
+                      className={`absolute inset-0 max-w-2xl`}
                       style={{
                         fontWeight: 300,
                         color: "#CFE1FF",
@@ -254,9 +261,9 @@ export default function OurStory() {
                         opacity: i === 0 ? 1 : 0,
                       }}
                     >
-                      At Bixana, our numbers reflect the impact we create for
-                      dental practices. From the growing number of clinics we
-                      support to the efficiency gains our solutions deliver,
+                      At ToothFairy, our numbers reflect the impact we create
+                      for dental practices. From the growing number of clinics
+                      we support to the efficiency gains our solutions deliver,
                       each statistic represents our commitment to innovation,
                       seamless workflows, and exceptional patient care.
                     </div>
@@ -282,7 +289,7 @@ export default function OurStory() {
                       >
                         <Image
                           src={src}
-                          alt="Bixana workspace"
+                          alt="ToothFairy workspace"
                           fill
                           sizes="(min-width: 1024px) 640px, 90vw"
                           className="object-cover"

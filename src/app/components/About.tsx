@@ -78,9 +78,9 @@ const MobileAboutCard = ({ card }: { card: AboutCard }) => {
 
 const aboutCards: AboutCardData[] = [
   {
-    title: "Patient Appointment",
+    title: "Smart Patient Appointment Management",
     description:
-      "From booking the first appointment to managing post-treatment feedback — our all-in-one dental software streamlines your workflow, boosts patient satisfaction, and keeps your clinic running smoothly.",
+      "Simplify scheduling with smart tools that keep your appointments organized and patients on time. Streamline bookings, reminders, and confirmations — all in one intelligent scheduling system. Effortless scheduling made smarter, keeping your dental practice efficient and patient-friendly. Automate appointments and reduce no-shows with intelligent, real-time scheduling. A smarter way to manage patient bookings — simple, fast, and always on schedule.",
     features: [
       {
         icon: (
@@ -96,15 +96,15 @@ const aboutCards: AboutCardData[] = [
             <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
           </svg>
         ),
-        title: "Instant messaging",
+        title: "Instant Messaging",
       },
       {
         icon: (
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
           </svg>
         ),
-        title: "Reminders & Confirmation",
+        title: "Remainder & Confirmation",
       },
     ],
     bgColor: "bg-gray-200",
@@ -114,20 +114,12 @@ const aboutCards: AboutCardData[] = [
   {
     title: "In Patient Appointment",
     description:
-      "From booking the first appointment to managing post-treatment feedback — our all-in-one dental software streamlines your workflow, boosts patient satisfaction, and keeps your clinic running smoothly.",
+      "Seamless chairside coordination manages in-clinic visits effortlessly — Enhanced patient experience delivers a comfortable, efficient in-clinic journey that leaves every patient feeling cared for and valued.",
     features: [
       {
         icon: (
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
-          </svg>
-        ),
-        title: "Eligibility Benefit Summary",
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
           </svg>
         ),
         title: "Digital Consents",
@@ -135,10 +127,34 @@ const aboutCards: AboutCardData[] = [
       {
         icon: (
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
           </svg>
         ),
-        title: "Instant messaging",
+        title: "Treatment & Payment Plans",
+      },
+      {
+        icon: (
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
+          </svg>
+        ),
+        title: "Recent Activity",
+      },
+      {
+        icon: (
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z" />
+          </svg>
+        ),
+        title: "Patient Statistics",
+      },
+      {
+        icon: (
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+        ),
+        title: "Email Templates",
       },
       {
         icon: (
@@ -146,7 +162,7 @@ const aboutCards: AboutCardData[] = [
             <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
           </svg>
         ),
-        title: "Reminders & Confirmation",
+        title: "Communication Log",
       },
     ],
     bgColor: "bg-blue-600",
@@ -156,7 +172,7 @@ const aboutCards: AboutCardData[] = [
   {
     title: "Post Treatment",
     description:
-      "From booking the first appointment to managing post-treatment feedback — our all-in-one dental software streamlines your workflow, boosts patient satisfaction, and keeps your clinic running smoothly.",
+      "Deliver seamless post-treatment support that keeps patients informed, engaged, and cared for. Manage follow-up care, track recovery progress, and maintain continuous communication with patients after their treatment. Ensure timely check-ins, automated reminders for post-treatment appointments, and personalized care instructions that enhance patient outcomes and satisfaction.",
     features: [
       {
         icon: (
@@ -164,31 +180,7 @@ const aboutCards: AboutCardData[] = [
             <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
           </svg>
         ),
-        title: "Eligibility Benefit Summary",
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
-          </svg>
-        ),
-        title: "Digital Consents",
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
-          </svg>
-        ),
-        title: "Instant messaging",
-      },
-      {
-        icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
-          </svg>
-        ),
-        title: "Reminders & Confirmation",
+        title: "Patient review Request",
       },
     ],
     bgColor: "bg-gray-900",
@@ -198,7 +190,7 @@ const aboutCards: AboutCardData[] = [
   {
     title: "For Clinic",
     description:
-      "From booking the first appointment to managing post-treatment feedback — our all-in-one dental software streamlines your workflow, boosts patient satisfaction, and keeps your clinic running smoothly.",
+      "Transform your clinic into a smarter, more connected practice built for modern dentistry. Empower your team with powerful analytics and reporting tools, comprehensive user account management, and seamless practice administration. Streamline clinic operations with customizable templates, intelligent task management, and flexible scheduling capabilities that adapt to your practice's unique needs.",
     features: [
       {
         icon: (
@@ -226,11 +218,33 @@ const aboutCards: AboutCardData[] = [
       },
       {
         icon: (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H19V1h-2v1H7V1H5v1H4.5C3.67 2 3 2.67 3 3.5v15C3 19.33 3.67 20 4.5 20h15c.83 0 1.5-.67 1.5-1.5v-15C21 2.67 20.33 2 19.5 2z" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            {/* Top line with checkmark on left */}
+            <path
+              d="M3 7l2 2 4-4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <line x1="9" y1="7" x2="21" y2="7" strokeLinecap="round" />
+            {/* Middle line with checkmark on left */}
+            <path
+              d="M3 12l2 2 4-4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <line x1="9" y1="12" x2="21" y2="12" strokeLinecap="round" />
+            {/* Bottom line with dot on left */}
+            <circle cx="4" cy="17" r="1.5" fill="currentColor" />
+            <line x1="8" y1="17" x2="21" y2="17" strokeLinecap="round" />
           </svg>
         ),
-        title: "Create task for clinic",
+        title: "Create Task for Clinic",
       },
       {
         icon: (
@@ -406,7 +420,7 @@ export default function About() {
               letterSpacing: "-3%",
               lineHeight: "1.3",
               fontWeight: 300,
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
             }}
           >
             Comprehensive{" "}

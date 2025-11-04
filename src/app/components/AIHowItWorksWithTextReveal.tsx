@@ -216,7 +216,7 @@ export default function AIHowItWorksWithTextReveal() {
             />
             <span
               className="uppercase"
-              style={{ fontFamily: "Helvetica Neue", fontWeight: 300 }}
+              style={{ fontFamily: "Inter Tight", fontWeight: 300 }}
             >
               How it works
             </span>
@@ -226,7 +226,7 @@ export default function AIHowItWorksWithTextReveal() {
           <h2
             className="text-center mt-4"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 300,
               fontSize: "clamp(28px,5vw,48px)",
               letterSpacing: "-0.02em",
@@ -240,7 +240,7 @@ export default function AIHowItWorksWithTextReveal() {
             {/* Left numbers */}
             <div
               className="hidden lg:flex flex-col items-start pt-6 flex-shrink-0"
-              style={{ fontFamily: "Helvetica Neue", fontWeight: 300 }}
+              style={{ fontFamily: "Inter Tight", fontWeight: 300 }}
             >
               {STEPS.map((_, i) => (
                 <div
@@ -295,7 +295,7 @@ export default function AIHowItWorksWithTextReveal() {
                     <h3
                       className="mb-3"
                       style={{
-                        fontFamily: "Helvetica Neue",
+                        fontFamily: "Inter Tight",
                         fontWeight: 300,
                         fontSize: "clamp(22px,3.6vw,32px)",
                         letterSpacing: "-0.02em",
@@ -306,7 +306,7 @@ export default function AIHowItWorksWithTextReveal() {
                     <p
                       className="text-white/80"
                       style={{
-                        fontFamily: "Helvetica Neue",
+                        fontFamily: "Inter Tight",
                         fontWeight: 300,
                         fontSize: 16,
                         lineHeight: 1.6,
@@ -331,7 +331,7 @@ export default function AIHowItWorksWithTextReveal() {
           <p
             className="text-white"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 300,
               fontSize: "clamp(28px, 5.5vw, 48px)",
               lineHeight: 1.2,
@@ -348,7 +348,7 @@ export default function AIHowItWorksWithTextReveal() {
                 ))}
             </span>
             <span ref={line2Ref} className="block">
-              {"informed actions — Bixana AI helps you see"
+              {"informed actions — ToothFairy AI helps you see"
                 .split("")
                 .map((ch, i) => (
                   <span key={i} className="letter">

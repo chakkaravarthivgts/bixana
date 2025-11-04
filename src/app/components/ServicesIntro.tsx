@@ -98,17 +98,11 @@ export default function ServicesIntro() {
         <div className="h-full border-r-2 border-dotted border-blue-200"></div>
       </div>
 
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 py-10 sm:py-14 md:py-18 lg:py-24">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 py-10 sm:py-16 md:py-20 lg:py-28">
         <div className="text-center">
           <p
-            className="text-black"
-            style={{
-              fontFamily: "Helvetica Neue",
-              fontWeight: 300,
-              fontSize: "clamp(28px, 6vw, 68px)",
-              lineHeight: 1.15,
-              letterSpacing: "-2.08px",
-            }}
+            className="text-[#0A0F29] text-[20px] sm:text-[28px] md:text-[36px] lg:text-[48px] leading-tight tracking-[-0.02em] max-w-6xl mx-auto"
+            style={{ fontFamily: "Inter Tight", fontWeight: 300 }}
           >
             <span ref={line1Ref} className="block">
               {"One platform for every dental need"

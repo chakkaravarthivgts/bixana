@@ -25,13 +25,19 @@ const ContactCard = ({
             <div className="relative shrink-0 size-[50px] lg:size-[75px] flex items-center justify-center">
               {icon}
             </div>
-            <div className="capitalize font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-[20px] lg:text-[30px] text-black text-nowrap tracking-[-0.5px] lg:tracking-[-1.14px]">
+            <div
+              className="capitalize font-light leading-[0] not-italic relative shrink-0 text-[20px] lg:text-[30px] text-black text-nowrap tracking-[-0.5px] lg:tracking-[-1.14px]"
+              style={{ fontFamily: "Inter Tight" }}
+            >
               <p className="leading-[28px] lg:leading-[44px] whitespace-pre">
                 {title}
               </p>
             </div>
           </div>
-          <div className="font-['Helvetica_Neue'] leading-[0] not-italic relative shrink-0 text-[#777777] text-[14px] lg:text-[20px] text-center tracking-[-0.3px] lg:tracking-[-0.72px]">
+          <div
+            className="leading-[0] not-italic relative shrink-0 text-[#777777] text-[14px] lg:text-[20px] text-center tracking-[-0.3px] lg:tracking-[-0.72px]"
+            style={{ fontFamily: "Inter Tight" }}
+          >
             <p className="leading-[20px] lg:leading-[38px]">{content}</p>
           </div>
         </div>
@@ -48,15 +54,21 @@ const ContactHero = () => {
   return (
     <div className="bg-white relative w-full">
       {/* Header Section */}
-      <div className="h-[200px] lg:h-[300px] relative w-full">
-        <div className="absolute bg-white h-[400px] lg:h-[584px] left-0 overflow-clip top-0.5 w-full">
-          <div className="absolute content-stretch flex flex-col font-['Helvetica_Neue:Light',_sans-serif] h-[100px] lg:h-[140px] items-center justify-between leading-[0] left-1/2 not-italic top-[50px] lg:top-[100px] translate-x-[-50%] px-4">
+      <div className="h-[140px] lg:h-[200px] relative w-full">
+        <div className="absolute bg-white h-[320px] lg:h-[460px] left-0 overflow-clip top-0 w-full">
+          <div
+            className="absolute content-stretch flex flex-col h-[100px] lg:h-[140px] items-center justify-between leading-[0] left-1/2 not-italic top-[24px] lg:top-[48px] translate-x-[-50%] px-4"
+            style={{ fontFamily: "Inter Tight" }}
+          >
             <div className="relative shrink-0 text-[32px] lg:text-[72px] text-black text-nowrap tracking-[-0.8px] lg:tracking-[-2.52px] font-light">
               <p className="leading-[40px] lg:leading-[100px] whitespace-pre">
                 Contact Us
               </p>
             </div>
-            <div className="relative shrink-0 text-[#585858] text-[16px] lg:text-[24px] text-center tracking-[-0.5px] lg:tracking-[-1.12px] w-full max-w-[300px] lg:max-w-[702px] font-['Helvetica_Neue'] font-light">
+            <div
+              className="relative shrink-0 text-[#585858] text-[16px] lg:text-[24px] text-center tracking-[-0.5px] lg:tracking-[-1.12px] w-full max-w-[300px] lg:max-w-[702px] font-light"
+              style={{ fontFamily: "Inter Tight" }}
+            >
               <p
                 className="leading-[15px] lg:leading-[38px]"
                 style={{ letterSpacing: "-0.5px" }}
@@ -110,7 +122,7 @@ const ContactHero = () => {
           {/* Center Image */}
           <div className="bg-center bg-cover bg-no-repeat h-[602px] rounded-[43px] shrink-0 w-[496px] md:w-[496px] lg:w-[397px] xl:w-[496px] relative overflow-hidden">
             <Image
-              src="/about/whatwedo.jpg"
+              src="/contact/Frame 1321323096.png"
               alt="Professional in medical setting"
               fill
               className="object-cover"
@@ -136,13 +148,13 @@ const ContactHero = () => {
 
             {/* Information Text */}
             <div
-              className="font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-[24px] text-black tracking-[-1.12px] w-[291px]"
-              style={{ fontWeight: 300 }}
+              className="font-light leading-[0] not-italic relative shrink-0 text-[24px] text-black tracking-[-1.12px] w-[291px]"
+              style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
             >
               <p className="leading-[38px]">
                 We shall touch base with you as soon as possible to address your
                 query. If you need help with product installation, setup and
-                configuration of Bixana product
+                configuration of ToothFairy product
               </p>
             </div>
           </div>
@@ -153,7 +165,7 @@ const ContactHero = () => {
           {/* Image First */}
           <div className="w-full max-w-[400px] h-[300px] rounded-[20px] relative overflow-hidden">
             <Image
-              src="/about/whatwedo.jpg"
+              src="/contact/Frame 1321323096.png"
               alt="Professional in medical setting"
               fill
               className="object-cover"
@@ -214,13 +226,13 @@ const ContactHero = () => {
           {/* Information Text */}
           <div className="w-full max-w-[400px] text-center">
             <div
-              className="font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-[18px] text-black tracking-[-0.8px]"
-              style={{ fontWeight: 300 }}
+              className="font-light leading-[0] not-italic relative shrink-0 text-[18px] text-black tracking-[-0.8px]"
+              style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
             >
               <p className="leading-[28px]">
                 We shall touch base with you as soon as possible to address your
                 query. If you need help with product installation, setup and
-                configuration of Bixana product
+                configuration of ToothFairy product
               </p>
             </div>
           </div>

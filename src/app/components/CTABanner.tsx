@@ -37,7 +37,7 @@ export default function CTABanner() {
               {/* Headline */}
               <h2
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "clamp(28px, 6vw, 68px)",
                   lineHeight: "1.2",
@@ -61,7 +61,7 @@ export default function CTABanner() {
               {/* Description */}
               <p
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "clamp(14px, 3.5vw, 20px)",
                   lineHeight: "1.6",
@@ -71,7 +71,7 @@ export default function CTABanner() {
               >
                 We shall touch base with you as soon as possible to address your
                 query. If you need help with product installation, setup and
-                configtaiotn of Bixana product
+                configtaiotn of ToothFairy product
               </p>
             </div>
 
@@ -79,7 +79,7 @@ export default function CTABanner() {
             <div className="flex flex-col gap-2">
               <p
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 400,
                   fontSize: "18px",
                   lineHeight: "1.6em",
@@ -91,7 +91,7 @@ export default function CTABanner() {
               </p>
               <p
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "clamp(24px, 6vw, 60px)",
                   lineHeight: "1.15",
@@ -119,7 +119,7 @@ export default function CTABanner() {
                     placeholder="First Name"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
-                      fontFamily: "Helvetica Neue",
+                      fontFamily: "Inter Tight",
                       fontWeight: 400,
                       fontSize: "18px",
                       lineHeight: "1.333em",
@@ -139,7 +139,7 @@ export default function CTABanner() {
                     placeholder="Email"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
-                      fontFamily: "Helvetica Neue",
+                      fontFamily: "Inter Tight",
                       fontWeight: 400,
                       fontSize: "18px",
                       lineHeight: "1.333em",
@@ -159,7 +159,7 @@ export default function CTABanner() {
                     placeholder="Subject"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
-                      fontFamily: "Helvetica Neue",
+                      fontFamily: "Inter Tight",
                       fontWeight: 400,
                       fontSize: "18px",
                       lineHeight: "1.333em",
@@ -178,7 +178,7 @@ export default function CTABanner() {
                     placeholder="Your Message"
                     className="w-full h-full bg-transparent border-none outline-none resize-none px-9 py-8"
                     style={{
-                      fontFamily: "Helvetica Neue",
+                      fontFamily: "Inter Tight",
                       fontWeight: 400,
                       fontSize: "18px",
                       lineHeight: "1.556em",
@@ -199,7 +199,7 @@ export default function CTABanner() {
               <span
                 className="uppercase"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "16px",
                   lineHeight: "1.3em",

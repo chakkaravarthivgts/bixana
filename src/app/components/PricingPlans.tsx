@@ -41,7 +41,8 @@ const FeatureItem = ({
         )}
       </div>
       <div
-        className={`font-['Helvetica_Neue'] leading-[0] not-italic relative shrink-0 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-[28px] text-left tracking-[-1.12px] flex-1 ${textColor}`}
+        className={`leading-[0] not-italic relative shrink-0 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-[28px] text-left tracking-[-1.12px] flex-1 ${textColor}`}
+        style={{ fontFamily: "Inter Tight" }}
       >
         <p className="leading-tight sm:leading-[1.2] md:leading-[1.3] lg:leading-[1.4] xl:leading-[1.5] 2xl:leading-[38px] break-words">
           {text}
@@ -94,7 +95,8 @@ const PlanCard = ({
               <div className="content-stretch flex flex-col items-start justify-start relative shrink-0 w-full">
                 <div className="content-stretch flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 items-start sm:items-center justify-start relative shrink-0 w-full">
                   <div
-                    className={`font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-xl sm:text-2xl md:text-3xl lg:text-[32px] text-nowrap tracking-[-1.32px] ${titleColor}`}
+                    className={`font-light leading-[0] not-italic relative shrink-0 text-xl sm:text-2xl md:text-3xl lg:text-[32px] text-nowrap tracking-[-1.32px] ${titleColor}`}
+                    style={{ fontFamily: "Inter Tight" }}
                   >
                     <p className="leading-tight sm:leading-[1.2] md:leading-[1.3] lg:leading-[44px] whitespace-pre">
                       {title}
@@ -102,13 +104,19 @@ const PlanCard = ({
                   </div>
                   {isPopular && (
                     <div className="box-border content-stretch flex gap-2.5 h-[45px] items-center justify-center p-[10px] relative rounded-[200px] shrink-0 w-[103px] border-2 border-white">
-                      <div className="font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-[16px] text-center text-nowrap text-white uppercase">
+                      <div
+                        className="font-light leading-[0] not-italic relative shrink-0 text-[16px] text-center text-nowrap text-white uppercase"
+                        style={{ fontFamily: "Inter Tight" }}
+                      >
                         <p className="leading-[1.3] whitespace-pre">popular</p>
                       </div>
                     </div>
                   )}
                 </div>
-                <div className="content-stretch flex flex-col font-['Helvetica_Neue'] font-light gap-2 sm:gap-2 md:gap-3 lg:gap-2 items-start justify-end leading-[0] not-italic relative shrink-0 text-nowrap w-full">
+                <div
+                  className="content-stretch flex flex-col font-light gap-2 sm:gap-2 md:gap-3 lg:gap-2 items-start justify-end leading-[0] not-italic relative shrink-0 text-nowrap w-full"
+                  style={{ fontFamily: "Inter Tight" }}
+                >
                   <div
                     className={`relative shrink-0 text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[64px] 2xl:text-[96px] text-center tracking-[2.8px] ${textColor}`}
                   >
@@ -126,7 +134,8 @@ const PlanCard = ({
                 </div>
               </div>
               <div
-                className={`font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-sm sm:text-base md:text-lg lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-1.12px] w-full ${textColor}`}
+                className={`font-light leading-[0] not-italic relative shrink-0 text-sm sm:text-base md:text-lg lg:text-[18px] xl:text-[20px] 2xl:text-[22px] tracking-[-1.12px] w-full ${textColor}`}
+                style={{ fontFamily: "Inter Tight" }}
               >
                 <p className="leading-tight sm:leading-[1.3] md:leading-[1.4] lg:leading-[1.5] xl:leading-[1.5] 2xl:leading-[30px]">
                   {description}
@@ -137,7 +146,8 @@ const PlanCard = ({
               className={`${buttonStyle === "blue" ? "bg-[#0052cc]" : "bg-white"} box-border content-stretch flex gap-2.5 h-10 sm:h-11 md:h-12 lg:h-[48px] items-center justify-center p-2 sm:p-3 md:p-[8px] relative rounded-[200px] shrink-0 w-full sm:w-36 md:w-40 lg:w-[180px]`}
             >
               <div
-                className={`font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-xs sm:text-sm md:text-base lg:text-[16px] text-center text-nowrap uppercase ${buttonStyle === "blue" ? "text-white" : "text-[#0052cc]"}`}
+                className={`font-light leading-[0] not-italic relative shrink-0 text-xs sm:text-sm md:text-base lg:text-[16px] text-center text-nowrap uppercase ${buttonStyle === "blue" ? "text-white" : "text-[#0052cc]"}`}
+                style={{ fontFamily: "Inter Tight" }}
               >
                 <p className="leading-[1.3] whitespace-pre">{buttonText}</p>
               </div>
@@ -151,7 +161,8 @@ const PlanCard = ({
             <div className="content-stretch flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7 items-start justify-start relative shrink-0 w-full">
               <div className="content-stretch flex flex-col gap-1.5 sm:gap-2 md:gap-3 h-auto items-start justify-start relative shrink-0 w-full">
                 <div
-                  className={`font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-[42px] text-nowrap tracking-[-1.1px] ${textColor}`}
+                  className={`font-light leading-[0] not-italic relative shrink-0 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-[42px] text-nowrap tracking-[-1.1px] ${textColor}`}
+                  style={{ fontFamily: "Inter Tight" }}
                 >
                   <p className="leading-tight sm:leading-[1.1] md:leading-[1.2] lg:leading-[1.2] xl:leading-[1.25] 2xl:leading-[48px] whitespace-pre">
                     Available Features
@@ -246,7 +257,10 @@ const PricingPlans = () => {
               PLANS
             </span>
           </div>
-          <div className="font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[68px] text-black text-center tracking-[-2.04px] w-full max-w-4xl px-4">
+          <div
+            className="font-light leading-[0] not-italic relative shrink-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-[68px] text-black text-center tracking-[-2.04px] w-full max-w-4xl px-4"
+            style={{ fontFamily: "Inter Tight" }}
+          >
             <p className="leading-tight sm:leading-[1.1] md:leading-[1.2] lg:leading-[1.3] xl:leading-[1.4] 2xl:leading-[78px]">
               Our Pricing is Affordable To all customer
             </p>

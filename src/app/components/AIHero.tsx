@@ -30,7 +30,7 @@ export default function AIHero() {
               <span
                 className="uppercase"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "16px",
                   lineHeight: "1.5em",
@@ -45,7 +45,7 @@ export default function AIHero() {
             <h1
               className="text-white mb-8 leading-tight mt-4"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: "clamp(32px, 8vw, 72px)",
                 lineHeight: 1.1,
@@ -70,7 +70,7 @@ export default function AIHero() {
             <p
               className="text-white/90 mb-12 max-w-xl"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: "clamp(16px, 3vw, 20px)",
                 lineHeight: 1.6,
@@ -86,7 +86,7 @@ export default function AIHero() {
             <button
               className="bg-white text-[#0052CC] px-8 py-4 rounded-full font-medium text-lg hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 400,
                 fontSize: "18px",
                 lineHeight: "1.3em",
@@ -104,7 +104,7 @@ export default function AIHero() {
             {/* Background Text */}
             <div
               className="absolute top-0 right-0 text-white text-[24px]"
-              style={{ fontFamily: "Helvetica Neue", fontWeight: 300 }}
+              style={{ fontFamily: "Inter Tight", fontWeight: 300 }}
             >
               Compare and select a plan
               <br /> that meets your business <br />

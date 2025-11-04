@@ -20,7 +20,7 @@ export default function AboutPage() {
       <WhatWeDoAbout />
       <OurValues />
       <OurStory />
-      <BixanaThroughYears />
+      {/* <BixanaThroughYears /> */}
 
       {/* Same sections as home page */}
       <Testimonials />

@@ -18,7 +18,7 @@ export default function AIFeatures() {
           <span
             className="uppercase text-black/80"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 300,
               fontSize: 12,
               letterSpacing: 1,
@@ -32,7 +32,7 @@ export default function AIFeatures() {
         <h2
           className="text-black"
           style={{
-            fontFamily: "Helvetica Neue",
+            fontFamily: "Inter Tight",
             fontWeight: 300,
             fontSize: "clamp(28px, 4.6vw, 44px)",
             lineHeight: 1.2,
@@ -52,7 +52,7 @@ export default function AIFeatures() {
               <h3
                 className="text-black mb-3"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "clamp(18px, 2.4vw, 24px)",
                   letterSpacing: "-0.02em",
@@ -64,13 +64,13 @@ export default function AIFeatures() {
               <p
                 className="text-[#5A6177]"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: 14,
                   lineHeight: 1.6,
                 }}
               >
-                Bixana AI simplifies note-taking by transcribing
+                ToothFairy AI simplifies note-taking by transcribing
                 patient-clinician conversations in real-time, generating
                 structured clinical notes tailored to your workflow.
               </p>
@@ -94,7 +94,7 @@ export default function AIFeatures() {
               <h3
                 className="text-black mb-3"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "clamp(18px, 2.4vw, 24px)",
                   letterSpacing: "-0.02em",
@@ -139,7 +139,7 @@ export default function AIFeatures() {
             <h4
               className="text-black mb-2"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 20,
                 letterSpacing: "-0.02em",
@@ -150,7 +150,7 @@ export default function AIFeatures() {
             <p
               className="text-[#5A6177]"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 14,
                 lineHeight: 1.6,
@@ -165,7 +165,7 @@ export default function AIFeatures() {
             <h4
               className="text-black mb-4"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 20,
                 letterSpacing: "-0.02em",
@@ -190,7 +190,7 @@ export default function AIFeatures() {
               <h4
                 className="text-black mb-2"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: 20,
                   letterSpacing: "-0.02em",
@@ -201,7 +201,7 @@ export default function AIFeatures() {
               <p
                 className="text-[#5A6177]"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: 14,
                   lineHeight: 1.6,

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter_Tight, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
   subsets: ["latin"],
 });
 
@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bixana",
-  description: "Bixana - Your trusted partner for innovative solutions",
+  title: "ToothFairy",
+  description: "ToothFairy - Your trusted partner for innovative solutions",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${interTight.variable} ${geistMono.variable}`}>
         {/* <Navbar /> */}
         {children}
       </body>

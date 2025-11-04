@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+// import { toothfairy } from "public/toothfairy.svg";
 
 type NavbarProps = {
   variant?: "light" | "dark";
@@ -35,12 +36,12 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
           <div className="flex items-center h-20 px-4 sm:px-6 lg:px-8">
             {/* Logo/Brand */}
             <div className="flex items-center flex-shrink-0">
-              <Link href="/home">
+              <Link href="/">
                 <Image
-                  src="/clientlogo.png"
-                  alt="Bixana Logo"
-                  width={48}
-                  height={44}
+                  src="/Asset 1 1.svg"
+                  alt="ToothFairy Logo"
+                  width={200}
+                  height={200}
                   className={
                     variant === "dark"
                       ? "object-contain bg-white rounded-full p-1 m-1"
@@ -58,13 +59,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                     ? "text-white transition-colors duration-200 hover:text-white/80"
                     : "text-black transition-colors duration-200 hover:text-blue-600"
                 }
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "1.5em",
-                  letterSpacing: "-0.02em",
-                }}
+                style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/about"
               >
                 About
@@ -75,13 +70,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                     ? "text-white transition-colors duration-200 hover:text-white/80"
                     : "text-black transition-colors duration-200 hover:text-blue-600"
                 }
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "1.5em",
-                  letterSpacing: "-0.02em",
-                }}
+                style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/services"
               >
                 Services
@@ -93,13 +82,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                     ? "text-white transition-colors duration-200 hover:text-white/80"
                     : "text-black transition-colors duration-200 hover:text-blue-600"
                 }
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "1.5em",
-                  letterSpacing: "-0.02em",
-                }}
+                style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/pricing"
               >
                 Pricing
@@ -110,13 +93,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                     ? "text-white transition-colors duration-200 hover:text-white/80"
                     : "text-black transition-colors duration-200 hover:text-blue-600"
                 }
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "1.5em",
-                  letterSpacing: "-0.02em",
-                }}
+                style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/contact"
               >
                 Contact
@@ -127,17 +104,10 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                     ? "text-white transition-colors duration-200 hover:text-white/80"
                     : "text-black transition-colors duration-200 hover:text-blue-600"
                 }
-                style={{
-                  fontFamily: "Helvetica Neue",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "1.5em",
-                  letterSpacing: "-0.02em",
-                  textDecoration: "underline",
-                }}
+                style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/ai"
               >
-                Bixana AI
+                ToothFairy AI
               </Link>
             </nav>
 
@@ -153,7 +123,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                   backgroundColor: variant === "dark" ? "#ffffff" : "#0052CC",
                   width: "205px",
                   height: "48px",
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 400,
                   fontSize: "16px",
                   lineHeight: "1.3em",
@@ -188,7 +158,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                     variant === "dark"
                       ? "2px solid #ffffff"
                       : "2px solid #777777",
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 400,
                   fontSize: "16px",
                   lineHeight: "1.3em",
@@ -237,12 +207,12 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
           {/* Sidebar */}
           <div className="absolute right-0 top-0 bottom-0 w-80 max-w-[80%] bg-white shadow-2xl border-l border-gray-200 p-6 flex flex-col gap-6 h-full">
             <div className="flex items-center justify-between">
-              <Link href="/home" onClick={() => setOpen(false)}>
+              <Link href="/" onClick={() => setOpen(false)}>
                 <Image
-                  src="/clientlogo.png"
-                  alt="Bixana Logo"
-                  width={40}
-                  height={36}
+                  src="/toothfairy white BG.svg"
+                  alt="ToothFairy Logo"
+                  width={100}
+                  height={100}
                 />
               </Link>
               <button

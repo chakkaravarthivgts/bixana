@@ -7,10 +7,11 @@ export default function ServicesHero() {
     <section className="w-full bg-white ">
       <div className="max-w-8xl mx-auto px-20 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24 xl:px-20">
         <h1
-          className="text-black text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[1.1] tracking-[-0.02em] mb-4 sm:mb-6 lg:mb-6"
+          className="text-[#0A0F29] text-[32px] sm:text-[44px] md:text-[56px] lg:text-[72px] leading-[1.1]"
           style={{
-            fontFamily: "Helvetica Neue",
+            fontFamily: "Inter Tight",
             fontWeight: 300,
+            letterSpacing: "-0.03em",
           }}
         >
           Our Services

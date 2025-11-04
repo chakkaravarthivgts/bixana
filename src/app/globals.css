@@ -23,7 +23,14 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    "Inter Tight",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -178,12 +185,26 @@ html {
 
 /* Custom utilities for exact typography matching */
 .font-helvetica-neue-light {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    "Inter Tight",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-weight: 300;
 }
 
 .font-helvetica-neue-regular {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    "Inter Tight",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-weight: 400;
 }
 

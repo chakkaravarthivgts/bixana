@@ -71,15 +71,15 @@ export default function BixanaThroughYears() {
               <div className="flex items-center justify-center gap-2 mb-4">
                 <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
                 <span
-                  className="text-black text-sm uppercase tracking-wide font-['Helvetica_Neue']"
-                  style={{ fontWeight: 300 }}
+                  className="text-black text-sm uppercase tracking-wide"
+                  style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                 >
-                  Bixana through years
+                  ToothFairy through years
                 </span>
               </div>
               <h2
-                className="text-black font-['Helvetica_Neue'] leading-tight mb-6"
-                style={{ fontWeight: 300 }}
+                className="text-black leading-tight mb-6"
+                style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
               >
                 <span className="block text-[32px] leading-[36px]">
                   The{" "}
@@ -99,15 +99,16 @@ export default function BixanaThroughYears() {
                 </span>
               </h2>
               <p
-                className="text-[#585858] font-['Helvetica_Neue'] text-[16px] leading-[24px] max-w-2xl mx-auto"
+                className="text-[#585858] text-[16px] leading-[24px] max-w-2xl mx-auto"
                 style={{
                   fontWeight: 300,
                   letterSpacing: "-0.02em",
+                  fontFamily: "Inter Tight",
                 }}
               >
-                At Bixana, our numbers reflect the impact we create for dental
-                practices. From the growing number of clinics we support to the
-                efficiency gains our solutions deliver, each statistic
+                At ToothFairy, our numbers reflect the impact we create for
+                dental practices. From the growing number of clinics we support
+                to the efficiency gains our solutions deliver, each statistic
                 represents our commitment to innovation, seamless workflows, and
                 exceptional patient care.
               </p>
@@ -119,19 +120,21 @@ export default function BixanaThroughYears() {
               <div className="bg-white border border-[#E5E7EB] rounded-[16px] p-6 w-full">
                 <div className="flex items-center justify-between">
                   <span
-                    className="text-[#0A0F29] font-['Helvetica_Neue'] text-[18px]"
+                    className="text-[#0A0F29] text-[18px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     Completed Projects
                   </span>
                   <span
-                    className="text-black font-['Helvetica_Neue'] text-[40px]"
+                    className="text-black text-[40px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     100%
@@ -143,19 +146,21 @@ export default function BixanaThroughYears() {
               <div className="bg-white border border-[#E5E7EB] rounded-[16px] p-6 w-full">
                 <div className="flex items-center justify-between">
                   <span
-                    className="text-[#0A0F29] font-['Helvetica_Neue'] text-[18px]"
+                    className="text-[#0A0F29] text-[18px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     Customer Satisfaction
                   </span>
                   <span
-                    className="text-black font-['Helvetica_Neue'] text-[40px]"
+                    className="text-black text-[40px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     253+
@@ -167,19 +172,21 @@ export default function BixanaThroughYears() {
               <div className="bg-white border border-[#E5E7EB] rounded-[16px] p-6 w-full">
                 <div className="flex items-center justify-between">
                   <span
-                    className="text-[#0A0F29] font-['Helvetica_Neue'] text-[18px]"
+                    className="text-[#0A0F29] text-[18px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     Expert Support Team
                   </span>
                   <span
-                    className="text-black font-['Helvetica_Neue'] text-[40px]"
+                    className="text-black text-[40px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     24h
@@ -191,19 +198,21 @@ export default function BixanaThroughYears() {
               <div className="bg-white border border-[#E5E7EB] rounded-[16px] p-6 w-full">
                 <div className="flex items-center justify-between">
                   <span
-                    className="text-[#0A0F29] font-['Helvetica_Neue'] text-[18px]"
+                    className="text-[#0A0F29] text-[18px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     Sales In Count
                   </span>
                   <span
-                    className="text-black font-['Helvetica_Neue'] text-[40px]"
+                    className="text-black text-[40px]"
                     style={{
                       fontWeight: 300,
                       letterSpacing: "-0.02em",
+                      fontFamily: "Inter Tight",
                     }}
                   >
                     78k
@@ -221,15 +230,15 @@ export default function BixanaThroughYears() {
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
                   <span
-                    className="text-black text-sm uppercase tracking-wide font-['Helvetica_Neue']"
-                    style={{ fontWeight: 300 }}
+                    className="text-black text-sm uppercase tracking-wide"
+                    style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                   >
-                    Bixana through years
+                    ToothFairy through years
                   </span>
                 </div>
                 <h2
-                  className="text-black font-['Helvetica_Neue'] leading-tight"
-                  style={{ fontWeight: 300 }}
+                  className="text-black leading-tight"
+                  style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                 >
                   <span className="block text-[48px] md:text-[56px] lg:text-[72px]">
                     The{" "}
@@ -250,19 +259,20 @@ export default function BixanaThroughYears() {
                 </h2>
 
                 <p
-                  className="mt-8 text-[#585858] font-['Helvetica_Neue'] max-w-2xl"
+                  className="mt-8 text-[#585858] max-w-2xl"
                   style={{
                     fontWeight: 300,
                     fontSize: 18,
                     lineHeight: "32px",
                     letterSpacing: "-0.02em",
+                    fontFamily: "Inter Tight",
                   }}
                 >
-                  At Bixana, our numbers reflect the impact we create for dental
-                  practices. From the growing number of clinics we support to
-                  the efficiency gains our solutions deliver, each statistic
-                  represents our commitment to innovation, seamless workflows,
-                  and exceptional patient care.
+                  At ToothFairy, our numbers reflect the impact we create for
+                  dental practices. From the growing number of clinics we
+                  support to the efficiency gains our solutions deliver, each
+                  statistic represents our commitment to innovation, seamless
+                  workflows, and exceptional patient care.
                 </p>
               </div>
             </div>

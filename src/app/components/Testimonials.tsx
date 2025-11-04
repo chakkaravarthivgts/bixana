@@ -5,21 +5,15 @@ import React, { useState } from "react";
 const testimonials = [
   {
     quote:
-      "Nara @ MIUX is an amazing Designer! I recently gave you her a tight timeline for a full branded UX for a local small business website. She did so well with the layout, brand design and even copy were out of this world good. I highly recommend her!",
-    author: "Husain Saab",
-    position: "Co-Founder, ZOHO",
+      "ToothFairy has completely transformed the way we manage our clinic. From appointments to billing, everything is organized and effortless. My staff loves how intuitive it is, and patients appreciate the smooth booking experience. It’s truly a game-changer for modern dental practices.",
+    author: "Dr. Meera Patel",
+    position: "DDS, SmileBright Dental Studio",
   },
   {
     quote:
-      "Bixana has transformed our dental practice completely. The appointment scheduling system is intuitive and our patients love the seamless experience. It's been a game-changer for our clinic.",
-    author: "Dr. Sarah Johnson",
-    position: "Dental Practice Owner",
-  },
-  {
-    quote:
-      "The treatment planning feature in Bixana is exceptional. It has streamlined our workflow and improved patient care significantly. Highly recommend to any dental professional.",
-    author: "Dr. Michael Chen",
-    position: "Orthodontist",
+      "We started using ToothFairy six months ago, and it has streamlined every part of our workflow. The automated reminders and patient communication tools have significantly reduced no-shows and improved overall efficiency. I can’t imagine running my practice without it now.",
+    author: "Dr. Jonathan Reed ",
+    position: "Orthodontist, Reed Family Dental Care",
   },
 ];
 
@@ -58,7 +52,7 @@ export default function Testimonials() {
             <h2
               className="text-center"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: "clamp(28px, 6vw, 72px)",
                 lineHeight: 1.1,
@@ -106,7 +100,7 @@ export default function Testimonials() {
               {/* Quote Text */}
               <p
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "clamp(16px, 3.6vw, 32px)",
                   lineHeight: 1.5,
@@ -120,26 +114,26 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex flex-col gap-2 sm:gap-3 items-end w-full max-w-xl">
-                <h4
+                <p
                   style={{
-                    fontFamily: "Helvetica Neue",
+                    fontFamily: "Inter Tight",
                     fontWeight: 300,
-                    fontSize: "clamp(18px, 4.2vw, 48px)",
+                    fontSize: "clamp(24px, 6vw, 72px)",
                     lineHeight: 1.15,
                     letterSpacing: "-0.02em",
                     color: "#0A0F29",
                   }}
                 >
                   {testimonials[currentTestimonial].author}
-                </h4>
+                </p>
                 <p
                   style={{
-                    fontFamily: "Helvetica Neue",
+                    fontFamily: "Inter Tight",
                     fontWeight: 400,
-                    fontSize: "clamp(12px, 3vw, 20px)",
+                    fontSize: "clamp(14px, 3.2vw, 28px)",
                     lineHeight: 1.6,
                     letterSpacing: "-0.01em",
-                    color: "#5A6177",
+                    color: "#9AA1B2",
                   }}
                 >
                   {testimonials[currentTestimonial].position}

@@ -36,7 +36,7 @@ export default function Footer() {
                   <h2
                     className="text-white"
                     style={{
-                      fontFamily: "Helvetica Neue",
+                      fontFamily: "Inter Tight",
                       fontWeight: 300,
                       fontSize: "clamp(24px, 5vw, 48px)",
                       lineHeight: "1.147em",
@@ -49,15 +49,15 @@ export default function Footer() {
                 <p
                   className="text-white/90 text-[14px] sm:text-[16px] leading-[1.6] font-normal"
                   style={{
-                    fontFamily: "Helvetica Neue",
+                    fontFamily: "Inter Tight",
                     fontWeight: 300,
                     fontSize: "clamp(14px, 3.5vw, 24px)",
                     lineHeight: "1.5",
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  Bixana, A cloud application which helps dental clinic to keep
-                  better connect and continue relationship with patients
+                  ToothFairy, A cloud application which helps dental clinic to
+                  keep better connect and continue relationship with patients
                 </p>
               </div>
 
@@ -114,7 +114,7 @@ export default function Footer() {
           <div
             className="mt-10 sm:mt-12 space-y-2 text-white/70 text-[14px] sm:text-[16px]"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 300,
               fontSize: "clamp(14px, 3.5vw, 24px)",
               lineHeight: "1.5",
@@ -176,14 +176,14 @@ export default function Footer() {
               <p
                 className="text-white/60 text-[14px]"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "16px",
                   lineHeight: "1.147em",
                   letterSpacing: "-0.02em",
                 }}
               >
-                © {currentYear} Bixana. All rights reserved.
+                © {currentYear} ToothFairy. All rights reserved.
               </p>
             </div>
           </div>

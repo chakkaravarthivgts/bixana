@@ -69,9 +69,9 @@ export default function AboutHero() {
             </span>
           </div>
 
-          <h1
-            style={{ fontFamily: "Helvetica Neue", letterSpacing: "-3%" }}
-            className="px-4 text-7xl font-light leading-tight text-black text-center max-w-6xl"
+          <h2
+            className="text-[#0A0F29] text-[28px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[88px] font-light leading-[1.08] text-center"
+            style={{ fontFamily: "Inter Tight", letterSpacing: "-0.03em" }}
           >
             Simplifying complex dental <br />
             operations with{" "}
@@ -95,7 +95,7 @@ export default function AboutHero() {
               solutions
             </span>
             .
-          </h1>
+          </h2>
         </div>
 
         <div className="relative overflow-hidden w-screen">

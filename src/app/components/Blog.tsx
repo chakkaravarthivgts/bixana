@@ -6,7 +6,7 @@ import Image from "next/image";
 const blogPosts = [
   {
     id: 1,
-    title: "How to get started with Bixana",
+    title: "How to get started with ToothFairy",
     description:
       "Developing ethical frameworks and compliance standards for responsible AI adoption in dental practices.",
     image: "/dental-png.jpg",
@@ -55,7 +55,7 @@ export default function Blog() {
               <span
                 className="uppercase"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "16px",
                   lineHeight: "1.5em",

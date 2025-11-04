@@ -23,7 +23,10 @@ const ServiceCard = ({
               className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
             />
           </div>
-          <div className="content-stretch flex flex-col font-['Helvetica_Neue'] font-light gap-4 items-center justify-start leading-[0] not-italic w-full">
+          <div
+            className="content-stretch flex flex-col font-light gap-4 items-center justify-start leading-[0] not-italic w-full"
+            style={{ fontFamily: "Inter Tight" }}
+          >
             <div className="text-2xl sm:text-3xl lg:text-[42px] text-black tracking-[-1.2px] text-center">
               <p className="leading-tight">{title}</p>
             </div>
@@ -37,36 +40,48 @@ const ServiceCard = ({
   );
 };
 
+const CARD_IMG_1 = "/services/cards/Frame 1321322666.png";
+const CARD_IMG_2 = "/services/cards/Frame 1321322666-1.png";
+const CARD_IMG_3 = "/services/cards/Frame 1321322666-2.png";
+const CARD_IMG_4 = "/services/cards/Frame 1321322666-1 1.png";
+const CARD_IMG_5 = "/services/cards/Frame 1321322666 1.png";
+
 const services = [
   {
     title: "Customer Assistance",
     description:
       "We will work with you to build custom solutions for dental office needs in terms of automation, paperless and communication.",
+    imageSrc: CARD_IMG_1,
   },
   {
     title: "Affordable Prices",
     description:
       "We offer comparative price range and free service to make you comfortable working with this bixana application.",
+    imageSrc: CARD_IMG_2,
   },
   {
     title: "Demo & Training",
     description:
       "We help your associate to understand the process to use this application better to reduce manual intervention",
+    imageSrc: CARD_IMG_3,
   },
   {
     title: "Innovative Ideas",
     description:
       "Introducing or using new ideas or methods an innovative approach/solution to the problem.",
+    imageSrc: CARD_IMG_4,
   },
   {
     title: "Feature Update",
     description:
       "We will be adding enhanced solution often and the same will automatically be available for users.",
+    imageSrc: CARD_IMG_5,
   },
   {
     title: "Synchronize Data",
     description:
-      "Bixana offers a service which push and pull data between cloud and on-premises periodically",
+      "ToothFairy offers a service which push and pull data between cloud and on-premises periodically",
+    imageSrc: CARD_IMG_1,
   },
 ];
 
@@ -82,7 +97,10 @@ export default function WhatWeDo() {
               WHAT WE DO
             </span>
           </div>
-          <div className="font-['Helvetica_Neue'] font-light leading-[0] not-italic text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-black text-center tracking-[-2.04px] w-full max-w-[815px] px-4">
+          <div
+            className="font-light leading-[0] not-italic text-3xl sm:text-4xl md:text-5xl lg:text-[64px] text-black text-center tracking-[-2.04px] w-full max-w-[815px] px-4"
+            style={{ fontFamily: "Inter Tight" }}
+          >
             <p className="leading-tight sm:leading-[1.1] md:leading-[1.2] lg:leading-[78px]">
               Our Productive Services are Ready
             </p>
@@ -96,6 +114,7 @@ export default function WhatWeDo() {
               key={s.title}
               title={s.title}
               description={s.description}
+              imageSrc={s.imageSrc}
             />
           ))}
         </div>

@@ -63,7 +63,7 @@ export default function AIWhyUs() {
             <span
               className="uppercase"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 12,
                 color: "#0A0F29",
@@ -77,7 +77,7 @@ export default function AIWhyUs() {
           <h3
             className="mt-6 text-black"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 300,
               fontSize: "clamp(28px,5vw,56px)",
               lineHeight: 1.15,
@@ -92,7 +92,7 @@ export default function AIWhyUs() {
             className="mt-8 inline-flex items-center justify-center rounded-full px-6 h-10 text-white"
             style={{
               backgroundColor: "#0E7AFE",
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 400,
               letterSpacing: "-0.02em",
             }}
@@ -120,7 +120,7 @@ export default function AIWhyUs() {
             <h4
               className="mt-4 text-black"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 24,
                 letterSpacing: "-0.02em",
@@ -131,7 +131,7 @@ export default function AIWhyUs() {
             <p
               className="mt-2 text-[#5A6177]"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 14,
                 lineHeight: 1.6,
@@ -156,7 +156,7 @@ export default function AIWhyUs() {
             <h4
               className="mt-4 text-black"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 24,
                 letterSpacing: "-0.02em",
@@ -167,7 +167,7 @@ export default function AIWhyUs() {
             <p
               className="mt-2 text-[#5A6177]"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 14,
                 lineHeight: 1.6,
@@ -192,7 +192,7 @@ export default function AIWhyUs() {
             <h4
               className="mt-4 text-black"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 24,
                 letterSpacing: "-0.02em",
@@ -203,7 +203,7 @@ export default function AIWhyUs() {
             <p
               className="mt-2 text-[#5A6177]"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 14,
                 lineHeight: 1.6,
@@ -228,7 +228,7 @@ export default function AIWhyUs() {
             <h4
               className="mt-4 text-black"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 24,
                 letterSpacing: "-0.02em",
@@ -239,7 +239,7 @@ export default function AIWhyUs() {
             <p
               className="mt-2 text-[#5A6177]"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 14,
                 lineHeight: 1.6,
@@ -264,7 +264,7 @@ export default function AIWhyUs() {
             <h4
               className="mt-4 text-black"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 24,
                 letterSpacing: "-0.02em",
@@ -275,7 +275,7 @@ export default function AIWhyUs() {
             <p
               className="mt-2 text-[#5A6177]"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 14,
                 lineHeight: 1.6,
@@ -299,7 +299,7 @@ export default function AIWhyUs() {
             <h4
               className="mt-4 text-black"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 24,
                 letterSpacing: "-0.02em",
@@ -310,7 +310,7 @@ export default function AIWhyUs() {
             <p
               className="mt-2 text-[#5A6177]"
               style={{
-                fontFamily: "Helvetica Neue",
+                fontFamily: "Inter Tight",
                 fontWeight: 300,
                 fontSize: 14,
                 lineHeight: 1.6,

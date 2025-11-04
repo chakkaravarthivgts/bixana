@@ -179,7 +179,11 @@ export default function OurValues() {
   };
 
   return (
-    <section className="bg-white" id="our-values">
+    <section
+      className="bg-white"
+      id="our-values"
+      style={{ fontFamily: "Inter Tight" }}
+    >
       <div className="mx-auto max-w-8xl px-0 md:px-10 lg:px-12 xl:px-20 py-24 md:py-24 xl:py-32 2xl:py-20">
         {/* Header */}
         {isMobile ? (
@@ -190,14 +194,14 @@ export default function OurValues() {
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
                 <span
-                  className="text-black text-sm uppercase tracking-wide font-['Helvetica_Neue']"
+                  className="text-black text-sm uppercase tracking-wide"
                   style={{ fontWeight: 300 }}
                 >
                   Our Values
                 </span>
               </div>
               <h2
-                className="font-['Helvetica_Neue'] text-[32px] leading-[36px] tracking-[-0.8px] text-black"
+                className="text-[32px] leading-[36px] tracking-[-0.8px] text-black"
                 style={{ fontWeight: 300 }}
               >
                 The{" "}
@@ -214,7 +218,7 @@ export default function OurValues() {
                 that define our culture
               </h2>
               <p
-                className="text-[#585858] font-['Helvetica_Neue'] text-[16px] leading-[24px]"
+                className="text-[#585858] text-[16px] leading-[24px]"
                 style={{ fontWeight: 300 }}
               >
                 Our work is guided by a set of core values that define who we
@@ -232,7 +236,7 @@ export default function OurValues() {
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-3 h-3 bg-gradient-to-b from-blue-600 to-white rounded-full"></div>
                 <span
-                  className="text-black text-base uppercase tracking-wide font-['Helvetica_Neue']"
+                  className="text-black text-base uppercase tracking-wide"
                   style={{ fontWeight: 300 }}
                 >
                   Our Values
@@ -241,7 +245,7 @@ export default function OurValues() {
               <div className="flex justify-between gap-36">
                 <div className="flex-1">
                   <h2
-                    className="font-['Helvetica_Neue'] text-[56px] leading-[64px] tracking-[-1.68px] text-black md:text-[64px] md:leading-[72px]"
+                    className="text-[56px] leading-[64px] tracking-[-1.68px] text-black md:text-[64px] md:leading-[72px]"
                     style={{ fontWeight: 300 }}
                   >
                     The{" "}
@@ -261,7 +265,7 @@ export default function OurValues() {
                 {/* Right: Description */}
                 <div className="flex-1  content-start justify-center">
                   <p
-                    className="text-[#585858] font-['Helvetica_Neue'] text-[20px] md:text-[20px] leading-[30px] md:leading-[32px]"
+                    className="text-[#585858] text-[20px] md:text-[20px] leading-[30px] md:leading-[32px]"
                     style={{ fontWeight: 300 }}
                   >
                     Our work is guided by a set of core values that define who
@@ -282,10 +286,7 @@ export default function OurValues() {
         {/* Values Cards */}
         {isMobile ? (
           /* Mobile: Vertical stack of all cards */
-          <div
-            className="space-y-4 w-full font-['Helvetica_Neue']"
-            style={{ fontWeight: 300 }}
-          >
+          <div className="space-y-4 w-full" style={{ fontWeight: 300 }}>
             {/* Innovation Card */}
             <div className="bg-[#0052CC] rounded-[16px] p-6 w-full h-auto relative overflow-hidden">
               <div className="relative z-10">
@@ -299,13 +300,13 @@ export default function OurValues() {
                   </svg>
                 </div>
                 <h3
-                  className="text-white font-['Helvetica_Neue'] text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
+                  className="text-white text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
                   style={{ fontWeight: 300 }}
                 >
                   Innovation
                 </h3>
                 <p
-                  className="text-white/90 font-['Helvetica_Neue'] text-[14px] leading-[20px]"
+                  className="text-white/90 text-[14px] leading-[20px]"
                   style={{ fontWeight: 300 }}
                 >
                   We continuously develop smarter, intuitive solutions that
@@ -313,7 +314,7 @@ export default function OurValues() {
                 </p>
               </div>
               <div
-                className="absolute bottom-0 right-0 text-white/10 font-['Helvetica_Neue'] text-[60px] leading-none"
+                className="absolute bottom-0 right-0 text-white/10 text-[60px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 1
@@ -332,20 +333,20 @@ export default function OurValues() {
                 </svg>
               </div>
               <h3
-                className="text-black font-['Helvetica_Neue'] text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
+                className="text-black text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
                 style={{ fontWeight: 300 }}
               >
                 Excellence
               </h3>
               <p
-                className="text-[#585858] font-['Helvetica_Neue'] text-[14px] leading-[20px]"
+                className="text-[#585858] text-[14px] leading-[20px]"
                 style={{ fontWeight: 300 }}
               >
                 We maintain the highest standards in everything we do, from code
                 quality to customer support.
               </p>
               <div
-                className="absolute bottom-0 right-0 text-[#E5E7EB] font-['Helvetica_Neue'] text-[60px] leading-none"
+                className="absolute bottom-0 right-0 text-[#E5E7EB] text-[60px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 2
@@ -364,20 +365,20 @@ export default function OurValues() {
                 </svg>
               </div>
               <h3
-                className="text-black font-['Helvetica_Neue'] text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
+                className="text-black text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
                 style={{ fontWeight: 300 }}
               >
                 Collaboration
               </h3>
               <p
-                className="text-[#585858] font-['Helvetica_Neue'] text-[14px] leading-[20px]"
+                className="text-[#585858] text-[14px] leading-[20px]"
                 style={{ fontWeight: 300 }}
               >
                 We work closely with dental teams to understand their needs and
                 create solutions that truly serve them.
               </p>
               <div
-                className="absolute bottom-0 right-0 text-[#E5E7EB] font-['Helvetica_Neue'] text-[60px] leading-none"
+                className="absolute bottom-0 right-0 text-[#E5E7EB] text-[60px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 3
@@ -400,20 +401,20 @@ export default function OurValues() {
                 </svg>
               </div>
               <h3
-                className="text-black font-['Helvetica_Neue'] text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
+                className="text-black text-[20px] leading-[24px] tracking-[-0.2px] mb-2"
                 style={{ fontWeight: 300 }}
               >
                 Integrity
               </h3>
               <p
-                className="text-[#585858] font-['Helvetica_Neue'] text-[14px] leading-[20px]"
+                className="text-[#585858] text-[14px] leading-[20px]"
                 style={{ fontWeight: 300 }}
               >
                 We build trust through transparency, security, and ethical
                 practices in all our interactions.
               </p>
               <div
-                className="absolute bottom-0 right-0 text-[#E5E7EB] font-['Helvetica_Neue'] text-[60px] leading-none"
+                className="absolute bottom-0 right-0 text-[#E5E7EB] text-[60px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 4

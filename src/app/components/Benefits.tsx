@@ -33,6 +33,7 @@ interface BenefitCardProps {
   style: React.CSSProperties;
   dataGsap: string;
   className?: string;
+  tooltip?: string;
 }
 
 const BenefitCard: React.FC<BenefitCardProps> = ({
@@ -42,10 +43,11 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
   style,
   dataGsap,
   className,
+  tooltip,
 }) => (
   <div
     ref={ref}
-    className={`benefit-card flex flex-col gap-8 xl:gap-6 bg-[#F8F9FA] rounded-[40px] p-4 xl:p-3 justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer relative overflow-hidden ${className || ""}`}
+    className={`benefit-card flex flex-col gap-8 xl:gap-6 bg-[#F8F9FA] rounded-[40px] p-4 xl:p-3 justify-center items-center text-center border border-[#C1C1C1] transition-all duration-300 group cursor-pointer relative overflow-visible z-10 hover:z-[100] ${className || ""}`}
     style={style}
     data-gsap={dataGsap}
   >
@@ -60,7 +62,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
     <h3
       className="benefit-text relative z-10 text-[28px] xl:text-[22px]"
       style={{
-        fontFamily: "Helvetica, sans-serif",
+        fontFamily: "Inter Tight",
         fontWeight: 300,
         lineHeight: "1.5",
         letterSpacing: "-0.04em",
@@ -70,6 +72,27 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
     >
       {title}
     </h3>
+
+    {/* Tooltip */}
+    {tooltip && (
+      <div
+        className="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 w-[280px] xl:w-[320px] bg-[#0A0F29] text-white text-xs xl:text-sm rounded-lg p-3 xl:p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] pointer-events-none shadow-lg"
+        style={{
+          fontFamily: "Inter Tight",
+          fontWeight: 300,
+          lineHeight: "1.5",
+          position: "absolute",
+        }}
+      >
+        <div className="relative">
+          {tooltip}
+          {/* Tooltip arrow pointing left */}
+          <div className="absolute right-full top-1/2 transform -translate-y-1/2">
+            <div className="w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-[#0A0F29]"></div>
+          </div>
+        </div>
+      </div>
+    )}
   </div>
 );
 
@@ -77,6 +100,8 @@ const benefits = [
   {
     id: 1,
     title: "Boost Profitability and Compliance",
+    tooltip:
+      "Automate the whole appointment cycle from the moment the patient schedules an appointment and receives forms, through a smart check-in and automated consent and treatment presentation to post-op follow-up and collecting payments.",
     icon: (
       <svg
         width="48"
@@ -108,6 +133,8 @@ const benefits = [
   {
     id: 2,
     title: "Attracting new dental patients",
+    tooltip:
+      "Boost your online presence and grow your practice with marketing campaigns, online scheduling, easy to use web chat, top-tier reputation management system and smart referrals.",
     icon: (
       <svg
         width="48"
@@ -137,6 +164,8 @@ const benefits = [
   {
     id: 3,
     title: "Feature Updates Available",
+    tooltip:
+      "We are doing continuous process improvement and will be releasing new and enhance the feature often and the same will automatically be available for users.",
     icon: (
       <svg
         width="48"
@@ -166,6 +195,8 @@ const benefits = [
   {
     id: 4,
     title: "Retaining Dental Patients",
+    tooltip:
+      "Boost your online presence and grow your practice with marketing campaigns, online scheduling, easy to use web chat, top-tier reputation management system and smart referrals.",
     icon: (
       <svg
         width="48"
@@ -319,33 +350,55 @@ export default function Benefits() {
   const card5Ref = useRef<HTMLDivElement>(null);
   const card6Ref = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    // Only apply GSAP animations on desktop
-    if (isMobile) return;
+    // Only apply GSAP animations on desktop after mount
+    if (!mounted || isMobile) return;
 
-    // Create animations for all cards
-    const cards = [
-      { ref: card1Ref, id: "benefit-1" },
-      { ref: card2Ref, id: "benefit-2" },
-      { ref: card3Ref, id: "benefit-3" },
-      { ref: card4Ref, id: "benefit-4" },
-      { ref: card5Ref, id: "benefit-5" },
-      { ref: card6Ref, id: "benefit-6" },
-    ];
+    const ctx = gsap.context(() => {
+      // Create animations for all cards
+      const cards = [
+        { ref: card1Ref, id: "benefit-1" },
+        { ref: card2Ref, id: "benefit-2" },
+        { ref: card3Ref, id: "benefit-3" },
+        { ref: card4Ref, id: "benefit-4" },
+        { ref: card5Ref, id: "benefit-5" },
+        { ref: card6Ref, id: "benefit-6" },
+      ];
 
-    cards.forEach((card) => {
-      createCardAnimation(card.ref);
-    });
+      cards.forEach((card) => {
+        createCardAnimation(card.ref);
+      });
+
+      // Refresh after mount to ensure correct measurements
+      setTimeout(() => {
+        try {
+          ScrollTrigger.refresh();
+        } catch {}
+      }, 0);
+      window.addEventListener("load", () => {
+        try {
+          ScrollTrigger.refresh();
+        } catch {}
+      });
+    }, sectionRef);
 
     // Cleanup function
     return () => {
+      ctx.revert();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [isMobile]);
+  }, [mounted, isMobile]);
 
   return (
-    <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F9FA] overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F9FA] overflow-hidden"
+    >
       <div className="relative w-full flex justify-center">
         <div className="w-full max-w-7xl lg:scale-[0.65] xl:scale-100 origin-top">
           {isMobile ? (
@@ -378,10 +431,10 @@ export default function Benefits() {
                 </h2>
 
                 <p className="text-[14px] text-[#6B7280] leading-[1.6] font-normal max-w-2xl mx-auto mb-8">
-                  From booking the first appointment to managing post-treatment
-                  feedback — our all-in-one dental software streamlines your
-                  workflow, boosts patient satisfaction, and keeps your clinic
-                  running smoothly.
+                  This provides the essential tools for a modern dental
+                  practice: effective marketing to find new patients, automated
+                  systems to improve profits and compliance, and smart programs
+                  to retain your current patients for the long term.
                 </p>
 
                 {/* Mobile Image */}
@@ -448,10 +501,11 @@ export default function Benefits() {
                     </h2>
 
                     <p className="text-[16px] text-[#6B7280] leading-[1.6] font-normal">
-                      From booking the first appointment to managing
-                      post-treatment feedback — our all-in-one dental software
-                      streamlines your workflow, boosts patient satisfaction,
-                      and keeps your clinic running smoothly.
+                      This provides the essential tools for a modern dental
+                      practice: effective marketing to find new patients,
+                      automated systems to improve profits and compliance, and
+                      smart programs to retain your current patients for the
+                      long term.
                     </p>
                   </div>
                 </div>
@@ -486,7 +540,7 @@ export default function Benefits() {
           {/* Desktop Benefits Grid - Only show on desktop */}
           {!isMobile && (
             <div
-              className="grid gap-6 max-w-[1400px] mx-auto px-5"
+              className="grid gap-6 max-w-[1400px] mx-auto px-5 overflow-visible"
               style={{
                 gridTemplateColumns: "repeat(3, 1fr)",
               }}
@@ -495,6 +549,7 @@ export default function Benefits() {
               <BenefitCard
                 ref={card1Ref}
                 title={benefits[0].title}
+                tooltip={benefits[0].tooltip}
                 icon={
                   <svg
                     width="79"
@@ -535,6 +590,7 @@ export default function Benefits() {
               <BenefitCard
                 ref={card2Ref}
                 title={benefits[1].title}
+                tooltip={benefits[1].tooltip}
                 icon={
                   <svg
                     width="62"
@@ -562,6 +618,7 @@ export default function Benefits() {
               <BenefitCard
                 ref={card3Ref}
                 title={benefits[2].title}
+                tooltip={benefits[2].tooltip}
                 icon={
                   <svg
                     width="76"
@@ -589,6 +646,7 @@ export default function Benefits() {
               <BenefitCard
                 ref={card4Ref}
                 title={benefits[3].title}
+                tooltip={benefits[3].tooltip}
                 icon={
                   <svg
                     width="79"

@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import PricingHero from "../components/PricingHero";
-import PricingPlans from "../components/PricingPlans";
+import PlanSimple from "../components/PlanSimple";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import Blog from "../components/Blog";
@@ -11,7 +11,8 @@ export default function PricingPage() {
     <main className="min-h-screen">
       <Navbar />
       <PricingHero />
-      <PricingPlans />
+      {/* Header moved inside PlanSimple component */}
+      <PlanSimple />
       <FAQ />
       <Blog />
       <CTABanner />

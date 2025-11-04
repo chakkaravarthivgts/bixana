@@ -36,7 +36,7 @@ export default function AILiveDemo() {
           <span
             className="uppercase"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 300,
               fontSize: "16px",
               lineHeight: "1.5em",
@@ -51,7 +51,7 @@ export default function AILiveDemo() {
         <h2
           className="text-center text-black mb-10 sm:mb-16"
           style={{
-            fontFamily: "Helvetica Neue",
+            fontFamily: "Inter Tight",
             fontWeight: 300,
             fontSize: "clamp(32px, 6vw, 64px)",
             lineHeight: 1.2,
@@ -67,7 +67,7 @@ export default function AILiveDemo() {
                 "linear-gradient(90deg, #0052CC 0%, #61A0FF 100%)",
             }}
           >
-            with Bixana AI
+            with ToothFairy AI
           </span>
         </h2>
 
@@ -142,7 +142,7 @@ export default function AILiveDemo() {
                   <span
                     className="text-gray-400 text-xs"
                     style={{
-                      fontFamily: "Helvetica Neue",
+                      fontFamily: "Inter Tight",
                       fontWeight: 300,
                     }}
                   >
@@ -159,7 +159,7 @@ export default function AILiveDemo() {
           <button
             className="bg-[#0052CC] text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-[#003D99] transition-all duration-200 shadow-lg hover:shadow-xl"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 400,
               fontSize: "18px",
               lineHeight: "1.3em",

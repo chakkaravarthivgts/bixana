@@ -28,7 +28,7 @@ const PricingHero = () => {
         <div className="relative shrink-0 text-[90px] text-black text-nowrap">
           <p
             className="leading-[90px] font-light"
-            style={{ fontFamily: "Helvetica Neue" }}
+            style={{ fontFamily: "Inter Tight" }}
           >
             Pricing
           </p>
@@ -36,7 +36,7 @@ const PricingHero = () => {
         <div className="relative shrink-0 text-[#585858] text-[28px] tracking-[-1.12px] w-[355px]">
           <p
             className="leading-[38px] font-light"
-            style={{ fontFamily: "Helvetica Neue" }}
+            style={{ fontFamily: "Inter Tight" }}
           >
             Compare and select a plan that meets your business needs
           </p>
@@ -52,7 +52,7 @@ const PricingHero = () => {
         >
           <p
             className="leading-[48px] font-light"
-            style={{ fontFamily: "Helvetica Neue" }}
+            style={{ fontFamily: "Inter Tight" }}
           >
             Pricing
           </p>
@@ -66,7 +66,7 @@ const PricingHero = () => {
         >
           <p
             className="leading-[26px] font-light"
-            style={{ fontFamily: "Helvetica Neue" }}
+            style={{ fontFamily: "Inter Tight" }}
           >
             Compare and select a plan that meets your business needs
           </p>

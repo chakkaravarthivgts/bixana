@@ -94,56 +94,91 @@ export default function Features() {
   const [activeFeature, setActiveFeature] = useState<Feature>(features[0]);
   const sectionRef = useRef<HTMLElement | null>(null);
   const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const stRef = useRef<ScrollTrigger | null>(null);
+  const panelsContainerRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useIsMobile();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Only apply GSAP animations on desktop
-    if (isMobile || !sectionRef.current) return;
+    setMounted(true);
+  }, []);
 
-    const panels = panelsRef.current.filter(Boolean) as HTMLDivElement[];
-    if (panels.length === 0) return;
+  useEffect(() => {
+    // Only apply GSAP animations on desktop after mount
+    if (!mounted || isMobile || !sectionRef.current) return;
 
-    // Prepare panels stacked (start slightly below and hidden)
-    gsap.set(panels, { position: "absolute", inset: 0, opacity: 0, y: 850 });
-    gsap.set(panels[0], { opacity: 1, y: 0 });
+    const ctx = gsap.context(() => {
+      const panels = panelsRef.current.filter(Boolean) as HTMLDivElement[];
+      if (panels.length === 0) return;
 
-    const tl = gsap.timeline({ paused: true });
-    for (let i = 0; i < panels.length - 1; i += 1) {
-      tl
-        // current panel moves up out of view
-        .to(panels[i], {
-          y: -950,
-          duration: 1.2,
-          ease: "power3.inOut",
-        })
-        // next panel comes from below
-        .fromTo(
-          panels[i + 1],
-          { opacity: 1, y: 950 },
-          { opacity: 1, y: 0, duration: 1.2, ease: "power3.inOut" },
-          "<"
-        );
-    }
+      // Prepare panels stacked (start slightly below and hidden)
+      gsap.set(panels, { position: "absolute", inset: 0, opacity: 0, y: 850 });
+      gsap.set(panels[0], { opacity: 1, y: 0 });
 
-    const st = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top -30%",
-      end: "+=" + panels.length * 1000,
-      scrub: 0.5,
-      pin: sectionRef.current,
-      anticipatePin: 1,
-      onUpdate: (self) => {
-        tl.progress(self.progress);
-        const idx = Math.round(self.progress * (features.length - 1));
-        setActiveFeature(features[idx]);
-      },
-    });
+      const tl = gsap.timeline({ paused: true });
+      for (let i = 0; i < panels.length - 1; i += 1) {
+        tl
+          // current panel moves up out of view
+          .to(panels[i], {
+            y: -950,
+            duration: 1.2,
+            ease: "power3.inOut",
+          })
+          // next panel comes from below
+          .fromTo(
+            panels[i + 1],
+            { opacity: 1, y: 950 },
+            { opacity: 1, y: 0, duration: 1.2, ease: "power3.inOut" },
+            "<"
+          );
+      }
 
-    return () => {
-      tl.kill();
-      st.kill();
-    };
-  }, [isMobile]);
+      const st = ScrollTrigger.create({
+        // Start pinning when the animation container (right side) hits the viewport top
+        trigger: panelsContainerRef.current || sectionRef.current!,
+        start: "top top",
+        end: "+=" + panels.length * 900,
+        scrub: 0.8,
+        pin: sectionRef.current!,
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          tl.progress(self.progress);
+          const idx = Math.round(self.progress * (features.length - 1));
+          setActiveFeature(features[Math.min(idx, features.length - 1)]);
+        },
+      });
+
+      // store in refs to allow programmatic control from click handler
+      tlRef.current = tl;
+      stRef.current = st;
+
+      // Refresh after mount/load to ensure correct measurements
+      setTimeout(() => {
+        try {
+          ScrollTrigger.refresh();
+        } catch {}
+      }, 0);
+      window.addEventListener("load", () => {
+        try {
+          ScrollTrigger.refresh();
+        } catch {}
+      });
+
+      return () => {
+        tl.kill();
+        st.kill();
+        tlRef.current = null;
+        stRef.current = null;
+      };
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [mounted, isMobile]);
+
+  if (!mounted) return null;
 
   return (
     <section
@@ -165,7 +200,7 @@ export default function Features() {
           <h2
             className="text-white text-[48px] lg:text-[72px] font-light leading-[1.1] tracking-[-0.03em] max-w-[800px]"
             style={{
-              fontFamily: "Helvetica Neue",
+              fontFamily: "Inter Tight",
               fontWeight: 300,
               fontSize: "68px",
               lineHeight: "1.147em",
@@ -224,10 +259,30 @@ export default function Features() {
             {/* Left: Features List */}
             <div className="lg:w-[280px] self-center">
               <div className="space-y-4">
-                {features.map((feature) => (
+                {features.map((feature, index) => (
                   <button
                     key={feature.id}
-                    onClick={() => setActiveFeature(feature)}
+                    onClick={() => {
+                      setActiveFeature(feature);
+                      // Scroll the page so ScrollTrigger drives the timeline to this feature
+                      const st = stRef.current;
+                      if (st) {
+                        const total = Math.max(features.length - 1, 1);
+                        const targetProgress = total === 0 ? 0 : index / total;
+                        const start = st.start as number;
+                        const end = st.end as number;
+                        const targetScroll =
+                          start + targetProgress * (end - start);
+                        try {
+                          window.scrollTo({
+                            top: targetScroll,
+                            behavior: "smooth",
+                          });
+                        } catch {
+                          window.scrollTo(0, targetScroll);
+                        }
+                      }
+                    }}
                     className={`block text-left w-full transition-all duration-300 hover:translate-x-2 ${
                       activeFeature.id === feature.id
                         ? "text-white"
@@ -250,7 +305,10 @@ export default function Features() {
 
             {/* Right: Panels stacked and transitioned by scroll (image + text + CTA together) */}
             <div className="flex-1">
-              <div className="relative w-full h-[820px] lg:h-[900px] overflow-hidden">
+              <div
+                ref={panelsContainerRef}
+                className="relative w-full h-[820px] lg:h-[900px] overflow-hidden"
+              >
                 {features.map((f, i) => (
                   <div
                     key={f.id}

@@ -15,7 +15,8 @@ type HeroProps = {
 export default function Hero({
   title = (
     <>
-      Empower your business with <span className="text-blue-600">Bixana</span>
+      Empower your business with{" "}
+      <span className="text-blue-600">ToothFairy</span>
     </>
   ),
   subtitle = (
@@ -71,7 +72,7 @@ export default function Hero({
               <h1
                 className="text-white"
                 style={{
-                  fontFamily: "Helvetica Neue",
+                  fontFamily: "Inter Tight",
                   fontWeight: 300,
                   fontSize: "clamp(28px, 8vw, 90px)",
                   lineHeight: "1.15",
@@ -93,7 +94,7 @@ export default function Hero({
                     backgroundColor: "#FFFFFF",
                     width: "clamp(160px, 40vw, 231px)",
                     height: "50px",
-                    fontFamily: "Helvetica Neue",
+                    fontFamily: "Inter Tight",
                     fontWeight: 400,
                     fontSize: "clamp(13px, 2.6vw, 18px)",
                     lineHeight: "1.3em",
@@ -124,7 +125,7 @@ export default function Hero({
                     border: "2px solid #FFFFFF",
                     width: "clamp(160px, 40vw, 231px)",
                     height: "50px",
-                    fontFamily: "Helvetica Neue",
+                    fontFamily: "Inter Tight",
                     fontWeight: 400,
                     fontSize: "clamp(13px, 2.6vw, 18px)",
                     lineHeight: "1.3em",
@@ -153,7 +154,7 @@ export default function Hero({
                 <p
                   className="text-white"
                   style={{
-                    fontFamily: "Helvetica Neue",
+                    fontFamily: "Inter Tight",
                     fontWeight: 400,
                     fontSize: "clamp(14px, 3.6vw, 28px)",
                     lineHeight: "1.4",
@@ -161,7 +162,7 @@ export default function Hero({
                     textAlign: "left",
                   }}
                 >
-                  Bixana is a cloud-based dental practice solution that
+                  ToothFairy is a cloud-based dental practice solution that
                   streamlines patient communication, enhances care, and drives
                   revenue.
                 </p>

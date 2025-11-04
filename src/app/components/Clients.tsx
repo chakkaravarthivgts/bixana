@@ -1,23 +1,13 @@
 "use client";
 
+// Repeat only these two client logos in the scroller
 const clientLogos = [
-  {
-    name: "Aramco Services Company",
-    logo: "/aramco-services-company-logo-png_seeklogo-395706.png",
-  },
-  {
-    name: "Hyundai Motor Company",
-    logo: "/hyundai-motor-company-logo-png_seeklogo-69075.png",
-  },
-  {
-    name: "Lukoil Oil Company",
-    logo: "/lukoil-oil-company-logo-png_seeklogo-197214.png",
-  },
-  {
-    name: "The Coca-Cola Company",
-    logo: "/the-coca-cola-company-logo-png_seeklogo-138258.png",
-  },
-  { name: "Logo Placeholder", logo: "/logo_placeholder-1.png" },
+  { name: "SmileBright Dental Studio", logo: "/smilebright-logo.webp" },
+  { name: "ToothFairy Partner", logo: "/logo2.webp" },
+  { name: "SmileBright Dental Studio", logo: "/smilebright-logo.webp" },
+  { name: "ToothFairy Partner", logo: "/logo2.webp" },
+  { name: "SmileBright Dental Studio", logo: "/smilebright-logo.webp" },
+  { name: "ToothFairy Partner", logo: "/logo2.webp" },
 ];
 
 export default function Clients() {
