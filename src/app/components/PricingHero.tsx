@@ -27,8 +27,12 @@ const PricingHero = () => {
       <div className="hidden lg:flex items-center justify-between px-20 pt-10 pb-10 w-full max-w-8xl mx-auto">
         <div className="relative shrink-0 text-[90px] text-black text-nowrap">
           <p
-            className="leading-[90px] font-light"
-            style={{ fontFamily: "Inter Tight" }}
+            className="leading-[90px] font-light text-[72px] sm:text-[80px] md:text-[96px] lg:text-[72px]"
+            style={{
+              fontFamily: "Inter Tight",
+              fontWeight: 300,
+              letterSpacing: "-0.03em",
+            }}
           >
             Pricing
           </p>

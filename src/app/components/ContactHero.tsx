@@ -91,7 +91,7 @@ const ContactHero = () => {
             <ContactCard
               icon={
                 <svg
-                  className="w-[90px] h-[90px] text-blue-500"
+                  className="w-[50px] h-[50px] text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -107,7 +107,7 @@ const ContactHero = () => {
             <ContactCard
               icon={
                 <svg
-                  className="w-[106px] h-[106px] text-blue-500"
+                  className="w-[70px] h-[70px] text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -135,7 +135,7 @@ const ContactHero = () => {
             <ContactCard
               icon={
                 <svg
-                  className="w-[90px] h-[90px] text-blue-500"
+                  className="w-[60px] h-[60px] text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

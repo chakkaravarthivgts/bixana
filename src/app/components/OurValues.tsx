@@ -446,13 +446,13 @@ export default function OurValues() {
                   </svg>
                 </div>
                 <h3
-                  className="card-title font-['Helvetica_Neue'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
+                  className="card-title font-['Inter_Tight'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
                   style={{ fontWeight: 300 }}
                 >
                   Innovation
                 </h3>
                 <p
-                  className="card-description text-white/90 font-['Helvetica_Neue'] text-[24px] leading-[36px] tracking-[-0.32px]"
+                  className="card-description text-white/90 font-['Inter_Tight'] text-[24px] leading-[36px] tracking-[-0.32px]"
                   style={{ fontWeight: 300 }}
                 >
                   We continuously develop smarter, intuitive solutions that
@@ -460,7 +460,7 @@ export default function OurValues() {
                 </p>
               </div>
               <div
-                className="card-number absolute bottom-0 right-0 text-white/10 font-['Helvetica_Neue'] text-[120px] leading-none"
+                className="card-number absolute bottom-0 right-0 text-white/10 font-['Inter_Tight'] text-[120px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 1
@@ -485,20 +485,20 @@ export default function OurValues() {
                 </svg>
               </div>
               <h3
-                className="card-title font-['Helvetica_Neue'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
+                className="card-title font-['Inter_Tight'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
                 style={{ fontWeight: 300 }}
               >
                 Excellence
               </h3>
               <p
-                className="card-description text-white/90 font-['Helvetica_Neue'] text-[24px] leading-[36px] tracking-[-0.32px]"
+                className="card-description text-white/90 font-['Inter_Tight'] text-[24px] leading-[36px] tracking-[-0.32px]"
                 style={{ fontWeight: 300 }}
               >
                 We maintain the highest standards in everything we do, from code
                 quality to customer support.
               </p>
               <div
-                className="card-number absolute bottom-0 right-0 text-white/10 font-['Helvetica_Neue'] text-[120px] leading-none"
+                className="card-number absolute bottom-0 right-0 text-white/10 font-['Inter_Tight'] text-[120px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 2
@@ -523,20 +523,20 @@ export default function OurValues() {
                 </svg>
               </div>
               <h3
-                className="card-title font-['Helvetica_Neue'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
+                className="card-title font-['Inter_Tight'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
                 style={{ fontWeight: 300 }}
               >
                 Collaboration
               </h3>
               <p
-                className="card-description text-white/90 font-['Helvetica_Neue'] text-[24px] leading-[36px] tracking-[-0.32px]"
+                className="card-description text-white/90 font-['Inter_Tight'] text-[24px] leading-[36px] tracking-[-0.32px]"
                 style={{ fontWeight: 300 }}
               >
                 We work closely with dental teams to understand their needs and
                 create solutions that truly serve them.
               </p>
               <div
-                className="card-number absolute bottom-0 right-0 text-white/10 font-['Helvetica_Neue'] text-[120px] leading-none"
+                className="card-number absolute bottom-0 right-0 text-white/10 font-['Inter_Tight'] text-[120px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 3
@@ -565,20 +565,20 @@ export default function OurValues() {
                 </svg>
               </div>
               <h3
-                className="card-title font-['Helvetica_Neue'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
+                className="card-title font-['Inter_Tight'] text-[36px] leading-[36px] tracking-[-0.56px] mb-4"
                 style={{ fontWeight: 300 }}
               >
                 Integrity
               </h3>
               <p
-                className="card-description text-white/90 font-['Helvetica_Neue'] text-[24px] leading-[36px] tracking-[-0.32px]"
+                className="card-description text-white/90 font-['Inter_Tight'] text-[24px] leading-[36px] tracking-[-0.32px]"
                 style={{ fontWeight: 300 }}
               >
                 We build trust through transparency, security, and ethical
                 practices in all our interactions.
               </p>
               <div
-                className="card-number absolute bottom-0 right-0 text-white/10 font-['Helvetica_Neue'] text-[120px] leading-none"
+                className="card-number absolute bottom-0 right-0 text-white/10 font-['Inter_Tight'] text-[120px] leading-none"
                 style={{ fontWeight: 300 }}
               >
                 4

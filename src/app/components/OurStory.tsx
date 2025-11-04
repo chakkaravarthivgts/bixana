@@ -31,6 +31,7 @@ export default function OurStory() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const textTrackRef = useRef<HTMLDivElement | null>(null);
   const textStepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const numberRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageStackRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useIsMobile();
@@ -74,6 +75,16 @@ export default function OurStory() {
         }
       });
 
+      // Numbers initial state
+      numberRefs.current.forEach((num, i) => {
+        if (!num) return;
+        if (i === 0) {
+          gsap.set(num, { opacity: 1, y: 0 });
+        } else {
+          gsap.set(num, { opacity: 0, y: 20 });
+        }
+      });
+
       // Prepare images initial state
       imageRefs.current.forEach((img, i) => {
         if (!img) return;
@@ -108,6 +119,14 @@ export default function OurStory() {
           { opacity: 1, scale: 1, duration: 0.8 },
           "<"
         );
+
+        // numbers transition in sync
+        const prevNum = numberRefs.current[i - 1];
+        const curNum = numberRefs.current[i];
+        if (prevNum && curNum) {
+          tl.to(prevNum, { opacity: 0, y: -10, duration: 0.4 }, "<");
+          tl.to(curNum, { opacity: 1, y: 0, duration: 0.4 }, "<");
+        }
       }
     }, section);
 
@@ -216,58 +235,86 @@ export default function OurStory() {
         ) : (
           /* Desktop Layout: Original with animations */
           <div className="mx-auto max-w-8xl px-4 sm:px-6 md:px-10 lg:px-12 xl:px-20 py-10 sm:py-14 md:py-16 lg:py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
               {/* Left copy */}
-              <div className="lg:col-span-6 text-white flex flex-col justify-center">
+              <div className="lg:col-span-6 text-white flex flex-col justify-start">
                 <div className="flex items-center gap-2 mb-6 sm:mb-8">
                   <div className="w-3 h-3 bg-white/90 rounded-full" />
                   <span
-                    className="uppercase tracking-wide font-['Helvetica_Neue'] text-sm"
+                    className="uppercase tracking-wide font-['Inter_Tight'] text-md"
                     style={{ fontWeight: 300 }}
                   >
                     Our Story
                   </span>
                 </div>
 
-                <div className="mb-6">
-                  <h2
-                    className="font-['Helvetica_Neue'] text-white leading-tight mt-3"
-                    style={{ fontWeight: 300, letterSpacing: "-0.02em" }}
-                  >
-                    <span className="block text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px]">
-                      How it began
-                    </span>
-                  </h2>
-                </div>
-
+                {/* Headline + text centered to image height */}
                 <div
-                  ref={textTrackRef}
-                  className="relative"
-                  style={{ height: textBoxHeight || undefined }}
+                  className="w-[92%] sm:w-[90%] max-w-[640px] aspect-[4/5] flex flex-col justify-center"
+                  style={{ transform: "translateY(-3%)" }}
                 >
-                  {storyImages.map((_, i) => (
-                    <div
-                      key={`step-${i}`}
-                      ref={(el) => {
-                        textStepRefs.current[i] = el;
-                      }}
-                      className={`absolute inset-0 max-w-2xl`}
-                      style={{
-                        fontWeight: 300,
-                        color: "#CFE1FF",
-                        fontSize: 24,
-                        lineHeight: "26px",
-                        letterSpacing: "-0.02em",
-                        opacity: i === 0 ? 1 : 0,
-                      }}
+                  {/* Step Number (scroll-synced) */}
+                  <div className="relative h-8 mb-2">
+                    {[0, 1, 2, 3].map((idx) => (
+                      <div
+                        key={`num-${idx}`}
+                        ref={(el) => {
+                          numberRefs.current[idx] = el;
+                        }}
+                        className="absolute inset-0 flex items-center"
+                        style={{
+                          fontFamily: "Inter Tight",
+                          fontWeight: 300,
+                          color: "#FFFFFF",
+                          opacity: idx === 0 ? 1 : 0,
+                        }}
+                      >
+                        <span className="text-[28px] sm:text-[20px] md:text-[22px] lg:text-[32px] leading-none">
+                          {String(idx + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mb-6">
+                    <h2
+                      className="font-['Helvetica_Neue'] text-white leading-tight mt-3"
+                      style={{ fontWeight: 300, letterSpacing: "-0.02em" }}
                     >
-                      At ToothFairy, our numbers reflect the impact we create
-                      for dental practices. From the growing number of clinics
-                      we support to the efficiency gains our solutions deliver,
-                      each statistic represents our commitment to innovation,
-                      seamless workflows, and exceptional patient care.
-                    </div>
-                  ))}
+                      <span className="block text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px]">
+                        How it began
+                      </span>
+                    </h2>
+                  </div>
+                  <div
+                    ref={textTrackRef}
+                    className="relative w-full"
+                    style={{ height: textBoxHeight || undefined }}
+                  >
+                    {storyImages.map((_, i) => (
+                      <div
+                        key={`step-${i}`}
+                        ref={(el) => {
+                          textStepRefs.current[i] = el;
+                        }}
+                        className={`absolute inset-0 max-w-2xl`}
+                        style={{
+                          fontWeight: 300,
+                          color: "#CFE1FF",
+                          fontSize: 24,
+                          lineHeight: "26px",
+                          letterSpacing: "-0.02em",
+                          opacity: i === 0 ? 1 : 0,
+                        }}
+                      >
+                        At ToothFairy, our numbers reflect the impact we create
+                        for dental practices. From the growing number of clinics
+                        we support to the efficiency gains our solutions
+                        deliver, each statistic represents our commitment to
+                        innovation, seamless workflows, and exceptional patient
+                        care.
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 

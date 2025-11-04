@@ -413,7 +413,10 @@ export default function Benefits() {
                   </span>
                 </div>
 
-                <h2 className="text-[32px] font-light text-[#000000] leading-[1.1] mb-6">
+                <h2
+                  className="text-[32px] font-light text-[#000000] leading-[1.1] mb-6"
+                  style={{ letterSpacing: "-0.03em" }}
+                >
                   What{" "}
                   <span
                     className="text-transparent bg-clip-text"

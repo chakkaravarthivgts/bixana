@@ -70,7 +70,7 @@ export default function AboutHero() {
           </div>
 
           <h2
-            className="text-[#0A0F29] text-[28px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[88px] font-light leading-[1.08] text-center"
+            className="text-[#0A0F29] text-[24px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[76px] font-light leading-[1.08] text-center"
             style={{ fontFamily: "Inter Tight", letterSpacing: "-0.03em" }}
           >
             Simplifying complex dental <br />

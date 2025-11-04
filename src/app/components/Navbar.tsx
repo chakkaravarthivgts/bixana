@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 // import { toothfairy } from "public/toothfairy.svg";
 
 type NavbarProps = {
@@ -12,6 +13,24 @@ type NavbarProps = {
 export default function Navbar({ variant = "light" }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const linkClass = (href: string) => {
+    const isActive = pathname === href;
+    if (variant === "dark") {
+      return (
+        (isActive
+          ? "text-white underline underline-offset-4 decoration-2"
+          : "text-white hover:text-white/80") +
+        " transition-colors duration-200"
+      );
+    }
+    return (
+      (isActive
+        ? "text-[#0052CC] underline underline-offset-4 decoration-2"
+        : "text-black hover:text-blue-600") + " transition-colors duration-200"
+    );
+  };
 
   // Hide navbar on scroll for dark variant (AI page)
   useEffect(() => {
@@ -29,7 +48,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
         className={
           variant === "dark"
             ? `fixed top-0 left-0 right-0 z-[100] w-full bg-transparent transition-transform duration-300 ${scrolled ? "-translate-y-full" : "translate-y-0"}`
-            : "sticky top-0 z-[100] w-full bg-white/95 backdrop-blur-sm "
+            : "sticky top-0 z-[100] w-full "
         }
       >
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,77 +56,62 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
             {/* Logo/Brand */}
             <div className="flex items-center flex-shrink-0">
               <Link href="/">
-                <Image
-                  src="/Asset 1 1.svg"
-                  alt="ToothFairy Logo"
-                  width={200}
-                  height={200}
-                  className={
-                    variant === "dark"
-                      ? "object-contain bg-white rounded-full p-1 m-1"
-                      : "object-contain"
-                  }
-                />
+                <>
+                  {variant === "dark" ? (
+                    <Image
+                      src="/Asset 1 2.svg"
+                      alt="ToothFairy Logo"
+                      width={200}
+                      height={200}
+                    />
+                  ) : (
+                    <Image
+                      src="/Asset 1 1.svg"
+                      alt="ToothFairy Logo"
+                      width={200}
+                      height={200}
+                    />
+                  )}
+                </>
               </Link>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center justify-center flex-1 gap-10 translate-x-[100px]">
               <Link
-                className={
-                  variant === "dark"
-                    ? "text-white transition-colors duration-200 hover:text-white/80"
-                    : "text-black transition-colors duration-200 hover:text-blue-600"
-                }
+                className={linkClass("/about")}
                 style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/about"
               >
                 About
               </Link>
               <Link
-                className={
-                  variant === "dark"
-                    ? "text-white transition-colors duration-200 hover:text-white/80"
-                    : "text-black transition-colors duration-200 hover:text-blue-600"
-                }
+                className={linkClass("/services")}
                 style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/services"
               >
                 Services
               </Link>
-
               <Link
-                className={
-                  variant === "dark"
-                    ? "text-white transition-colors duration-200 hover:text-white/80"
-                    : "text-black transition-colors duration-200 hover:text-blue-600"
-                }
+                className={linkClass("/pricing")}
                 style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/pricing"
               >
                 Pricing
               </Link>
               <Link
-                className={
-                  variant === "dark"
-                    ? "text-white transition-colors duration-200 hover:text-white/80"
-                    : "text-black transition-colors duration-200 hover:text-blue-600"
-                }
-                style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
-                href="/contact"
-              >
-                Contact
-              </Link>
-              <Link
-                className={
-                  variant === "dark"
-                    ? "text-white transition-colors duration-200 hover:text-white/80"
-                    : "text-black transition-colors duration-200 hover:text-blue-600"
-                }
+                className={linkClass("/ai")}
                 style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/ai"
               >
                 ToothFairy AI
+              </Link>
+              <Link
+                className={linkClass("/contact")}
+                style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
+                href="/contact"
+              >
+                Contact
               </Link>
             </nav>
 

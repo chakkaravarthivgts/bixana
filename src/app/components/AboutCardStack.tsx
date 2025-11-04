@@ -44,7 +44,7 @@ export default function AboutCardStack({ cards }: { cards: AboutCardData[] }) {
         if (!card) continue;
         tl.to(
           card,
-          { y: `${i * 82}px`, duration: 0.8, ease: "power2.out" },
+          { y: `${i * 16}%`, duration: 0.8, ease: "power2.out" },
           (i - 1) * 0.8
         );
       }
@@ -87,10 +87,9 @@ export default function AboutCardStack({ cards }: { cards: AboutCardData[] }) {
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className={`${card.bgColor} rounded-[50px] p-8 sm:p-12 absolute w-full max-w-7xl shadow-lg`}
+            className={`${card.bgColor} rounded-[50px] p-8 sm:p-12 absolute w-full max-w-7xl`}
             style={{
               zIndex: 10 + index,
-              boxShadow: `0 ${index * 4 + 10}px ${index * 8 + 20}px rgba(0, 0, 0, 0.15)`,
             }}
           >
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">

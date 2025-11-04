@@ -49,6 +49,7 @@ export default function AIHowItWorksWithTextReveal() {
   const imgRefs = useRef<(HTMLDivElement | null)[]>([]);
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
   const numberRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const stRef = useRef<ScrollTrigger | null>(null);
   const line1Ref = useRef<HTMLSpanElement | null>(null);
   const line2Ref = useRef<HTMLSpanElement | null>(null);
   const line3Ref = useRef<HTMLSpanElement | null>(null);
@@ -86,7 +87,8 @@ export default function AIHowItWorksWithTextReveal() {
         if (!el) return;
         gsap.set(el, {
           color: i === 0 ? "#FFFFFF" : "rgba(255,255,255,0.6)",
-          fontSize: i === 0 ? "48px" : "18px",
+          scale: i === 0 ? 1 : 0.6,
+          transformOrigin: "left center",
         });
       });
 
@@ -116,14 +118,14 @@ export default function AIHowItWorksWithTextReveal() {
             "<"
           );
         }
-        // Update numbers styling on each step
+        // Update numbers styling on each step (scale to avoid layout shift)
         tl.add(() => {
           numberRefs.current.forEach((el, idx) => {
             if (!el) return;
             const active = idx === i;
             gsap.to(el, {
               color: active ? "#FFFFFF" : "rgba(255,255,255,0.6)",
-              fontSize: active ? "48px" : "18px",
+              scale: active ? 1 : 0.6,
               duration: 0.3,
               ease: "power2.out",
             });
@@ -133,7 +135,7 @@ export default function AIHowItWorksWithTextReveal() {
 
       const pinDistance = 1200;
 
-      ScrollTrigger.create({
+      stRef.current = ScrollTrigger.create({
         trigger: sectionRef.current!,
         start: "center center",
         end: `+=${pinDistance}`,
@@ -147,6 +149,15 @@ export default function AIHowItWorksWithTextReveal() {
 
     return () => ctx.revert();
   }, [mounted]);
+
+  const handleNumberClick = (index: number) => {
+    if (!stRef.current) return;
+    const st = stRef.current;
+    const steps = Math.max(1, STEPS.length - 1);
+    const progress = Math.min(1, Math.max(0, index / steps));
+    const target = st.start + (st.end - st.start) * progress;
+    window.scrollTo({ top: target, behavior: "smooth" });
+  };
 
   // Text Reveal Animation
   useLayoutEffect(() => {
@@ -248,8 +259,13 @@ export default function AIHowItWorksWithTextReveal() {
                   ref={(el) => {
                     numberRefs.current[i] = el;
                   }}
-                  className="leading-none mb-6"
-                  style={{ color: "rgba(255,255,255,0.6)", fontSize: "18px" }}
+                  className="leading-none mb-6 cursor-pointer select-none"
+                  onClick={() => handleNumberClick(i)}
+                  style={{
+                    color: "rgba(255,255,255,0.6)",
+                    fontSize: "24px",
+                    width: "56px",
+                  }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </div>

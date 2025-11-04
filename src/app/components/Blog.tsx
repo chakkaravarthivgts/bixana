@@ -67,7 +67,14 @@ export default function Blog() {
             </div>
 
             {/* Title */}
-            <h2 className="font-helvetica-neue-light text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight text-black">
+            <h2
+              className=" text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight text-black"
+              style={{
+                fontFamily: "Inter Tight",
+                fontWeight: 300,
+                letterSpacing: "-0.03em",
+              }}
+            >
               Our Insights
             </h2>
           </div>
@@ -82,16 +89,16 @@ export default function Blog() {
         </div>
 
         {/* Blog Cards */}
-        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 xl:gap-16">
+        <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10 xl:gap-14">
           {/* Card 1 */}
-          <div className="flex flex-col w-full lg:w-1/2 gap-6">
+          <div className="flex flex-col w-full lg:w-1/2 gap-4">
             {/* Image */}
-            <div className="rounded-[40px] overflow-hidden w-full aspect-[16/9] lg:aspect-[3/2]">
+            <div className="rounded-[40px] overflow-hidden w-full aspect-[16/9] ">
               <Image
                 src={blogPosts[0].image}
                 alt={blogPosts[0].title}
-                width={729}
-                height={424}
+                width={700}
+                height={400}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -113,7 +120,7 @@ export default function Blog() {
           {/* Card 2 */}
           <div className="flex flex-col w-full lg:w-1/2 gap-6">
             {/* Image */}
-            <div className="rounded-[40px] overflow-hidden w-full aspect-[16/9] lg:aspect-[3/2]">
+            <div className="rounded-[40px] overflow-hidden w-full aspect-[16/9] ">
               <Image
                 src={blogPosts[1].image}
                 alt={blogPosts[1].title}

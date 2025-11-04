@@ -8,8 +8,7 @@ export default function AIHero() {
     <section
       className="relative w-full min-h-screen overflow-hidden"
       style={{
-        backgroundImage:
-          "linear-gradient(135deg, #0052CC 0%, #003D99 50%, #002966 100%)",
+        backgroundImage: "var(--tf-hero-gradient)",
       }}
     >
       <div className="relative z-0 flex flex-col lg:flex-row items-start min-h-screen pt-32">
@@ -47,7 +46,7 @@ export default function AIHero() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: "clamp(32px, 8vw, 72px)",
+                fontSize: "clamp(32px, 8vw, 62px)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.03em",
               }}

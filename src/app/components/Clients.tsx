@@ -22,7 +22,10 @@ export default function Clients() {
               trusted partners
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-black leading-tight">
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-light text-black leading-tight"
+            style={{ letterSpacing: "-0.03em" }}
+          >
             Our Clients
           </h2>
         </div>

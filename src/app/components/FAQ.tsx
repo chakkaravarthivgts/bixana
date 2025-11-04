@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
     <div className="content-stretch flex flex-col gap-6 items-end justify-start relative shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-4 items-start justify-start relative shrink-0 w-full max-w-[1164px]">
         <div className="content-stretch flex items-start sm:items-center justify-between gap-4 relative shrink-0 w-full">
-          <div className="font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-2xl sm:text-3xl md:text-[28px] lg:text-[28px] xl:text-[40px] text-black tracking-[-0.8px]">
+          <div className="font-['Inter_Tight'] font-light leading-[0] not-italic relative shrink-0 text-2xl sm:text-3xl md:text-[28px] lg:text-[28px] xl:text-[40px] text-black tracking-[-0.8px]">
             <p className="leading-tight sm:leading-[1.2] md:leading-[1.25] lg:leading-[1.25] xl:leading-[48px]">
               {question}
             </p>
@@ -55,7 +55,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
           </button>
         </div>
         {isOpen && (
-          <div className="font-['Helvetica_Neue'] font-light leading-[0] not-italic relative shrink-0 text-[#777777] text-base sm:text-lg md:text-xl lg:text-xl xl:text-[28px] tracking-[-0.6px] w-full max-w-[900px] xl:max-w-[1133px]">
+          <div className="font-['Inter_Tight'] font-light leading-[0] not-italic relative shrink-0 text-[#777777] text-base sm:text-lg md:text-xl lg:text-xl xl:text-[28px] tracking-[-0.6px] w-full max-w-[900px] xl:max-w-[1133px]">
             <p className="leading-relaxed sm:leading-[1.5] md:leading-[1.6] lg:leading-[1.5] xl:leading-[38px]">
               {answer}
             </p>
@@ -115,7 +115,7 @@ const FAQ = () => {
                 FAQ
               </span>
             </div>
-            <div className="font-['Helvetica_Neue'] font-light leading-[0] not-italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px] text-black tracking-[-2.04px] w-full">
+            <div className="font-['Inter_Tight'] font-light leading-[0] not-italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px] text-black tracking-[-2.04px] w-full">
               <p className="leading-tight sm:leading-[1.1] md:leading-[1.2] lg:leading-[1.25] xl:leading-[78px]">
                 Frequently Asked Questions
               </p>

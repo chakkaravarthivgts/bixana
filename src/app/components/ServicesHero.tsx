@@ -7,7 +7,7 @@ export default function ServicesHero() {
     <section className="w-full bg-white ">
       <div className="max-w-8xl mx-auto px-20 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24 xl:px-20">
         <h1
-          className="text-[#0A0F29] text-[32px] sm:text-[44px] md:text-[56px] lg:text-[72px] leading-[1.1]"
+          className="pb-10 text-[#0A0F29] text-[32px] sm:text-[44px] md:text-[56px] lg:text-[72px] leading-[1.1]"
           style={{
             fontFamily: "Inter Tight",
             fontWeight: 300,

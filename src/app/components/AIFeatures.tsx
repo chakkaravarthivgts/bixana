@@ -44,10 +44,10 @@ export default function AIFeatures() {
           Dental Workflows
         </h2>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {/* Card 1 - Text + Blue image bottom */}
-          <div className="col-span-1 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] overflow-hidden bg-white">
+        {/* Grid (4x4 at lg) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[200px] gap-6 lg:gap-8">
+          {/* Card 1 - 2w x 2h */}
+          <div className="col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] overflow-hidden bg-white flex flex-col">
             <div className="p-6 lg:p-8">
               <h3
                 className="text-black mb-3"
@@ -75,21 +75,21 @@ export default function AIFeatures() {
                 structured clinical notes tailored to your workflow.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-[#0052CC] to-[#0B61E1] p-6 lg:p-8">
+            <div className="mt-auto bg-gradient-to-br from-[#0052CC] to-[#0B61E1] p-6 lg:p-8">
               <div className="rounded-2xl overflow-hidden bg-white/05">
                 <Image
                   src="/dental-png.jpg"
                   alt="AI suggestions"
                   width={900}
                   height={500}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-40 sm:h-48 lg:h-56 object-cover"
                 />
               </div>
             </div>
           </div>
 
-          {/* Card 2 - HIPAA text with illustration */}
-          <div className="col-span-1 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] overflow-hidden bg-white flex flex-col">
+          {/* Card 2 - 2w x 1h */}
+          <div className="col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-1 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] overflow-hidden bg-white flex flex-col">
             <div className="p-6 lg:p-8 flex-1">
               <h3
                 className="text-black mb-3"
@@ -113,14 +113,14 @@ export default function AIFeatures() {
                   alt="HIPAA"
                   width={900}
                   height={500}
-                  className="w-full h-44 object-cover"
+                  className="w-full h-40 object-cover"
                 />
               </div>
             </div>
           </div>
 
-          {/* Card 3 - Blue gradient with chart */}
-          <div className="col-span-1 rounded-[20px] lg:rounded-[24px] overflow-hidden bg-gradient-to-br from-[#0052CC] to-[#0B61E1] border border-[#0A4DB6]">
+          {/* Card 3 - 1w x 1h */}
+          <div className="col-span-1 lg:col-span-1 lg:row-span-1 lg:col-start-1 lg:row-start-3 rounded-[20px] lg:rounded-[24px] overflow-hidden bg-gradient-to-br from-[#0052CC] to-[#0B61E1] border border-[#0A4DB6]">
             <div className="p-6 lg:p-8">
               <div className="rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20">
                 <Image
@@ -128,14 +128,14 @@ export default function AIFeatures() {
                   alt="Analytics"
                   width={900}
                   height={500}
-                  className="w-full h-56 object-cover"
+                  className="w-full h-40 object-cover"
                 />
               </div>
             </div>
           </div>
 
-          {/* Card 4 */}
-          <div className="col-span-1 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] bg-white p-6 lg:p-8">
+          {/* Card 4 - 1w x 1h */}
+          <div className="col-span-1 lg:col-span-1 lg:row-span-1 lg:col-start-2 lg:row-start-3 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] bg-white p-6 lg:p-8">
             <h4
               className="text-black mb-2"
               style={{
@@ -160,8 +160,8 @@ export default function AIFeatures() {
             </p>
           </div>
 
-          {/* Card 5 - Languages with globe */}
-          <div className="col-span-1 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] bg-white p-6 lg:p-8 flex flex-col items-start">
+          {/* Card 5 - 2w x 2h */}
+          <div className="col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-2 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] bg-white p-6 lg:p-8 flex flex-col items-start">
             <h4
               className="text-black mb-4"
               style={{
@@ -179,36 +179,8 @@ export default function AIFeatures() {
                 alt="Languages"
                 width={900}
                 height={500}
-                className="w-full h-40 object-cover"
+                className="w-full h-56 lg:h-full object-cover"
               />
-            </div>
-          </div>
-
-          {/* Card 6 - Real-time transcription */}
-          <div className="col-span-1 rounded-[20px] lg:rounded-[24px] border border-[#E6EAF0] overflow-hidden bg-white flex flex-col">
-            <div className="p-6 lg:p-8">
-              <h4
-                className="text-black mb-2"
-                style={{
-                  fontFamily: "Inter Tight",
-                  fontWeight: 300,
-                  fontSize: 20,
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                Real-time transcription of patient-provider conversations
-              </h4>
-              <p
-                className="text-[#5A6177]"
-                style={{
-                  fontFamily: "Inter Tight",
-                  fontWeight: 300,
-                  fontSize: 14,
-                  lineHeight: 1.6,
-                }}
-              >
-                Accurate, structured notes captured during live encounters.
-              </p>
             </div>
           </div>
         </div>

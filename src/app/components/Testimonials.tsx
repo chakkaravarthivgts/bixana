@@ -54,7 +54,7 @@ export default function Testimonials() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: "clamp(28px, 6vw, 72px)",
+                fontSize: "clamp(28px, 6vw, 66px)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.03em",
                 color: "#0A0F29",
@@ -102,7 +102,7 @@ export default function Testimonials() {
                 style={{
                   fontFamily: "Inter Tight",
                   fontWeight: 300,
-                  fontSize: "clamp(16px, 3.6vw, 32px)",
+                  fontSize: "clamp(16px, 3.6vw, 26px)",
                   lineHeight: 1.5,
                   letterSpacing: "-0.02em",
                   color: "#0A0F29",
@@ -118,7 +118,7 @@ export default function Testimonials() {
                   style={{
                     fontFamily: "Inter Tight",
                     fontWeight: 300,
-                    fontSize: "clamp(24px, 6vw, 72px)",
+                    fontSize: "clamp(24px, 6vw, 52px)",
                     lineHeight: 1.15,
                     letterSpacing: "-0.02em",
                     color: "#0A0F29",
@@ -130,7 +130,7 @@ export default function Testimonials() {
                   style={{
                     fontFamily: "Inter Tight",
                     fontWeight: 400,
-                    fontSize: "clamp(14px, 3.2vw, 28px)",
+                    fontSize: "clamp(14px, 3.2vw, 24px)",
                     lineHeight: 1.6,
                     letterSpacing: "-0.01em",
                     color: "#9AA1B2",

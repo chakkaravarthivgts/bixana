@@ -31,7 +31,7 @@ export default function CTABanner() {
       <div className="relative w-full flex flex-col justify-center items-center bg-[#F5F5F5] rounded-[24px] sm:rounded-[28px] lg:rounded-[36px] px-5 sm:px-8 lg:px-16 py-8 sm:py-10 lg:py-14">
         <div className="flex flex-col lg:flex-row justify-between w-full gap-8 lg:gap-12">
           {/* Text Content */}
-          <div className="flex flex-col gap-8 justify-between align-middle w-full lg:w-[536px]">
+          <div className="flex flex-col gap-8 p-4 justify-between align-middle w-full lg:w-[536px]">
             {/* Main Text */}
             <div className="flex flex-col gap-4 sm:gap-6">
               {/* Headline */}
@@ -39,8 +39,8 @@ export default function CTABanner() {
                 style={{
                   fontFamily: "Inter Tight",
                   fontWeight: 300,
-                  fontSize: "clamp(28px, 6vw, 68px)",
-                  lineHeight: "1.2",
+                  fontSize: "clamp(28px, 6vw, 62px)",
+                  lineHeight: "1.1",
                   letterSpacing: "-0.03em",
                   color: "#000000",
                   width: "min(100%, 503px)",
@@ -93,7 +93,7 @@ export default function CTABanner() {
                 style={{
                   fontFamily: "Inter Tight",
                   fontWeight: 300,
-                  fontSize: "clamp(24px, 6vw, 60px)",
+                  fontSize: "clamp(24px, 6vw, 56px)",
                   lineHeight: "1.15",
                   letterSpacing: "-0.03em",
                   color: "#000000",
@@ -110,7 +110,7 @@ export default function CTABanner() {
               {/* Form Fields */}
               <div className="flex flex-col gap-4 w-full">
                 {/* First Name */}
-                <div className="relative h-[52px] sm:h-[56px] lg:h-[60px] bg-white border border-[#C3C3C3] rounded-[68px]">
+                <div className="relative h-[52px] sm:h-[52px] lg:h-[54px] bg-white border border-[#C3C3C3] rounded-[68px]">
                   <input
                     type="text"
                     name="firstName"
@@ -130,7 +130,7 @@ export default function CTABanner() {
                 </div>
 
                 {/* Email */}
-                <div className="relative h-[52px] sm:h-[56px] lg:h-[60px] bg-white border border-[#C3C3C3] rounded-[68px]">
+                <div className="relative h-[52px] sm:h-[52px] lg:h-[54px] bg-white border border-[#C3C3C3] rounded-[68px]">
                   <input
                     type="email"
                     name="email"
@@ -150,7 +150,7 @@ export default function CTABanner() {
                 </div>
 
                 {/* Subject */}
-                <div className="relative h-[52px] sm:h-[56px] lg:h-[60px] bg-white border border-[#C3C3C3] rounded-[68px]">
+                <div className="relative h-[52px] sm:h-[52px] lg:h-[54px] bg-white border border-[#C3C3C3] rounded-[68px]">
                   <input
                     type="text"
                     name="subject"

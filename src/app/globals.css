@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 :root {
+  /* Shared gradient used across hero/sections */
+  --tf-hero-gradient: linear-gradient(
+    180deg,
+    #0b56c7 0%,
+    #0a4ec2 30%,
+    #0a46b5 65%,
+    #083c9e 100%
+  );
+}
+
+:root {
   --background: #ffffff;
   --foreground: #171717;
 }

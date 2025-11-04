@@ -204,7 +204,7 @@ export default function Features() {
               fontWeight: 300,
               fontSize: "68px",
               lineHeight: "1.147em",
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.03em",
             }}
           >
             What features bixana offers

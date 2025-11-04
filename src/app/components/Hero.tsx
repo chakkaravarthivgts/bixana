@@ -46,6 +46,8 @@ export default function Hero({
             height: "calc(100vh - 110px)",
             background: "rgba(0, 0, 0, 0.1)",
             borderRadius: "29px",
+            marginLeft: "24px",
+            marginRight: "24px",
           }}
         >
           <video
@@ -74,13 +76,14 @@ export default function Hero({
                 style={{
                   fontFamily: "Inter Tight",
                   fontWeight: 300,
-                  fontSize: "clamp(28px, 8vw, 90px)",
+                  fontSize: "clamp(24px, 8vw, 74px)",
                   lineHeight: "1.15",
                   letterSpacing: "-0.03em",
                   textAlign: "left",
                 }}
               >
-                Smarter Patient Communication. Simpler Dental Practice.
+                Smarter Patient Communication.
+                <br /> Simpler Dental Practice.
               </h1>
             </div>
 
