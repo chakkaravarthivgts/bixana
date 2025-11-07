@@ -170,8 +170,12 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
 
             {/* Desktop Action Buttons */}
             <div className="hidden lg:flex items-center flex-shrink-0 gap-2.5">
-              <button
-                onClick={initCalendlyBadge}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  initCalendlyBadge();
+                }}
                 className={
                   variant === "dark"
                     ? "flex items-center justify-center gap-2 text-[#0052CC] rounded-full transition-colors duration-200 uppercase bg-white hover:bg-white/90"
@@ -185,6 +189,8 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                   fontWeight: 400,
                   fontSize: "16px",
                   lineHeight: "1.3em",
+                  cursor: "pointer",
+                  zIndex: 1000,
                 }}
               >
                 <svg
@@ -201,7 +207,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                   />
                 </svg>
                 schedule demo
-              </button>
+              </a>
 
               <a
                 href="https://app.bixana.com/"
@@ -337,16 +343,18 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
             </nav>
 
             <div className="mt-auto flex flex-col gap-3">
-              <button
-                onClick={() => {
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
                   initCalendlyBadge();
                   setOpen(false);
                 }}
-                className="w-full h-12 rounded-full text-white font-medium"
+                className="w-full h-12 rounded-full text-white font-medium flex items-center justify-center"
                 style={{ backgroundColor: "#0052CC" }}
               >
                 schedule demo
-              </button>
+              </a>
               <a
                 href="https://app.bixana.com/"
                 className="w-full h-12 rounded-full border border-[#777777] text-gray-900 font-medium flex items-center justify-center"

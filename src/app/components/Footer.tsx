@@ -28,24 +28,15 @@ export default function Footer() {
             <div className="flex flex-col lg:flex-row justify-between gap-10">
               <div className="lg:col-span-1 w-full lg:w-[600px]">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <div
-                      className="w-10 h-10 
-                    sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white rounded-full"
-                    ></div>
-                  </div>
-                  <h2
-                    className="text-white"
-                    style={{
-                      fontFamily: "Inter Tight",
-                      fontWeight: 300,
-                      fontSize: "clamp(24px, 5vw, 48px)",
-                      lineHeight: "1.147em",
-                      letterSpacing: "-0.02em",
-                    }}
-                  >
-                    bixana
-                  </h2>
+                  <Link href="/" className="flex items-center">
+                    <Image
+                      src="/Asset 1 2.svg"
+                      alt="Bixana Logo"
+                      width={180}
+                      height={50}
+                      className="h-8 sm:h-10 lg:h-12 w-auto"
+                    />
+                  </Link>
                 </div>
                 <p
                   className="text-white/90 text-[14px] sm:text-[16px] leading-[1.6] font-normal"
