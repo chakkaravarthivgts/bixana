@@ -9,7 +9,7 @@ const blogPosts = [
     title: "How to get started with ToothFairy",
     description:
       "Developing ethical frameworks and compliance standards for responsible AI adoption in dental practices.",
-    image: "/dental-png.jpg",
+    image: "/Card 1 Image.png",
     date: "March 15, 2024",
     readTime: "5 min read",
   },
@@ -18,7 +18,7 @@ const blogPosts = [
     title: "Benefits of fastening appointments",
     description:
       "Bridging startups, governments, and SMEs to co-create impactful AI solutions for modern healthcare.",
-    image: "/dental-png.jpg",
+    image: "/Card 2 Image.png",
     date: "March 12, 2024",
     readTime: "3 min read",
   },

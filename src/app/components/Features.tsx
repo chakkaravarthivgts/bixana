@@ -221,25 +221,25 @@ export default function Features() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#C4DCFF]/30 via-[#01327B]/30 to-[#01327B]/30 rounded-[24px]"></div>
                   <div className="relative bg-[#094EB4] rounded-[22px] p-8 shadow-2xl">
                     {/* Heading */}
-                    <h3 className="text-white text-[28px] font-light leading-[1.15] tracking-[-0.02em] mb-8">
+                    <h3 className="text-white text-[28px] font-light leading-[1.15] tracking-[-0.02em] mb-4">
                       {feature.title}
                     </h3>
 
-                    {/* Image */}
-                    <div className="relative w-full h-[400px] rounded-[16px] overflow-hidden border border-white/10 mb-8">
+                    {/* Content moved above image */}
+                    <p className="text-white/90 text-[18px] font-normal leading-[1.6] tracking-[-0.01em] mb-6">
+                      {feature.description}
+                    </p>
+
+                    {/* Image - mobile landscape crop */}
+                    <div className="relative w-full aspect-[16/9] rounded-[20px] overflow-hidden border border-white/10">
                       <Image
                         src={feature.image}
                         alt={feature.title}
                         fill
-                        className="object-cover"
+                        className="object-cover object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
-
-                    {/* Content */}
-                    <p className="text-white/90 text-[18px] font-normal leading-[1.6] tracking-[-0.01em] mb-8">
-                      {feature.description}
-                    </p>
 
                     {/* CTA Button */}
                     <div className="flex justify-center">
@@ -294,7 +294,8 @@ export default function Features() {
                         activeFeature.id === feature.id
                           ? "text-[24px] font-light"
                           : "text-[16px] font-normal"
-                      } leading-[1.5] tracking-[-0.02em] transition-all duration-300`}
+                      } leading-[1.5] tracking-[-0.02em] transition-all duration-300 whitespace-nowrap overflow-hidden text-ellipsis`}
+                      title={feature.title}
                     >
                       {feature.title}
                     </span>
@@ -317,11 +318,27 @@ export default function Features() {
                     }}
                     className="absolute inset-0 flex flex-col"
                   >
+                    {/* Text moved above image */}
+                    <div className="space-y-12  my-12">
+                      <div className="grid lg:grid-cols-2 gap-4 lg:gap-20">
+                        <div>
+                          <h3 className="text-white text-[28px] lg:text-[48px] font-light leading-[1.15] tracking-[-0.02em]">
+                            {f.title}
+                          </h3>
+                        </div>
+                        <div>
+                          <p className="text-white/90 text-[18px] lg:text-[20px] font-normal leading-[1.6] tracking-[-0.01em]">
+                            {f.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Visual */}
-                    <div className="mb-12">
+                    <div>
                       <div className="relative bg-gradient-to-br from-[#094EB4] to-[#0A3F8F] rounded-[32px] p-1 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#C4DCFF]/30 via-[#01327B]/30 to-[#01327B]/30 rounded-[32px]"></div>
-                        <div className="relative bg-[#094EB4] rounded-[30px] p-12 lg:p-16 shadow-2xl">
+                        <div className="relative bg-[#094EB4] rounded-[30px] p-8 lg:p-8 shadow-2xl">
                           <div className="relative w-full h-[400px] lg:h-[500px] rounded-[20px] overflow-hidden border border-white/10">
                             <Image
                               src={f.image}
@@ -335,26 +352,12 @@ export default function Features() {
                       </div>
                     </div>
 
-                    {/* Text + CTA */}
-                    <div className="space-y-12">
-                      <div className="grid lg:grid-cols-2 gap-4 lg:gap-20">
-                        <div>
-                          <h3 className="text-white text-[28px] lg:text-[48px] font-light leading-[1.15] tracking-[-0.02em]">
-                            {f.title}
-                          </h3>
-                        </div>
-                        <div>
-                          <p className="text-white/90 text-[18px] lg:text-[20px] font-normal leading-[1.6] tracking-[-0.01em]">
-                            {f.description}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex justify-center">
-                        <button className="group relative px-10 py-4 bg-white text-[#0052CC] rounded-full font-medium text-[16px] uppercase tracking-[0.08em] transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/95">
-                          <span className="relative z-10">View Details</span>
-                          <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                        </button>
-                      </div>
+                    {/* CTA below image */}
+                    <div className="flex justify-center mt-12">
+                      <button className="group relative px-10 py-4 bg-white text-[#0052CC] rounded-full font-medium text-[16px] uppercase tracking-[0.08em] transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/95">
+                        <span className="relative z-10">View Details</span>
+                        <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                      </button>
                     </div>
                   </div>
                 ))}

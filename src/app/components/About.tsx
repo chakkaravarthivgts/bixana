@@ -80,7 +80,7 @@ const aboutCards: AboutCardData[] = [
   {
     title: "Smart Patient Appointment Management",
     description:
-      "Simplify scheduling with smart tools that keep your appointments organized and patients on time. Streamline bookings, reminders, and confirmations — all in one intelligent scheduling system. Effortless scheduling made smarter, keeping your dental practice efficient and patient-friendly. Automate appointments and reduce no-shows with intelligent, real-time scheduling. A smarter way to manage patient bookings — simple, fast, and always on schedule.",
+      "Smart Patient Appointment Management simplifies scheduling with intelligent, real-time tools that streamline bookings, reminders, and confirmations. It keeps appointments organized, reduces no-shows, and ensures your dental practice runs efficiently delivering a seamless, patient-friendly experience every time.",
     features: [
       {
         icon: (
@@ -110,11 +110,12 @@ const aboutCards: AboutCardData[] = [
     bgColor: "bg-gray-200",
     textColor: "text-black",
     iconColor: "text-blue-600",
+    imageUrl: "/Rectangle 4.png",
   },
   {
     title: "In Patient Appointment",
     description:
-      "Seamless chairside coordination manages in-clinic visits effortlessly — Enhanced patient experience delivers a comfortable, efficient in-clinic journey that leaves every patient feeling cared for and valued.",
+      "In-Patient Appointment module streamlines in-clinic workflows with real-time tracking, smart scheduling, and instant notifications. It keeps your team synchronized from check-in to treatment, optimizing chair use, minimizing wait times, and ensuring every patient enjoys a smooth, personalized experience.",
     features: [
       {
         icon: (
@@ -168,11 +169,12 @@ const aboutCards: AboutCardData[] = [
     bgColor: "bg-blue-600",
     textColor: "text-white",
     iconColor: "text-white",
+    imageUrl: "/Rectangle 3.png",
   },
   {
     title: "Post Treatment",
     description:
-      "Deliver seamless post-treatment support that keeps patients informed, engaged, and cared for. Manage follow-up care, track recovery progress, and maintain continuous communication with patients after their treatment. Ensure timely check-ins, automated reminders for post-treatment appointments, and personalized care instructions that enhance patient outcomes and satisfaction.",
+      "Post Treatment module enhances patient satisfaction through automated follow-ups, reminders, and feedback tools. It simplifies aftercare, keeps patients informed and engaged beyond their visit, and ensures every treatment concludes with confident smiles through seamless, personalized post-visit communication.",
     features: [
       {
         icon: (
@@ -186,11 +188,12 @@ const aboutCards: AboutCardData[] = [
     bgColor: "bg-gray-900",
     textColor: "text-white",
     iconColor: "text-white",
+    imageUrl: "/Rectangle 2.png",
   },
   {
     title: "For Clinic",
     description:
-      "Transform your clinic into a smarter, more connected practice built for modern dentistry. Empower your team with powerful analytics and reporting tools, comprehensive user account management, and seamless practice administration. Streamline clinic operations with customizable templates, intelligent task management, and flexible scheduling capabilities that adapt to your practice's unique needs.",
+      "Clinic module empowers dental practices with intelligent automation and real-time insights to simplify operations, optimize workflows, and enhance patient care. It streamlines scheduling, reporting, and daily tasks, transforming your clinic into a smarter, more connected, and efficient practice.",
     features: [
       {
         icon: (
@@ -266,6 +269,7 @@ const aboutCards: AboutCardData[] = [
     bgColor: "bg-white border border-gray-300",
     textColor: "text-black",
     iconColor: "text-blue-600",
+    imageUrl: "/Rectangle 1.png",
   },
 ];
 

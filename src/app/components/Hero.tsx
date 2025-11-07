@@ -1,6 +1,16 @@
 "use client";
 
 import { ReactNode } from "react";
+import Image from "next/image";
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget?: (options: Record<string, unknown>) => void;
+      initPopupWidget?: (options: { url: string }) => void;
+    };
+  }
+}
 
 type HeroProps = {
   title?: ReactNode;
@@ -28,7 +38,51 @@ export default function Hero({
   posterSrc = "/next.svg",
   overlayOpacity = 0.45,
 }: HeroProps) {
-  const clampedOpacity = Math.min(1, Math.max(0, overlayOpacity));
+  // const clampedOpacity = Math.min(1, Math.max(0, overlayOpacity));
+
+  // Initialize Calendly badge widget on demand (when CTA is clicked)
+  const initCalendlyBadge = () => {
+    // Inject Calendly CSS once
+    const cssHref = "https://assets.calendly.com/assets/external/widget.css";
+    if (!document.querySelector(`link[href='${cssHref}']`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssHref;
+      document.head.appendChild(link);
+    }
+
+    // Helper to open popup immediately once Calendly script is ready
+    const onCalendlyReady = () => {
+      if (
+        window.Calendly &&
+        typeof window.Calendly.initPopupWidget === "function"
+      ) {
+        window.Calendly.initPopupWidget({
+          url: "https://calendly.com/santhosh-25/toothfairy-ai",
+        });
+      }
+    };
+
+    // Load script if not present, otherwise init immediately
+    const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
+    const existingScript = document.querySelector(
+      `script[src='${scriptSrc}']`
+    ) as HTMLScriptElement | null;
+    if (existingScript && window.Calendly) {
+      onCalendlyReady();
+      return;
+    }
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = scriptSrc;
+      script.async = true;
+      script.onload = onCalendlyReady;
+      document.body.appendChild(script);
+    } else {
+      // Wait for the existing script to finish loading
+      existingScript.addEventListener("load", onCalendlyReady, { once: true });
+    }
+  };
 
   return (
     <section
@@ -50,19 +104,11 @@ export default function Hero({
             marginRight: "24px",
           }}
         >
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            src={videoSrc}
-            poster={posterSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{
-              borderRadius: "29px",
-              objectFit: "cover",
-              objectPosition: "center center",
-            }}
+          <Image
+            src="/Bixana hero.png"
+            alt="Hero"
+            fill
+            className="object-cover"
           />
 
           {/* Content container matching Figma layout */}
@@ -92,6 +138,7 @@ export default function Hero({
               {/* CTA Buttons */}
               <div className="flex items-center gap-3">
                 <button
+                  onClick={initCalendlyBadge}
                   className="flex items-center justify-center gap-2 rounded-full transition-colors duration-200 uppercase"
                   style={{
                     backgroundColor: "#FFFFFF",
@@ -118,37 +165,6 @@ export default function Hero({
                     />
                   </svg>
                   schedule demo
-                </button>
-
-                <button
-                  aria-label="Watch video"
-                  className="flex items-center justify-center gap-2 rounded-full transition-colors duration-200 uppercase"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "2px solid #FFFFFF",
-                    width: "clamp(160px, 40vw, 231px)",
-                    height: "50px",
-                    fontFamily: "Inter Tight",
-                    fontWeight: 400,
-                    fontSize: "clamp(13px, 2.6vw, 18px)",
-                    lineHeight: "1.3em",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.5075 6.79414C15.9077 7.00698 16.2425 7.32471 16.476 7.71329C16.7095 8.10187 16.8328 8.54665 16.8328 8.99997C16.8328 9.45329 16.7095 9.89807 16.476 10.2866C16.2425 10.6752 15.9077 10.993 15.5075 11.2058L4.83083 17.0116C3.11167 17.9475 1 16.7308 1 14.8066V3.19414C1 1.26914 3.11167 0.0533047 4.83083 0.987471L15.5075 6.79414Z"
-                      stroke="white"
-                      strokeWidth="1.25"
-                    />
-                  </svg>
-                  watch video
                 </button>
               </div>
 

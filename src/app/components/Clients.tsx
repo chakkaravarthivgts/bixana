@@ -12,7 +12,7 @@ const clientLogos = [
 
 export default function Clients() {
   return (
-    <section className="pt-60 pb-20 px-4 sm:px-6 lg:px-8">
+    <section className="pt-16 sm:pt-16 lg:pt-60 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

@@ -201,7 +201,7 @@ export default function OurValues() {
                 </span>
               </div>
               <h2
-                className="text-[32px] leading-[36px] tracking-[-0.8px] text-black"
+                className="text-[40px] leading-[40px] tracking-[-0.8px] text-black"
                 style={{ fontWeight: 300 }}
               >
                 The{" "}
@@ -218,7 +218,7 @@ export default function OurValues() {
                 that define our culture
               </h2>
               <p
-                className="text-[#585858] text-[16px] leading-[24px]"
+                className="text-[#585858] text-[18px] leading-[26px]"
                 style={{ fontWeight: 300 }}
               >
                 Our work is guided by a set of core values that define who we
@@ -286,7 +286,7 @@ export default function OurValues() {
         {/* Values Cards */}
         {isMobile ? (
           /* Mobile: Vertical stack of all cards */
-          <div className="space-y-4 w-full" style={{ fontWeight: 300 }}>
+          <div className="space-y-4 w-full px-4" style={{ fontWeight: 300 }}>
             {/* Innovation Card */}
             <div className="bg-[#0052CC] rounded-[16px] p-6 w-full h-auto relative overflow-hidden">
               <div className="relative z-10">

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,8 +12,8 @@ export default function Footer() {
       {/* Top Section with Background Image */}
       <div className="relative w-full h-[200px] sm:h-[280px] lg:h-[400px] overflow-hidden">
         <Image
-          src="/dental-png.jpg"
-          alt="Dental clinic background"
+          src="/Footer Image.png"
+          alt="Footer background"
           fill
           className="object-cover"
         />
@@ -68,18 +69,22 @@ export default function Footer() {
                     MENU
                   </h3>
                   <ul className="space-y-4">
-                    {["Home", "About Us", "Service", "Pricing", "Contact"].map(
-                      (item) => (
-                        <li key={item}>
-                          <a
-                            href="#"
-                            className="text-white/80 hover:text-white text-[14px] sm:text-[16px] font-normal transition-colors duration-300"
-                          >
-                            {item}
-                          </a>
-                        </li>
-                      )
-                    )}
+                    {[
+                      { label: "Home", href: "/" },
+                      { label: "About Us", href: "/about" },
+                      { label: "Service", href: "/services" },
+                      { label: "Pricing", href: "/pricing" },
+                      { label: "Contact", href: "/contact" },
+                    ].map((item) => (
+                      <li key={item.label}>
+                        <Link
+                          href={item.href}
+                          className="text-white/80 hover:text-white text-[14px] sm:text-[16px] font-normal transition-colors duration-300"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -121,9 +126,10 @@ export default function Footer() {
               letterSpacing: "-0.02em",
             }}
           >
-            <p>123 Innovation Drive, Tech City, TC 12345</p>
-            <p>+1 (555) 123-4567</p>
-            <p>info@quantleap.org</p>
+            <p>15068 San Pedro Ave,</p>
+            <p>San Antonio, TX 78232</p>
+            <p>+1 (925) 332-0011</p>
+            <p>contact@bixana.com</p>
           </div>
 
           {/* Divider */}

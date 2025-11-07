@@ -58,14 +58,6 @@ const WhatWeDoAbout = () => {
           </div>
 
           {/* Join Us Button */}
-          <div className="box-border content-stretch my-8 flex gap-2.5 h-[48px] sm:h-[54px] lg:h-[58px] items-center justify-center px-6 py-8 relative rounded-[200px] shrink-0 w-auto border-2 border-[#777777] border-solid">
-            <div
-              className="leading-[0] not-italic relative shrink-0 text-sm sm:text-base md:text-[18px] text-black text-center text-nowrap uppercase"
-              style={{ fontFamily: "Inter Tight" }}
-            >
-              <p className="leading-[1.3] whitespace-pre">join us</p>
-            </div>
-          </div>
         </div>
 
         {/* Right Column - Image */}

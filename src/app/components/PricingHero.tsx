@@ -81,8 +81,8 @@ const PricingHero = () => {
       <div className="hidden lg:flex flex-1 items-center justify-center px-20 pb-20">
         <div className="relative overflow-hidden rounded-[24px] w-full max-w-8xl h-[600px]">
           <Image
-            src="/services/hero.jpg"
-            alt="Services background"
+            src="/pricing/pricing.png"
+            alt="Pricing background"
             fill
             priority
             className="object-cover object-top"
@@ -98,8 +98,8 @@ const PricingHero = () => {
           }`}
         >
           <Image
-            src="/services/hero.jpg"
-            alt="Services background"
+            src="/pricing/pricing.png"
+            alt="Pricing background"
             fill
             priority
             className="object-cover object-top"

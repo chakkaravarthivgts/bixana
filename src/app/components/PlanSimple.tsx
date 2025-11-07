@@ -2,6 +2,15 @@
 
 import { useState } from "react";
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget?: (options: Record<string, unknown>) => void;
+      initPopupWidget?: (options: { url: string }) => void;
+    };
+  }
+}
+
 export default function PlanSimple() {
   const features = [
     "Schedule Appointments Anytime, Anywhere",
@@ -13,6 +22,50 @@ export default function PlanSimple() {
   ];
 
   const [isYearly, setIsYearly] = useState(false);
+
+  // Initialize Calendly popup widget
+  const initCalendlyBadge = () => {
+    // Inject Calendly CSS once
+    const cssHref = "https://assets.calendly.com/assets/external/widget.css";
+    if (!document.querySelector(`link[href='${cssHref}']`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssHref;
+      document.head.appendChild(link);
+    }
+
+    // Helper to open popup immediately once Calendly script is ready
+    const onCalendlyReady = () => {
+      if (
+        window.Calendly &&
+        typeof window.Calendly.initPopupWidget === "function"
+      ) {
+        window.Calendly.initPopupWidget({
+          url: "https://calendly.com/santhosh-25/toothfairy-ai",
+        });
+      }
+    };
+
+    // Load script if not present, otherwise init immediately
+    const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
+    const existingScript = document.querySelector(
+      `script[src='${scriptSrc}']`
+    ) as HTMLScriptElement | null;
+    if (existingScript && window.Calendly) {
+      onCalendlyReady();
+      return;
+    }
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = scriptSrc;
+      script.async = true;
+      script.onload = onCalendlyReady;
+      document.body.appendChild(script);
+    } else {
+      // Wait for the existing script to finish loading
+      existingScript.addEventListener("load", onCalendlyReady, { once: true });
+    }
+  };
 
   return (
     <section className="w-full bg-neutral-100 scroll-mt-24 lg:scroll-mt-28">
@@ -85,6 +138,7 @@ export default function PlanSimple() {
 
                 {/* CTA */}
                 <button
+                  onClick={initCalendlyBadge}
                   className="w-full sm:w-[200px] lg:w-[160px] h-10 rounded-full bg-[#0052CC] text-white font-medium text-sm mb-4"
                   style={{ fontFamily: "Inter Tight" }}
                 >

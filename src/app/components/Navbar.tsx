@@ -6,6 +6,15 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 // import { toothfairy } from "public/toothfairy.svg";
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget?: (options: Record<string, unknown>) => void;
+      initPopupWidget?: (options: { url: string }) => void;
+    };
+  }
+}
+
 type NavbarProps = {
   variant?: "light" | "dark";
 };
@@ -42,6 +51,50 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [variant]);
+
+  // Initialize Calendly popup widget
+  const initCalendlyBadge = () => {
+    // Inject Calendly CSS once
+    const cssHref = "https://assets.calendly.com/assets/external/widget.css";
+    if (!document.querySelector(`link[href='${cssHref}']`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssHref;
+      document.head.appendChild(link);
+    }
+
+    // Helper to open popup immediately once Calendly script is ready
+    const onCalendlyReady = () => {
+      if (
+        window.Calendly &&
+        typeof window.Calendly.initPopupWidget === "function"
+      ) {
+        window.Calendly.initPopupWidget({
+          url: "https://calendly.com/santhosh-25/toothfairy-ai",
+        });
+      }
+    };
+
+    // Load script if not present, otherwise init immediately
+    const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
+    const existingScript = document.querySelector(
+      `script[src='${scriptSrc}']`
+    ) as HTMLScriptElement | null;
+    if (existingScript && window.Calendly) {
+      onCalendlyReady();
+      return;
+    }
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = scriptSrc;
+      script.async = true;
+      script.onload = onCalendlyReady;
+      document.body.appendChild(script);
+    } else {
+      // Wait for the existing script to finish loading
+      existingScript.addEventListener("load", onCalendlyReady, { once: true });
+    }
+  };
   return (
     <>
       <header
@@ -118,6 +171,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
             {/* Desktop Action Buttons */}
             <div className="hidden lg:flex items-center flex-shrink-0 gap-2.5">
               <button
+                onClick={initCalendlyBadge}
                 className={
                   variant === "dark"
                     ? "flex items-center justify-center gap-2 text-[#0052CC] rounded-full transition-colors duration-200 uppercase bg-white hover:bg-white/90"
@@ -149,7 +203,8 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                 schedule demo
               </button>
 
-              <button
+              <a
+                href="https://app.bixana.com/"
                 className={
                   variant === "dark"
                     ? "flex items-center justify-center text-white rounded-full transition-colors duration-200 uppercase border border-white bg-transparent hover:bg-white/10"
@@ -169,7 +224,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                 }}
               >
                 LOGIN
-              </button>
+              </a>
             </div>
 
             {/* Mobile Hamburger */}
@@ -209,14 +264,18 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
             onClick={() => setOpen(false)}
           />
           {/* Sidebar */}
-          <div className="absolute right-0 top-0 bottom-0 w-80 max-w-[80%] bg-white shadow-2xl border-l border-gray-200 p-6 flex flex-col gap-6 h-full">
+          <div className="absolute right-0 top-0 bottom-0 w-80 max-w-[80%] bg-white shadow-2xl border-l border-gray-200 p-6 flex flex-col gap-4 h-full">
             <div className="flex items-center justify-between">
               <Link href="/" onClick={() => setOpen(false)}>
                 <Image
                   src="/toothfairy white BG.svg"
                   alt="ToothFairy Logo"
-                  width={100}
-                  height={100}
+                  style={{
+                    width: "240px",
+                    height: "60px",
+                  }}
+                  width={240}
+                  height={60}
                 />
               </Link>
               <button
@@ -239,7 +298,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                 </svg>
               </button>
             </div>
-            <nav className="flex flex-col gap-4 mt-4">
+            <nav className="flex flex-col gap-4 mt-0">
               <Link
                 href="/about"
                 onClick={() => setOpen(false)}
@@ -279,14 +338,21 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
 
             <div className="mt-auto flex flex-col gap-3">
               <button
+                onClick={() => {
+                  initCalendlyBadge();
+                  setOpen(false);
+                }}
                 className="w-full h-12 rounded-full text-white font-medium"
                 style={{ backgroundColor: "#0052CC" }}
               >
                 schedule demo
               </button>
-              <button className="w-full h-12 rounded-full border border-[#777777] text-gray-900 font-medium">
+              <a
+                href="https://app.bixana.com/"
+                className="w-full h-12 rounded-full border border-[#777777] text-gray-900 font-medium flex items-center justify-center"
+              >
                 LOGIN
-              </button>
+              </a>
             </div>
           </div>
         </div>

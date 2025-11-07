@@ -22,11 +22,56 @@ const useIsMobile = () => {
 };
 
 export default function OurStory() {
-  const storyImages = [
-    "/about/about-hero-img1.png",
-    "/about/about-hero-img2.png",
-    "/about/about-hero-img3.png",
-    "/about/about-hero-img4.png",
+  const storyData = [
+    {
+      year: "2017",
+      title: "The Beginning",
+      content:
+        "Our journey began inside a busy dental practice in 2017. While using Open Dental for practice management, we quickly realized how challenging it was to streamline daily operations. Managing essential tasks like billing, communication, reporting, and scheduling required multiple disconnected tools. It was complex, time-consuming, and costly — limiting the time we could truly spend on patient care.",
+      image: "/about/about-hero-img1.png",
+    },
+    {
+      year: "2018",
+      title: "The Spark of an Idea",
+      content:
+        "In May 2018, during a casual conversation with a patient, Mr. Mohan — a computer engineer — an idea was born. We discussed the frustration of juggling several systems that didn't talk to each other. That moment inspired us to create something better: an all-in-one solution designed specifically for dental practices. Our vision was clear — to build a single, seamless platform that integrated appointments, billing, patient communication, and reporting, all accessible anytime, anywhere.",
+      image: "/about/about-hero-img2.png",
+    },
+    {
+      year: "2019",
+      title: "From Practice to Platform",
+      content:
+        "What started as a solution for one clinic evolved into something bigger. In 2019, we began refining the platform for broader use — making it scalable and reusable for other dental practices. The goal was to empower clinics of all sizes to run efficiently under one unified system.",
+      image: "/about/about-hero-img3.png",
+    },
+    {
+      year: "2020",
+      title: "Strengthening Core Features",
+      content:
+        "By 2020, we expanded Bixana with one of the most requested and essential capabilities — Eligibility Benefit Summary. This feature simplified insurance verification and patient eligibility checks, a major pain point for clinics everywhere. With support for over 1,300 providers, Bixana became an indispensable tool for front-office teams.",
+      image: "/about/about-hero-img4.png",
+    },
+    {
+      year: "2021",
+      title: "Smarter Scheduling & Integration",
+      content:
+        "In 2021, we introduced Smart Appointment Scheduling and seamless Open Dental integration. These updates brought real-time connectivity between patient records, treatment plans, and appointment workflows — creating a smooth, unified experience for both staff and patients.",
+      image: "/about/about-hero-img5.png",
+    },
+    {
+      year: "2022",
+      title: "From Idea to Impact",
+      content:
+        "By 2022, Bixana became a fully functional, practice-tested product, continuously enhanced based on real clinical feedback. The results were transformative: One Platform for Everything: Simplifying operations by eliminating multiple apps. Reduced Costs: Cutting unnecessary subscriptions and overhead. More Time for Patients: Streamlining workflows to focus on what matters most — care.",
+      image: "/about/about-hero-img1.png",
+    },
+    {
+      year: "Today",
+      title: "Empowering Modern Dentistry",
+      content:
+        "What began as a simple idea to solve one clinic's challenges has grown into Bixana — a powerful, all-in-one dental software trusted by practices to run smarter, faster, and more connected. Our mission continues: to help every dental practice achieve operational excellence, enhance patient experiences, and embrace the future of digital dentistry.",
+      image: "/about/about-hero-img2.png",
+    },
   ];
   const sectionRef = useRef<HTMLElement | null>(null);
   const textTrackRef = useRef<HTMLDivElement | null>(null);
@@ -98,7 +143,8 @@ export default function OurStory() {
       // Interleave text and image transitions per step
       const steps = Math.min(
         textStepRefs.current.length,
-        imageRefs.current.length
+        imageRefs.current.length,
+        storyData.length
       );
       for (let i = 1; i < steps; i++) {
         const prevText = textStepRefs.current[i - 1];
@@ -174,7 +220,7 @@ export default function OurStory() {
 
             {/* Story Cards */}
             <div className="space-y-0">
-              {storyImages.map((src, i) => (
+              {storyData.map((story, i) => (
                 <div key={`mobile-story-${i}`} className="w-full">
                   {/* Story Card */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-[16px] p-6 mx-0 mb-4">
@@ -186,34 +232,29 @@ export default function OurStory() {
                       {String(i + 1).padStart(2, "0")}
                     </div>
 
-                    {/* Heading */}
-                    <h3
-                      className="text-white text-[24px] leading-[28px] mb-4"
-                      style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
-                    >
-                      {i === 0 && "How it began"}
-                      {i === 1 && "Our Mission"}
-                      {i === 2 && "Our Vision"}
-                      {i === 3 && "Our Impact"}
-                    </h3>
+                    {/* Heading with year prefix */}
+                    <div className="mb-4">
+                      <h3
+                        className="text-white text-[24px] leading-[28px]"
+                        style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
+                      >
+                        {`${story.year} - ${story.title}`}
+                      </h3>
+                    </div>
 
                     {/* Content */}
                     <p
                       className="text-white/90 text-[16px] leading-[24px] mb-6"
                       style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                     >
-                      At ToothFairy, our numbers reflect the impact we create
-                      for dental practices. From the growing number of clinics
-                      we support to the efficiency gains our solutions deliver,
-                      each statistic represents our commitment to innovation,
-                      seamless workflows, and exceptional patient care.
+                      {story.content}
                     </p>
 
                     {/* Image */}
                     <div className="relative w-full h-[250px] rounded-[12px] overflow-hidden bg-white">
                       <Image
-                        src={src}
-                        alt="ToothFairy workspace"
+                        src={story.image}
+                        alt={`${story.year} - ${story.title}`}
                         fill
                         sizes="100vw"
                         className="object-cover"
@@ -223,7 +264,7 @@ export default function OurStory() {
                   </div>
 
                   {/* Divider (except for last card) */}
-                  {i < storyImages.length - 1 && (
+                  {i < storyData.length - 1 && (
                     <div className="flex justify-center py-4">
                       <div className="w-full h-px bg-white/20"></div>
                     </div>
@@ -251,11 +292,11 @@ export default function OurStory() {
                 {/* Headline + text centered to image height */}
                 <div
                   className="w-[92%] sm:w-[90%] max-w-[640px] aspect-[4/5] flex flex-col justify-center"
-                  style={{ transform: "translateY(-3%)" }}
+                  style={{ transform: "translateY(-25%)" }}
                 >
                   {/* Step Number (scroll-synced) */}
                   <div className="relative h-8 mb-2">
-                    {[0, 1, 2, 3].map((idx) => (
+                    {storyData.map((story, idx) => (
                       <div
                         key={`num-${idx}`}
                         ref={(el) => {
@@ -275,22 +316,14 @@ export default function OurStory() {
                       </div>
                     ))}
                   </div>
-                  <div className="mb-6">
-                    <h2
-                      className="font-['Helvetica_Neue'] text-white leading-tight mt-3"
-                      style={{ fontWeight: 300, letterSpacing: "-0.02em" }}
-                    >
-                      <span className="block text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px]">
-                        How it began
-                      </span>
-                    </h2>
-                  </div>
+                  {/* Dynamic title moves with content per step */}
+                  <div className="mb-6" />
                   <div
                     ref={textTrackRef}
                     className="relative w-full"
                     style={{ height: textBoxHeight || undefined }}
                   >
-                    {storyImages.map((_, i) => (
+                    {storyData.map((story, i) => (
                       <div
                         key={`step-${i}`}
                         ref={(el) => {
@@ -301,17 +334,25 @@ export default function OurStory() {
                           fontWeight: 300,
                           color: "#CFE1FF",
                           fontSize: 24,
-                          lineHeight: "26px",
-                          letterSpacing: "-0.02em",
+                          lineHeight: "30px",
+
                           opacity: i === 0 ? 1 : 0,
                         }}
                       >
-                        At ToothFairy, our numbers reflect the impact we create
-                        for dental practices. From the growing number of clinics
-                        we support to the efficiency gains our solutions
-                        deliver, each statistic represents our commitment to
-                        innovation, seamless workflows, and exceptional patient
-                        care.
+                        <div className="mb-4">
+                          <h3
+                            className="text-white leading-tight"
+                            style={{ fontFamily: "Inter Tight" }}
+                          >
+                            <span
+                              className="block text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px]"
+                              style={{ letterSpacing: "-0.02em" }}
+                            >
+                              {`${story.year} - ${story.title}`}
+                            </span>
+                          </h3>
+                        </div>
+                        <p>{story.content}</p>
                       </div>
                     ))}
                   </div>
@@ -325,7 +366,7 @@ export default function OurStory() {
                     ref={imageStackRef}
                     className="relative rounded-[20px] sm:rounded-[24px] md:rounded-[28px] lg:rounded-[32px] overflow-hidden bg-white w-[92%] sm:w-[90%] max-w-[640px] aspect-[4/5]"
                   >
-                    {storyImages.map((src, i) => (
+                    {storyData.map((story, i) => (
                       <div
                         key={`img-${i}`}
                         ref={(el) => {
@@ -335,8 +376,8 @@ export default function OurStory() {
                         style={{ willChange: "transform, opacity" }}
                       >
                         <Image
-                          src={src}
-                          alt="ToothFairy workspace"
+                          src={story.image}
+                          alt={`${story.year} - ${story.title}`}
                           fill
                           sizes="(min-width: 1024px) 640px, 90vw"
                           className="object-cover"
