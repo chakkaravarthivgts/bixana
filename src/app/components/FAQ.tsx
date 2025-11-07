@@ -14,14 +14,14 @@ const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
     <div className="content-stretch flex flex-col gap-6 items-end justify-start relative shrink-0 w-full">
       <div className="content-stretch flex flex-col gap-4 items-start justify-start relative shrink-0 w-full max-w-[1164px]">
         <div className="content-stretch flex items-start sm:items-center justify-between gap-4 relative shrink-0 w-full">
-          <div className="font-['Inter_Tight'] font-light leading-[0] not-italic relative shrink-0 text-2xl sm:text-3xl md:text-[28px] lg:text-[28px] xl:text-[40px] text-black tracking-[-0.8px]">
+          <div className="font-['Inter_Tight'] font-light leading-[0] not-italic relative flex-1 min-w-0 text-2xl sm:text-3xl md:text-[28px] lg:text-[28px] xl:text-[40px] text-black tracking-[-0.8px]">
             <p className="leading-tight sm:leading-[1.2] md:leading-[1.25] lg:leading-[1.25] xl:leading-[48px]">
               {question}
             </p>
           </div>
           <button
             onClick={onToggle}
-            className="relative shrink-0 size-10 sm:size-12 md:size-[44px] lg:size-[48px] xl:size-[72px] flex items-center justify-center hover:opacity-70 transition-opacity"
+            className="relative flex-shrink-0 size-10 sm:size-12 md:size-[44px] lg:size-[48px] xl:size-[72px] flex items-center justify-center hover:opacity-70 transition-opacity"
           >
             {isOpen ? (
               <svg

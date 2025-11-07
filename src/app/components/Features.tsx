@@ -242,8 +242,8 @@ export default function Features() {
                     </div>
 
                     {/* CTA Button */}
-                    <div className="flex justify-center">
-                      <button className="group relative px-10 py-4 bg-white text-[#0052CC] rounded-full font-medium text-[16px] uppercase tracking-[0.08em] transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/95">
+                    <div className="flex justify-center py-4">
+                      <button className="group relative px-6 py-2 sm:px-8 sm:py-3 lg:px-10 lg:py-4 bg-white text-[#0052CC] rounded-full font-medium text-sm sm:text-base lg:text-[16px] uppercase tracking-[0.08em] transition-all duration-300 hover:shadow-xl hover:scale-105 hover:bg-white/95">
                         <span className="relative z-10">View Details</span>
                         <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
                       </button>

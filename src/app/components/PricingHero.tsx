@@ -48,7 +48,7 @@ const PricingHero = () => {
       </div>
 
       {/* Mobile Header Section */}
-      <div className="lg:hidden flex flex-col items-center justify-center px-6 pt-16 pb-8 space-y-6">
+      <div className="lg:hidden flex flex-col items-center justify-center px-6 pt-16 pb-4 space-y-4">
         <div
           className={`relative shrink-0 text-[48px] text-black text-nowrap transition-all duration-700 ease-out ${
             showTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -91,7 +91,7 @@ const PricingHero = () => {
       </div>
 
       {/* Mobile Image Section */}
-      <div className="lg:hidden flex-1 flex items-center justify-center px-6 pb-8">
+      <div className="lg:hidden flex-1 flex items-center justify-center px-6 pb-8 pt-0">
         <div
           className={`relative overflow-hidden rounded-[16px] w-full h-[300px] transition-all duration-700 ease-out ${
             showImage ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
