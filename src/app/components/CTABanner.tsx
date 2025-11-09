@@ -6,9 +6,15 @@ export default function CTABanner() {
   const [formData, setFormData] = useState({
     firstName: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,10 +26,60 @@ export default function CTABanner() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch(
+        "https://app.bixana.com/api/v1/enquiry/userrequest",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstname: formData.firstName,
+            email: formData.email,
+            phone: formData.phone || "",
+            subject: formData.subject,
+            summary: formData.message,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.status === "true" || data.status === true) {
+        setSubmitStatus({
+          type: "success",
+          message:
+            data.data?.resultdesc || "Your request has been sent successfully!",
+        });
+        // Reset form
+        setFormData({
+          firstName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message:
+            data.message || "Failed to send your request. Please try again.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -106,7 +162,7 @@ export default function CTABanner() {
 
           {/* Form */}
           <div className="flex flex-col items-end gap-6 sm:gap-8 lg:gap-11 w-full lg:w-[644px]">
-            <form onSubmit={handleSubmit} className="w-full">
+            <form onSubmit={handleSubmit} className="w-full" noValidate>
               {/* Form Fields */}
               <div className="flex flex-col gap-4 w-full">
                 {/* First Name */}
@@ -137,6 +193,26 @@ export default function CTABanner() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Email"
+                    className="w-full h-full bg-transparent border-none outline-none px-8"
+                    style={{
+                      fontFamily: "Inter Tight",
+                      fontWeight: 400,
+                      fontSize: "18px",
+                      lineHeight: "1.333em",
+                      letterSpacing: "-4%",
+                      color: "#777777",
+                    }}
+                  />
+                </div>
+
+                {/* Phone */}
+                <div className="relative h-[52px] sm:h-[52px] lg:h-[54px] bg-white border border-[#C3C3C3] rounded-[68px]">
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Phone (Optional)"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
                       fontFamily: "Inter Tight",
@@ -188,27 +264,41 @@ export default function CTABanner() {
                   />
                 </div>
               </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="transition-all duration-300 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed w-[180px] sm:w-[200px] lg:w-[205px] h-[48px] sm:h-[52px] lg:h-[54px] bg-[#0052CC] rounded-[200px] border-0 cursor-pointer mt-6"
+              >
+                <span
+                  className="uppercase"
+                  style={{
+                    fontFamily: "Inter Tight",
+                    fontWeight: 300,
+                    fontSize: "16px",
+                    lineHeight: "1.3em",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  {isSubmitting ? "SUBMITTING..." : "SUBMIT NOW"}
+                </span>
+              </button>
             </form>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="transition-all duration-300 hover:opacity-90 w-[180px] sm:w-[200px] lg:w-[205px] h-[48px] sm:h-[52px] lg:h-[54px] bg-[#0052CC] rounded-[200px] border-0 cursor-pointer"
-            >
-              <span
-                className="uppercase"
-                style={{
-                  fontFamily: "Inter Tight",
-                  fontWeight: 300,
-                  fontSize: "16px",
-                  lineHeight: "1.3em",
-                  color: "#FFFFFF",
-                }}
+            {/* Status Message */}
+            {submitStatus.type && (
+              <div
+                className={`w-full p-4 rounded-lg ${
+                  submitStatus.type === "success"
+                    ? "bg-green-50 text-green-800 border border-green-200"
+                    : "bg-red-50 text-red-800 border border-red-200"
+                }`}
+                style={{ fontFamily: "Inter Tight" }}
               >
-                SUBMIT NOW
-              </span>
-            </button>
+                {submitStatus.message}
+              </div>
+            )}
           </div>
         </div>
       </div>

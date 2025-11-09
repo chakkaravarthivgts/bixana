@@ -122,7 +122,7 @@ export default function Hero({
                 style={{
                   fontFamily: "Inter Tight",
                   fontWeight: 300,
-                  fontSize: "clamp(24px, 8vw, 74px)",
+                  fontSize: "clamp(24px, 8vw, 62px)",
                   lineHeight: "1.15",
                   letterSpacing: "-0.03em",
                   textAlign: "left",

@@ -224,21 +224,21 @@ export default function OurStory() {
                 <div key={`mobile-story-${i}`} className="w-full">
                   {/* Story Card */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-[16px] p-6 mx-0 mb-4">
-                    {/* Number */}
+                    {/* Year */}
                     <div
                       className="text-white/60 text-[60px] leading-none mb-4"
                       style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                     >
-                      {String(i + 1).padStart(2, "0")}
+                      {story.year}
                     </div>
 
-                    {/* Heading with year prefix */}
+                    {/* Heading */}
                     <div className="mb-4">
                       <h3
                         className="text-white text-[24px] leading-[28px]"
                         style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                       >
-                        {`${story.year} - ${story.title}`}
+                        {story.title}
                       </h3>
                     </div>
 
@@ -311,7 +311,7 @@ export default function OurStory() {
                         }}
                       >
                         <span className="text-[28px] sm:text-[20px] md:text-[22px] lg:text-[32px] leading-none">
-                          {String(idx + 1).padStart(2, "0")}
+                          {storyData[idx].year}
                         </span>
                       </div>
                     ))}
@@ -348,7 +348,7 @@ export default function OurStory() {
                               className="block text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px]"
                               style={{ letterSpacing: "-0.02em" }}
                             >
-                              {`${story.year} - ${story.title}`}
+                              {story.title}
                             </span>
                           </h3>
                         </div>

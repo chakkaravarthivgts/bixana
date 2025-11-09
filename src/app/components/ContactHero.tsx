@@ -17,12 +17,12 @@ const ContactCard = ({
 }: ContactCardProps) => {
   return (
     <div
-      className={`bg-white h-[180px] lg:h-[293px] relative rounded-[20px] lg:rounded-[43px] shrink-0 ${width}`}
+      className={`bg-white lg:h-[293px] relative rounded-[20px] lg:rounded-[43px] shrink-0 ${width}`}
     >
-      <div className="box-border content-stretch flex flex-col gap-2 lg:gap-2.5 h-full items-center justify-center overflow-clip px-4 lg:px-[76px] py-4 lg:py-[37px] relative w-full">
-        <div className="content-stretch flex flex-col gap-4 lg:gap-[30px] items-center justify-end relative shrink-0">
-          <div className="content-stretch flex flex-col h-[100px] lg:h-[144px] items-center justify-between relative shrink-0 w-[100px] lg:w-[143px]">
-            <div className="relative shrink-0 size-[50px] lg:size-[75px] flex items-center justify-center">
+      <div className="box-border flex flex-col gap-2 lg:gap-2.5 h-full lg:content-stretch items-center justify-center overflow-clip px-4 lg:px-[76px] py-4 lg:py-[37px] relative w-full">
+        <div className="flex flex-col gap-4 lg:gap-[30px] items-center justify-center lg:justify-end lg:content-stretch relative shrink-0">
+          <div className="flex flex-col items-center justify-start lg:justify-between lg:content-stretch lg:h-[144px] relative shrink-0 w-auto lg:w-[143px]">
+            <div className="relative shrink-0 flex items-center justify-center">
               {icon}
             </div>
             <div
@@ -82,11 +82,11 @@ const ContactHero = () => {
               </p>
             </div>
             <div
-              className="relative shrink-0 text-[#585858] text-[16px] lg:text-[24px] text-center tracking-[-0.5px] lg:tracking-[-1.12px] w-full max-w-[300px] lg:max-w-[702px] font-light"
+              className="relative text-[#585858] text-[15px] lg:text-[24px] text-center tracking-[-0.5px] lg:tracking-[-1.12px] w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[702px] font-light"
               style={{ fontFamily: "Inter Tight" }}
             >
               <p
-                className="leading-[15px] lg:leading-[34px]"
+                className="leading-[22px] lg:leading-[34px] whitespace-normal"
                 style={{ letterSpacing: "-0.5px" }}
               >
                 For inquiries or assistance, our professionals are ready to
@@ -199,13 +199,13 @@ const ContactHero = () => {
             {/* Phone Card */}
             <ContactCard
               icon={
-                <div className="w-[120px] h-[120px] rounded-full bg-[#F5F5F5] flex items-center justify-center">
+                <div className="w-[72px] h-[72px] rounded-full bg-[#F5F5F5] flex items-center justify-center">
                   <Image
                     src="/contact/phone.svg"
                     alt="Phone icon"
-                    width={90}
-                    height={90}
-                    className="w-[90px] h-[90px]"
+                    width={30}
+                    height={30}
+                    className="w-[30px] h-[30px]"
                   />
                 </div>
               }
@@ -217,13 +217,13 @@ const ContactHero = () => {
             {/* Email Card */}
             <ContactCard
               icon={
-                <div className="w-[96px] h-[96px] rounded-full bg-[#F5F5F5] flex items-center justify-center">
+                <div className="w-[72px] h-[72px] rounded-full bg-[#F5F5F5] flex items-center justify-center">
                   <Image
                     src="/contact/email.svg"
                     alt="Email icon"
-                    width={60}
-                    height={60}
-                    className="w-[60px] h-[60px]"
+                    width={30}
+                    height={30}
+                    className="w-[30px] h-[30px]"
                   />
                 </div>
               }

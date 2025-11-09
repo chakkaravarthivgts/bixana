@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import ShinyText from "./ShinyText";
 // import { toothfairy } from "public/toothfairy.svg";
 
 declare global {
@@ -178,19 +179,21 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                 }}
                 className={
                   variant === "dark"
-                    ? "flex items-center justify-center gap-2 text-[#0052CC] rounded-full transition-colors duration-200 uppercase bg-white hover:bg-white/90"
-                    : "flex items-center justify-center gap-2 text-white rounded-full transition-colors duration-200 uppercase"
+                    ? "flex items-center justify-center gap-2 text-[#0052CC] rounded-full transition-colors duration-200  bg-white hover:bg-white/90"
+                    : "flex items-center justify-center gap-2 text-white rounded-full transition-colors duration-200 "
                 }
                 style={{
                   backgroundColor: variant === "dark" ? "#ffffff" : "#0052CC",
                   width: "205px",
-                  height: "48px",
+                  height: "42px",
                   fontFamily: "Inter Tight",
-                  fontWeight: 400,
+                  fontWeight: "500",
                   fontSize: "16px",
                   lineHeight: "1.3em",
                   cursor: "pointer",
                   zIndex: 1000,
+                  // l: "Inter Tight",
+                  letterSpacing: "0.02em",
                 }}
               >
                 <svg
@@ -198,6 +201,10 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  style={{
+                    stroke: variant === "dark" ? "#0052CC" : "#FFFFFF",
+                    strokeWidth: "1.3px",
+                  }}
                 >
                   <path
                     strokeLinecap="round"
@@ -206,19 +213,24 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                schedule demo
+                <ShinyText
+                  text="Schedule Demo"
+                  disabled={false}
+                  speed={5}
+                  textColor={variant === "dark" ? "#FFFFFF" : "#FFFFFF"}
+                />
               </a>
 
               <a
                 href="https://app.bixana.com/"
                 className={
                   variant === "dark"
-                    ? "flex items-center justify-center text-white rounded-full transition-colors duration-200 uppercase border border-white bg-transparent hover:bg-white/10"
-                    : "flex items-center justify-center text-black rounded-full transition-colors duration-200 uppercase"
+                    ? "flex items-center justify-center text-white rounded-full transition-colors duration-200  border border-white bg-transparent hover:bg-white/10"
+                    : "flex items-center justify-center text-black rounded-full transition-colors duration-200 "
                 }
                 style={{
                   width: "103px",
-                  height: "48px",
+                  height: "42px",
                   border:
                     variant === "dark"
                       ? "2px solid #ffffff"
@@ -229,7 +241,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                   lineHeight: "1.3em",
                 }}
               >
-                LOGIN
+                Login
               </a>
             </div>
 
