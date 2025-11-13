@@ -10,7 +10,13 @@ import ShinyText from "./ShinyText";
 declare global {
   interface Window {
     Calendly?: {
-      initBadgeWidget?: (options: Record<string, unknown>) => void;
+      initBadgeWidget?: (options: {
+        url: string;
+        text: string;
+        color: string;
+        textColor: string;
+        branding: boolean;
+      }) => void;
       initPopupWidget?: (options: { url: string }) => void;
     };
   }
@@ -71,7 +77,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
         typeof window.Calendly.initPopupWidget === "function"
       ) {
         window.Calendly.initPopupWidget({
-          url: "https://calendly.com/santhosh-25/toothfairy-ai",
+          url: "https://calendly.com/corp-toothfairy/30min",
         });
       }
     };
@@ -114,14 +120,14 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                   {variant === "dark" ? (
                     <Image
                       src="/Asset 1 2.svg"
-                      alt="ToothFairy Logo"
+                      alt="Toothfairy Logo"
                       width={200}
                       height={200}
                     />
                   ) : (
                     <Image
                       src="/Asset 1 1.svg"
-                      alt="ToothFairy Logo"
+                      alt="Toothfairy Logo"
                       width={200}
                       height={200}
                     />
@@ -158,7 +164,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                 style={{ fontFamily: "Inter Tight", fontWeight: 400 }}
                 href="/ai"
               >
-                ToothFairy AI
+                Toothfairy AI
               </Link>
               <Link
                 className={linkClass("/contact")}
@@ -287,7 +293,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
               <Link href="/" onClick={() => setOpen(false)}>
                 <Image
                   src="/toothfairy white BG.svg"
-                  alt="ToothFairy Logo"
+                  alt="Toothfairy Logo"
                   style={{
                     width: "240px",
                     height: "60px",

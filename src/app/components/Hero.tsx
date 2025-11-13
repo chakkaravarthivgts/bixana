@@ -6,7 +6,13 @@ import Image from "next/image";
 declare global {
   interface Window {
     Calendly?: {
-      initBadgeWidget?: (options: Record<string, unknown>) => void;
+      initBadgeWidget?: (options: {
+        url: string;
+        text: string;
+        color: string;
+        textColor: string;
+        branding: boolean;
+      }) => void;
       initPopupWidget?: (options: { url: string }) => void;
     };
   }
@@ -26,7 +32,7 @@ export default function Hero({
   title = (
     <>
       Empower your business with{" "}
-      <span className="text-blue-600">ToothFairy</span>
+      <span className="text-blue-600">Toothfairy</span>
     </>
   ),
   subtitle = (
@@ -58,7 +64,7 @@ export default function Hero({
         typeof window.Calendly.initPopupWidget === "function"
       ) {
         window.Calendly.initPopupWidget({
-          url: "https://calendly.com/santhosh-25/toothfairy-ai",
+          url: "https://calendly.com/corp-toothfairy/30min",
         });
       }
     };
@@ -181,7 +187,7 @@ export default function Hero({
                     textAlign: "left",
                   }}
                 >
-                  ToothFairy is a cloud-based dental practice solution that
+                  Toothfairy is a cloud-based dental practice solution that
                   streamlines patient communication, enhances care, and drives
                   revenue.
                 </p>

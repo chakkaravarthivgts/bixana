@@ -364,7 +364,7 @@ export default function AIHowItWorksWithTextReveal() {
                 ))}
             </span>
             <span ref={line2Ref} className="block">
-              {"informed actions — ToothFairy AI helps you see"
+              {"informed actions — Toothfairy AI helps you see"
                 .split("")
                 .map((ch, i) => (
                   <span key={i} className="letter">

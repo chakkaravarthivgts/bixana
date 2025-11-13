@@ -21,7 +21,7 @@ export default function AboutIntro() {
               className="text-[#6B7390] font-light text-[16px] sm:text-[20px] md:text-[24px] lg:text-[32px] leading-[24px] sm:leading-[28px] md:leading-[36px] lg:leading-[48px] tracking-[-0.3px] sm:tracking-[-0.5px] md:tracking-[-0.8px] lg:tracking-[-1.28px]"
               style={{ fontFamily: "Inter Tight", fontWeight: 300 }}
             >
-              At ToothFairy, we are redefining dental practice management with
+              At Toothfairy, we are redefining dental practice management with
               smart, intuitive solutions designed for modern clinics. Our
               mission is to help dental teams streamline operations, enhance
               patient communication, and focus on what matters most: delivering

@@ -80,7 +80,7 @@ const services = [
   {
     title: "Synchronize Data",
     description:
-      "ToothFairy offers a service which push and pull data between cloud and on-premises periodically",
+      "Toothfairy offers a service which push and pull data between cloud and on-premises periodically",
     imageSrc: CARD_IMG_1,
   },
 ];

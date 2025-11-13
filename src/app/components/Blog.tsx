@@ -6,7 +6,7 @@ import Image from "next/image";
 const blogPosts = [
   {
     id: 1,
-    title: "How to get started with ToothFairy",
+    title: "How to get started with Toothfairy",
     description:
       "Developing ethical frameworks and compliance standards for responsible AI adoption in dental practices.",
     image: "/Card 1 Image.png",

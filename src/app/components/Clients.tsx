@@ -3,11 +3,11 @@
 // Repeat only these two client logos in the scroller
 const clientLogos = [
   { name: "SmileBright Dental Studio", logo: "/smilebright-logo.webp" },
-  { name: "ToothFairy Partner", logo: "/logo2.webp" },
+  { name: "Toothfairy Partner", logo: "/logo2.webp" },
   { name: "SmileBright Dental Studio", logo: "/smilebright-logo.webp" },
-  { name: "ToothFairy Partner", logo: "/logo2.webp" },
+  { name: "Toothfairy Partner", logo: "/logo2.webp" },
   { name: "SmileBright Dental Studio", logo: "/smilebright-logo.webp" },
-  { name: "ToothFairy Partner", logo: "/logo2.webp" },
+  { name: "Toothfairy Partner", logo: "/logo2.webp" },
 ];
 
 export default function Clients() {

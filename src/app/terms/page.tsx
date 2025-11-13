@@ -45,7 +45,7 @@ export default function TermsPage() {
               className="text-[#585858] text-[16px] sm:text-[18px] leading-[1.6] tracking-[-0.02em]"
               style={{ fontFamily: "Inter Tight", fontWeight: 300 }}
             >
-              Welcome to ToothFairy! These Terms of Service (&quot;Terms&quot;)
+              Welcome to Toothfairy! These Terms of Service (&quot;Terms&quot;)
               govern your access to and use of our cloud-based dental practice
               platform (&quot;Service&quot;) provided by Bixana Inc.
               (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). By using

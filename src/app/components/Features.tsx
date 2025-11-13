@@ -37,21 +37,21 @@ const features: Feature[] = [
     title: "Schedule Appointment",
     description:
       "Book and manage patient visits with an intuitive calendar. Easily create and manage appointments from any device.",
-    image: "/features/6640b494f17a7589685c35013445c60915af6900.png",
+    image: "/features/appointment-grid.jpg",
   },
   {
     id: 2,
     title: "Treatment Planning",
     description:
       "Create comprehensive treatment plans with detailed procedures, costs, and timelines for better patient communication.",
-    image: "/features/6640b494f17a7589685c35013445c60915af6900.png",
+    image: "/features/treatment-plan.jpg",
   },
   {
     id: 3,
     title: "Integration of signed consent",
     description:
       "Digitally capture and store patient consent forms with secure electronic signatures for compliance and convenience.",
-    image: "/features/6640b494f17a7589685c35013445c60915af6900.png",
+    image: "/features/consent-form.jpg",
   },
   {
     id: 4,
@@ -236,7 +236,7 @@ export default function Features() {
                         src={feature.image}
                         alt={feature.title}
                         fill
-                        className="object-cover object-center"
+                        className="object-contain object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
@@ -344,7 +344,7 @@ export default function Features() {
                               src={f.image}
                               alt={f.title}
                               fill
-                              className="object-cover"
+                              className="object-contain"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                           </div>

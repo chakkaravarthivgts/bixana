@@ -48,7 +48,7 @@ export default function Footer() {
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  ToothFairy, A cloud application which helps dental clinic to
+                  Toothfairy, A cloud application which helps dental clinic to
                   keep better connect and continue relationship with patients
                 </p>
               </div>
@@ -108,20 +108,78 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div
-            className="mt-10 sm:mt-12 space-y-2 text-white/70 text-[14px] sm:text-[16px]"
-            style={{
-              fontFamily: "Inter Tight",
-              fontWeight: 300,
-              fontSize: "clamp(14px, 3.5vw, 24px)",
-              lineHeight: "1.5",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            <p>15068 San Pedro Ave,</p>
-            <p>San Antonio, TX 78232</p>
-            <p>+1 (925) 332-0011</p>
-            <p>contact@bixana.com</p>
+          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-6">
+            {/* Address */}
+            <div className="flex items-center gap-3">
+              <Image
+                src="/contact/location.svg"
+                alt="Location"
+                width={20}
+                height={20}
+                className="w-5 h-5 flex-shrink-0"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+              <p
+                className="text-white/70 text-[14px] sm:text-[16px]"
+                style={{
+                  fontFamily: "Inter Tight",
+                  fontWeight: 300,
+                  fontSize: "clamp(14px, 3.5vw, 22px)",
+                  lineHeight: "1.5",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                San Antonio, TX 78232
+              </p>
+            </div>
+
+            {/* Email */}
+            <div className="flex items-center gap-3">
+              <Image
+                src="/contact/email.svg"
+                alt="Email"
+                width={20}
+                height={20}
+                className="w-5 h-5 flex-shrink-0"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+              <p
+                className="text-white/70 text-[14px] sm:text-[16px]"
+                style={{
+                  fontFamily: "Inter Tight",
+                  fontWeight: 300,
+                  fontSize: "clamp(14px, 3.5vw, 22px)",
+                  lineHeight: "1.5",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                contact@bixana.com
+              </p>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-center gap-3">
+              <Image
+                src="/contact/phone.svg"
+                alt="Phone"
+                width={20}
+                height={20}
+                className="w-5 h-5 flex-shrink-0"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+              <p
+                className="text-white/70 text-[14px] sm:text-[16px]"
+                style={{
+                  fontFamily: "Inter Tight",
+                  fontWeight: 300,
+                  fontSize: "clamp(14px, 3.5vw, 22px)",
+                  lineHeight: "1.5",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                +1 (925) 332-0011
+              </p>
+            </div>
           </div>
 
           {/* Divider */}
@@ -181,7 +239,7 @@ export default function Footer() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                © {currentYear} ToothFairy. All rights reserved.
+                © {currentYear} Toothfairy. All rights reserved.
               </p>
             </div>
           </div>

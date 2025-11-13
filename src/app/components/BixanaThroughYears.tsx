@@ -74,7 +74,7 @@ export default function BixanaThroughYears() {
                   className="text-black text-sm uppercase tracking-wide"
                   style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                 >
-                  ToothFairy through years
+                  Toothfairy through years
                 </span>
               </div>
               <h2
@@ -106,7 +106,7 @@ export default function BixanaThroughYears() {
                   fontFamily: "Inter Tight",
                 }}
               >
-                At ToothFairy, our numbers reflect the impact we create for
+                At Toothfairy, our numbers reflect the impact we create for
                 dental practices. From the growing number of clinics we support
                 to the efficiency gains our solutions deliver, each statistic
                 represents our commitment to innovation, seamless workflows, and
@@ -233,7 +233,7 @@ export default function BixanaThroughYears() {
                     className="text-black text-sm uppercase tracking-wide"
                     style={{ fontWeight: 300, fontFamily: "Inter Tight" }}
                   >
-                    ToothFairy through years
+                    Toothfairy through years
                   </span>
                 </div>
                 <h2
@@ -268,7 +268,7 @@ export default function BixanaThroughYears() {
                     fontFamily: "Inter Tight",
                   }}
                 >
-                  At ToothFairy, our numbers reflect the impact we create for
+                  At Toothfairy, our numbers reflect the impact we create for
                   dental practices. From the growing number of clinics we
                   support to the efficiency gains our solutions deliver, each
                   statistic represents our commitment to innovation, seamless

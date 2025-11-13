@@ -176,7 +176,7 @@ const ContactHero = () => {
               <p className="leading-[38px]">
                 We shall touch base with you as soon as possible to address your
                 query. If you need help with product installation, setup and
-                configuration of ToothFairy product
+                configuration of Toothfairy product
               </p>
             </div>
           </div>
@@ -260,7 +260,7 @@ const ContactHero = () => {
               <p className="leading-[28px]">
                 We shall touch base with you as soon as possible to address your
                 query. If you need help with product installation, setup and
-                configuration of ToothFairy product
+                configuration of Toothfairy product
               </p>
             </div>
           </div>

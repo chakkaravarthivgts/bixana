@@ -5,7 +5,13 @@ import { useState } from "react";
 declare global {
   interface Window {
     Calendly?: {
-      initBadgeWidget?: (options: Record<string, unknown>) => void;
+      initBadgeWidget?: (options: {
+        url: string;
+        text: string;
+        color: string;
+        textColor: string;
+        branding: boolean;
+      }) => void;
       initPopupWidget?: (options: { url: string }) => void;
     };
   }
@@ -41,7 +47,7 @@ export default function PlanSimple() {
         typeof window.Calendly.initPopupWidget === "function"
       ) {
         window.Calendly.initPopupWidget({
-          url: "https://calendly.com/santhosh-25/toothfairy-ai",
+          url: "https://calendly.com/corp-toothfairy/30min",
         });
       }
     };

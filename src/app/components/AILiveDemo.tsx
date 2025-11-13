@@ -67,7 +67,7 @@ export default function AILiveDemo() {
                 "linear-gradient(90deg, #0052CC 0%, #61A0FF 100%)",
             }}
           >
-            with ToothFairy AI
+            with Toothfairy AI
           </span>
         </h2>
 

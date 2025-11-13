@@ -70,7 +70,7 @@ export default function AIFeatures() {
                   lineHeight: 1.6,
                 }}
               >
-                ToothFairy AI simplifies note-taking by transcribing
+                Toothfairy AI simplifies note-taking by transcribing
                 patient-clinician conversations in real-time, generating
                 structured clinical notes tailored to your workflow.
               </p>

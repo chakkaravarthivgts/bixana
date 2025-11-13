@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ToothFairy",
-  description: "ToothFairy - Your trusted partner for innovative solutions",
+  title: "Toothfairy",
+  description: "Toothfairy - Your trusted partner for innovative solutions",
 };
 
 export default function RootLayout({

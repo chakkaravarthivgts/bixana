@@ -43,7 +43,7 @@ const WhatWeDoAbout = () => {
               style={{ fontFamily: "Inter Tight" }}
             >
               <p className="leading-relaxed sm:leading-[1.35] md:leading-[1.45] lg:leading-[38px] mb-4 sm:mb-6">
-                At ToothFairy, we go beyond software—we build smarter systems
+                At Toothfairy, we go beyond software—we build smarter systems
                 for better dental care. From online appointment scheduling and
                 two-way messaging to automated treatment plans, real-time
                 benefit checks, and post-visit follow-ups, we help practices

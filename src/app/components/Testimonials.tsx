@@ -5,13 +5,13 @@ import React, { useState } from "react";
 const testimonials = [
   {
     quote:
-      "ToothFairy has completely transformed the way we manage our clinic. From appointments to billing, everything is organized and effortless. My staff loves how intuitive it is, and patients appreciate the smooth booking experience. It’s truly a game-changer for modern dental practices.",
+      "Toothfairy has completely transformed the way we manage our clinic. From appointments to billing, everything is organized and effortless. My staff loves how intuitive it is, and patients appreciate the smooth booking experience. It’s truly a game-changer for modern dental practices.",
     author: "Dr. Meera Patel",
     position: "DDS, SmileBright Dental Studio",
   },
   {
     quote:
-      "We started using ToothFairy six months ago, and it has streamlined every part of our workflow. The automated reminders and patient communication tools have significantly reduced no-shows and improved overall efficiency. I can’t imagine running my practice without it now.",
+      "We started using Toothfairy six months ago, and it has streamlined every part of our workflow. The automated reminders and patient communication tools have significantly reduced no-shows and improved overall efficiency. I can’t imagine running my practice without it now.",
     author: "Dr. Jonathan Reed ",
     position: "Orthodontist, Reed Family Dental Care",
   },

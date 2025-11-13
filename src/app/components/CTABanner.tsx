@@ -127,7 +127,7 @@ export default function CTABanner() {
               >
                 We shall touch base with you as soon as possible to address your
                 query. If you need help with product installation, setup and
-                configtaiotn of ToothFairy product
+                configtaiotn of Toothfairy product
               </p>
             </div>
 
@@ -172,6 +172,7 @@ export default function CTABanner() {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}
+                    autoComplete="off"
                     placeholder="First Name"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
@@ -192,6 +193,7 @@ export default function CTABanner() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    autoComplete="off"
                     placeholder="Email"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
@@ -213,6 +215,7 @@ export default function CTABanner() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="Phone (Optional)"
+                    autoComplete="off"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
                       fontFamily: "Inter Tight",
@@ -232,6 +235,7 @@ export default function CTABanner() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
+                    autoComplete="off"
                     placeholder="Subject"
                     className="w-full h-full bg-transparent border-none outline-none px-8"
                     style={{
@@ -252,6 +256,7 @@ export default function CTABanner() {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Your Message"
+                    autoComplete="off"
                     className="w-full h-full bg-transparent border-none outline-none resize-none px-9 py-8"
                     style={{
                       fontFamily: "Inter Tight",
@@ -266,24 +271,26 @@ export default function CTABanner() {
               </div>
 
               {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="transition-all duration-300 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed w-[180px] sm:w-[200px] lg:w-[205px] h-[48px] sm:h-[52px] lg:h-[54px] bg-[#0052CC] rounded-[200px] border-0 cursor-pointer mt-6"
-              >
-                <span
-                  className="uppercase"
-                  style={{
-                    fontFamily: "Inter Tight",
-                    fontWeight: 300,
-                    fontSize: "16px",
-                    lineHeight: "1.3em",
-                    color: "#FFFFFF",
-                  }}
+              <div className="flex justify-end mt-6">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="transition-all duration-300 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed w-[180px] sm:w-[200px] lg:w-[205px] h-[48px] sm:h-[52px] lg:h-[54px] bg-[#0052CC] rounded-[200px] border-0 cursor-pointer"
                 >
-                  {isSubmitting ? "SUBMITTING..." : "SUBMIT NOW"}
-                </span>
-              </button>
+                  <span
+                    className="uppercase"
+                    style={{
+                      fontFamily: "Inter Tight",
+                      fontWeight: 300,
+                      fontSize: "16px",
+                      lineHeight: "1.3em",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    {isSubmitting ? "SUBMITTING..." : "SUBMIT NOW"}
+                  </span>
+                </button>
+              </div>
             </form>
 
             {/* Status Message */}
