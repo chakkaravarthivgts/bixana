@@ -114,7 +114,7 @@ export default function Hero({
             src="/Bixana hero.png"
             alt="Hero"
             fill
-            className="object-cover"
+            className="object-cover lg:object-fill"
           />
 
           {/* Content container matching Figma layout */}
