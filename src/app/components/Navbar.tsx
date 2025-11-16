@@ -223,7 +223,7 @@ export default function Navbar({ variant = "light" }: NavbarProps) {
                   text="Schedule Demo"
                   disabled={false}
                   speed={5}
-                  textColor={variant === "dark" ? "#FFFFFF" : "#FFFFFF"}
+                  textColor={variant === "dark" ? "#0052CC" : "#FFFFFF"}
                 />
               </a>
 

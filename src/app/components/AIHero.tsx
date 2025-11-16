@@ -82,18 +82,21 @@ export default function AIHero() {
             </p>
 
             {/* CTA Button */}
-            <button
-              className="bg-white text-[#0052CC] px-8 py-4 rounded-full font-medium text-lg hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+            <a
+              href="https://app.bixana.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white text-[#0052CC] px-8 py-4 rounded-full font-medium text-lg hover:bg-white/90 transition-all duration-200 shadow-lg hover:shadow-xl"
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 400,
-                fontSize: "18px",
+                fontSize: "16px",
                 lineHeight: "1.3em",
                 letterSpacing: "-0.02em",
               }}
             >
               GET STARTED
-            </button>
+            </a>
           </div>
         </div>
 
@@ -118,7 +121,7 @@ export default function AIHero() {
                 width={2400}
                 height={1400}
                 priority
-                className="absolute max-w-none pointer-events-none select-none drop-shadow-[0_60px_120px_rgba(0,0,0,0.6)] right-[-10%] bottom-[-10%] w-[140%] sm:right-[-30%] sm:bottom-[-30%] sm:w-[160%] lg:right-[-35%] lg:bottom-[-40%] lg:w-[200%]"
+                className="absolute max-w-none pointer-events-none select-none drop-shadow-[0_60px_120px_rgba(0,0,0,0.6)] right-[-10%] bottom-[-10%] w-[140%] sm:right-[-30%] sm:bottom-[-30%] sm:w-[160%] lg:right-[-55%] lg:bottom-[-50%] lg:w-[200%]"
               />
             </div>
           </div>

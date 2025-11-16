@@ -73,6 +73,7 @@ export default function AIHowItWorksWithTextReveal() {
           y: i === 0 ? 0 : "100%",
           position: "absolute",
           inset: 0,
+          zIndex: i === 0 ? 10 : i,
         });
       });
       textRefs.current.forEach((el, i) => {
@@ -100,17 +101,56 @@ export default function AIHowItWorksWithTextReveal() {
         const prevTxt = textRefs.current[prevI];
         const curTxt = textRefs.current[i];
 
-        if (prevImg && curImg) {
-          tl.to(prevImg, { y: "-100%", duration: 0.6, ease: "power2.out" });
+        // Synchronize image and text animations to happen at the same time
+        if (prevImg && curImg && prevTxt && curTxt) {
+          // Update z-index to ensure proper stacking
+          gsap.set(prevImg, { zIndex: prevI });
+          gsap.set(curImg, { zIndex: 10 + i });
+          // Start both animations at the same time with same duration
+          tl.to(
+            prevImg,
+            { y: "-100%", duration: 0.6, ease: "power2.out" },
+            ">"
+          );
           tl.to(curImg, { y: "0%", duration: 0.6, ease: "power2.out" }, "<");
-        }
-        if (prevTxt && curTxt) {
-          tl.to(prevTxt, {
-            y: "-100%",
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          });
+          tl.to(
+            prevTxt,
+            {
+              y: "-100%",
+              opacity: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            "<"
+          );
+          tl.fromTo(
+            curTxt,
+            { y: "100%", opacity: 0 },
+            { y: "0%", opacity: 1, duration: 0.6, ease: "power2.out" },
+            "<"
+          );
+        } else if (prevImg && curImg) {
+          // Fallback if text refs are missing
+          gsap.set(prevImg, { zIndex: prevI });
+          gsap.set(curImg, { zIndex: 10 + i });
+          tl.to(
+            prevImg,
+            { y: "-100%", duration: 0.6, ease: "power2.out" },
+            ">"
+          );
+          tl.to(curImg, { y: "0%", duration: 0.6, ease: "power2.out" }, "<");
+        } else if (prevTxt && curTxt) {
+          // Fallback if image refs are missing
+          tl.to(
+            prevTxt,
+            {
+              y: "-100%",
+              opacity: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            ">"
+          );
           tl.fromTo(
             curTxt,
             { y: "100%", opacity: 0 },
@@ -284,13 +324,15 @@ export default function AIHowItWorksWithTextReveal() {
                     ref={(el) => {
                       imgRefs.current[i] = el;
                     }}
-                    className="w-full h-full"
+                    className="w-full h-full relative"
+                    style={{ zIndex: i === 0 ? 10 : i }}
                   >
                     <Image
                       src={s.image}
                       alt={s.title}
                       fill
                       className="object-cover"
+                      priority={i === 0}
                     />
                   </div>
                 ))}

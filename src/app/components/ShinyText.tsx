@@ -15,7 +15,7 @@ const ShinyText = ({
   className = "",
   textColor = "#b5b5b5a4",
 }: ShinyTextProps) => {
-  // Create gradient - use blue shine for white text
+  // Create gradient - use blue shine for white text, white shine for blue text
   const isWhite =
     textColor === "#FFFFFF" || textColor === "#ffffff" || textColor === "white";
   const isBlue = textColor === "#0052CC" || textColor === "#0052cc";
@@ -26,8 +26,9 @@ const ShinyText = ({
     gradientColors =
       "rgba(255, 255, 255, 1) 40%, rgba(0, 82, 204, 1) 50%, rgba(255, 255, 255, 1) 60%";
   } else if (isBlue) {
+    // Blue text with white shine effect - gradient goes from blue to white to blue
     gradientColors =
-      "rgba(0, 82, 204, 0) 40%, rgba(0, 82, 204, 0.8) 50%, rgba(0, 82, 204, 0) 60%";
+      "rgba(0, 82, 204, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(0, 82, 204, 1) 60%";
   } else {
     gradientColors =
       "rgba(255, 255, 255, 1) 40%, rgba(0, 82, 204, 1) 50%, rgba(255, 255, 255, 1) 60%";

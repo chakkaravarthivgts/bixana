@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const blogPosts = [
   {
@@ -80,12 +81,12 @@ export default function Blog() {
           </div>
 
           {/* Right: See all link */}
-          <a
-            href="#"
+          <Link
+            href="/blogs"
             className="font-helvetica-neue-regular text-lg leading-relaxed tracking-tight text-black hover:text-blue-600 transition-colors duration-200 self-start lg:self-end"
           >
             See all
-          </a>
+          </Link>
         </div>
 
         {/* Blog Cards */}

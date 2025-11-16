@@ -7,13 +7,73 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget?: (options: {
+        url: string;
+        text: string;
+        color: string;
+        textColor: string;
+        branding: boolean;
+      }) => void;
+      initPopupWidget?: (options: { url: string }) => void;
+    };
+  }
+}
+
 export default function AIWhyUs() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const leftColRef = useRef<HTMLDivElement | null>(null);
   const rightGridRef = useRef<HTMLDivElement | null>(null);
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
+  // Initialize Calendly popup widget
+  const initCalendlyBadge = () => {
+    // Inject Calendly CSS once
+    const cssHref = "https://assets.calendly.com/assets/external/widget.css";
+    if (!document.querySelector(`link[href='${cssHref}']`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssHref;
+      document.head.appendChild(link);
+    }
+
+    // Helper to open popup immediately once Calendly script is ready
+    const onCalendlyReady = () => {
+      if (
+        window.Calendly &&
+        typeof window.Calendly.initPopupWidget === "function"
+      ) {
+        window.Calendly.initPopupWidget({
+          url: "https://calendly.com/corp-toothfairy/30min",
+        });
+      }
+    };
+
+    // Load script if not present, otherwise init immediately
+    const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
+    const existingScript = document.querySelector(
+      `script[src='${scriptSrc}']`
+    ) as HTMLScriptElement | null;
+    if (existingScript && window.Calendly) {
+      onCalendlyReady();
+      return;
+    }
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = scriptSrc;
+      script.async = true;
+      script.onload = onCalendlyReady;
+      document.body.appendChild(script);
+    } else {
+      // Wait for the existing script to finish loading
+      existingScript.addEventListener("load", onCalendlyReady, { once: true });
+    }
+  };
 
   useLayoutEffect(() => {
     if (!mounted || !sectionRef.current) return;
@@ -27,11 +87,12 @@ export default function AIWhyUs() {
       }
 
       // Pin only the left column; allow the right column to scroll naturally
+      // Extend pinning to cover all image sets including the last one
       ScrollTrigger.create({
         trigger: sectionRef.current!,
         start: "top top",
         endTrigger: rightGridRef.current!,
-        end: "+=800",
+        end: "+=100%",
         pin: leftColRef.current!,
         pinSpacing: true,
         anticipatePin: 1,
@@ -47,9 +108,9 @@ export default function AIWhyUs() {
       ref={sectionRef}
       className="relative w-full bg-white px-4 sm:px-6 lg:px-8 py-16 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14 items-start">
-        {/* Left column */}
-        <div className="lg:col-span-1" ref={leftColRef}>
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
+        {/* Left column - 50% */}
+        <div className="w-full lg:w-[50%]" ref={leftColRef}>
           {/* Tag */}
           <div className="flex items-center" style={{ gap: "8px" }}>
             <div
@@ -84,37 +145,45 @@ export default function AIWhyUs() {
               letterSpacing: "-0.02em",
             }}
           >
-            Because you deserve{" "}
-            <span style={{ color: "#0E7AFE" }}>clarity</span>, not complexity.
+            Because you
+            <br /> deserve <span style={{ color: "#0E7AFE" }}>clarity</span>,
+            not complexity.
           </h3>
 
           <button
-            className="mt-8 inline-flex items-center justify-center rounded-full px-6 h-10 text-white"
+            onClick={initCalendlyBadge}
+            className="mt-8 inline-flex items-center justify-center rounded-full px-6 h-10 text-white cursor-pointer transition-opacity duration-200 hover:opacity-90"
             style={{
               backgroundColor: "#0E7AFE",
               fontFamily: "Inter Tight",
               fontWeight: 400,
               letterSpacing: "-0.02em",
+              fontSize: 18,
             }}
           >
             Schedule a demo
           </button>
         </div>
 
-        {/* Right grid - all pairs visible by default */}
+        {/* Right grid - 50% */}
         <div
           ref={rightGridRef}
-          className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8"
+          className="w-full lg:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-6"
         >
           {/* Card A */}
           <div className="flex flex-col">
-            <div className="rounded-[20px] overflow-hidden">
+            <div
+              ref={(el) => {
+                imageRefs.current[0] = el;
+              }}
+              className="rounded-[20px] overflow-hidden aspect-square max-w-[336px] mx-auto sm:mx-0"
+            >
               <Image
-                src="/about/whatwedo.jpg"
+                src="/ai/whuus/whyus1.png"
                 alt="Accuracy"
                 width={800}
-                height={600}
-                className="w-full h-60 object-cover"
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <h4
@@ -122,7 +191,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 24,
+                fontSize: 28.8,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -133,7 +202,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 14,
+                fontSize: 16.8,
                 lineHeight: 1.6,
               }}
             >
@@ -144,13 +213,18 @@ export default function AIWhyUs() {
 
           {/* Card B */}
           <div className="flex flex-col">
-            <div className="rounded-[20px] overflow-hidden">
+            <div
+              ref={(el) => {
+                imageRefs.current[1] = el;
+              }}
+              className="rounded-[20px] overflow-hidden aspect-square max-w-[336px] mx-auto sm:mx-0"
+            >
               <Image
-                src="/dental-png.jpg"
+                src="/ai/whuus/whyus2.png"
                 alt="Save time"
                 width={800}
-                height={600}
-                className="w-full h-60 object-cover"
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <h4
@@ -158,7 +232,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 24,
+                fontSize: 28.8,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -169,7 +243,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 14,
+                fontSize: 16.8,
                 lineHeight: 1.6,
               }}
             >
@@ -180,13 +254,18 @@ export default function AIWhyUs() {
 
           {/* Card C */}
           <div className="flex flex-col">
-            <div className="rounded-[20px] overflow-hidden">
+            <div
+              ref={(el) => {
+                imageRefs.current[2] = el;
+              }}
+              className="rounded-[20px] overflow-hidden aspect-square max-w-[336px] mx-auto sm:mx-0"
+            >
               <Image
-                src="/about/whatwedo.jpg"
+                src="/ai/whuus/whyus3.png"
                 alt="Comfort"
                 width={800}
-                height={600}
-                className="w-full h-60 object-cover"
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <h4
@@ -194,7 +273,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 24,
+                fontSize: 28.8,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -205,7 +284,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 14,
+                fontSize: 16.8,
                 lineHeight: 1.6,
               }}
             >
@@ -216,13 +295,18 @@ export default function AIWhyUs() {
 
           {/* Card D */}
           <div className="flex flex-col">
-            <div className="rounded-[20px] overflow-hidden">
+            <div
+              ref={(el) => {
+                imageRefs.current[3] = el;
+              }}
+              className="rounded-[20px] overflow-hidden aspect-square max-w-[336px] mx-auto sm:mx-0"
+            >
               <Image
-                src="/dental-png.jpg"
+                src="/ai/whuus/whyus4.png"
                 alt="Mobile first"
                 width={800}
-                height={600}
-                className="w-full h-60 object-cover"
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <h4
@@ -230,7 +314,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 24,
+                fontSize: 28.8,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -241,7 +325,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 14,
+                fontSize: 16.8,
                 lineHeight: 1.6,
               }}
             >
@@ -252,13 +336,18 @@ export default function AIWhyUs() {
 
           {/* Card E (extra) */}
           <div className="flex flex-col">
-            <div className="rounded-[20px] overflow-hidden">
+            <div
+              ref={(el) => {
+                imageRefs.current[4] = el;
+              }}
+              className="rounded-[20px] overflow-hidden aspect-square max-w-[336px] mx-auto sm:mx-0"
+            >
               <Image
-                src="/about/whatwedo.jpg"
+                src="/ai/whuus/whyus5.png"
                 alt="Seamless PMS"
                 width={800}
-                height={600}
-                className="w-full h-60 object-cover"
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <h4
@@ -266,7 +355,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 24,
+                fontSize: 28.8,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -277,7 +366,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 14,
+                fontSize: 16.8,
                 lineHeight: 1.6,
               }}
             >
@@ -287,13 +376,18 @@ export default function AIWhyUs() {
 
           {/* Card F (extra) */}
           <div className="flex flex-col">
-            <div className="rounded-[20px] overflow-hidden">
+            <div
+              ref={(el) => {
+                imageRefs.current[5] = el;
+              }}
+              className="rounded-[20px] overflow-hidden aspect-square max-w-[336px] mx-auto sm:mx-0"
+            >
               <Image
-                src="/dental-png.jpg"
+                src="/ai/whuus/whyus6.png"
                 alt="Compliance"
                 width={800}
-                height={600}
-                className="w-full h-60 object-cover"
+                height={800}
+                className="w-full h-full object-cover"
               />
             </div>
             <h4
@@ -301,7 +395,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 24,
+                fontSize: 28.8,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -312,7 +406,7 @@ export default function AIWhyUs() {
               style={{
                 fontFamily: "Inter Tight",
                 fontWeight: 300,
-                fontSize: 14,
+                fontSize: 16.8,
                 lineHeight: 1.6,
               }}
             >
