@@ -10,6 +10,10 @@ export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor(),
 
+  // Server URL for generating absolute URLs (required for media in production)
+  serverURL:
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || `https://bixana.vercel.app/`,
+
   // Define and configure your collections in this array
   collections: [Users, Media, Blogs],
 
