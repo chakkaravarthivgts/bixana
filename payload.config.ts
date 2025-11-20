@@ -20,9 +20,7 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      token:
-        process.env.VERCEL_BLOB_STORAGE_TOKEN ||
-        "vercel_blob_rw_YaAw2VZO2lUwGRMe_GQmsceOzoyktCc4Zx3lTKufQL3WNCj",
+      token: process.env.VERCEL_BLOB_STORAGE_TOKEN!,
     }),
   ],
 
@@ -38,9 +36,7 @@ export default buildConfig({
   // }),
 
   db: mongooseAdapter({
-    url:
-      process.env.DATABASE_URI ||
-      "mongodb+srv://bixana_admin:LQ8v3Hri4S4ZZ6hP@cluster0.vwme25p.mongodb.net/?appName=Cluster0",
+    url: process.env.DATABASE_URI!,
   }),
   // If you want to resize images, crop, set focal point, etc.
   // make sure to install it and pass it to the config.
