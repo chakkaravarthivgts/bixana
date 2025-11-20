@@ -5,14 +5,26 @@ import { buildConfig } from "payload";
 import { Users } from "@/collections/Users";
 import { Media } from "@/collections/Media";
 import { Blogs } from "@/collections/Blogs";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
   editor: lexicalEditor(),
 
   // Server URL for generating absolute URLs (required for media in production)
-  serverURL:
-    process.env.PAYLOAD_PUBLIC_SERVER_URL || `https://bixana.vercel.app/`,
+  // serverURL:
+  // process.env.PAYLOAD_PUBLIC_SERVER_URL || `https://bixana.vercel.app`,
+  plugins: [
+    vercelBlobStorage({
+      enabled: true,
+      collections: {
+        media: true,
+      },
+      token:
+        process.env.VERCEL_BLOB_STORAGE_TOKEN ||
+        "vercel_blob_rw_YaAw2VZO2lUwGRMe_GQmsceOzoyktCc4Zx3lTKufQL3WNCj",
+    }),
+  ],
 
   // Define and configure your collections in this array
   collections: [Users, Media, Blogs],
