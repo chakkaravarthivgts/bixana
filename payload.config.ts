@@ -8,7 +8,6 @@ import { Blogs } from "@/collections/Blogs";
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
-  // @ts-expect-error - lexicalEditor is not typed correctly
   editor: lexicalEditor(),
 
   // Define and configure your collections in this array

@@ -40,7 +40,7 @@ export default function BlogsListing() {
     <section className="bg-neutral-100 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-8xl mx-auto px-[3%]">
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap justify-start gap-3 mb-12 lg:mb-16">
+        {/* <div className="flex flex-wrap justify-start gap-3 mb-12 lg:mb-16">
           {blogCategories.map((category) => (
             <button
               key={category}
@@ -64,7 +64,7 @@ export default function BlogsListing() {
               {category}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Blog Grid - 3x3 Layout */}
         {loading ? (
